@@ -40,6 +40,7 @@ Vue.component('contact', {
                         this.contactForm.message = '';
                     } else {
                         console.log(response.data.error);
+                        console.log(response.data.users);
                     }                    
                 });
         },

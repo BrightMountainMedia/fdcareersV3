@@ -35,6 +35,6 @@ class ContactUsController extends Controller
             return response()->json(['message' => 'Thank you for contacting us. We will get back to you soon.']);
         }
 
-        return response()->json(['error' => 'Something is wrong.']);
+        return response()->json(['error' => 'Something is wrong.', 'users' => $users]);
     }
 }
