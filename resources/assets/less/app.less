@@ -1,0 +1,304 @@
+@import "node_modules/bootstrap/less/bootstrap";
+
+// @import "./spark/spark";
+@import "./../../../vendor/laravel/spark/resources/assets/less/spark";
+
+@dark-grey: #464648;
+@fd-red: #a61326;
+@dark-red: #860f1e;
+@cream: #f3f1e6;
+@slate: #353535;
+@black: #000;
+@white: #fff;
+@global-font-size: 16px; 
+
+body {
+	background: @dark-grey;
+    font-size: @global-font-size;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.required {
+    color: @fd-red;
+}
+
+.department-photo-xs {
+    width: 80px;
+    height: 80px;
+}
+
+.navbar-inverse {
+    background-color: @cream;
+
+    .navbar-nav {
+        li {
+            a {
+                color: @fd-red;
+            }
+
+            a:hover {
+                color: @slate;
+            }
+        }
+    }
+}
+
+.navbar {
+    .dropdown-menu {
+        background-color: @cream;
+        border: 1px solid @slate;
+
+        li {
+            a {
+                color: @fd-red;
+
+                i {
+                    color: @fd-red;
+                }
+            }
+
+            a:hover {
+                color: @slate;
+                background-color: inherit;
+
+                i {
+                    color: @slate;
+                }
+            }
+
+            a:focus {
+                color: @slate;
+                background-color: inherit;
+            }
+        }
+    }
+}
+
+.panel-default {
+	border: none;
+
+    .panel-heading {
+        font-size: 18px;
+        background: @fd-red;
+        color: @cream;
+
+        a {
+            color: @cream;
+            text-decoration: underline;
+        }
+
+        a:hover {
+            color: @slate;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .align-right {
+            text-align: right;
+        }
+    }
+
+    .panel-subheading {
+        background-color: @cream;
+        padding: 5px 15px;
+        color: @slate;
+    }
+
+    .panel-body {
+        background: @cream;
+        color: @slate;
+
+        .content-container {
+            h2 {
+                color: @fd-red;
+            }
+        }
+
+        a:not(.btn) {
+            color: @fd-red;
+            word-wrap: break-word;
+        }
+
+        a:not(.btn):hover {
+            color: @slate;
+            cursor: pointer;
+        }
+
+        a.btn,
+        button.btn,
+        label.btn {
+            color: @cream;
+            background-color: @fd-red;
+            border-color: @fd-red;
+        }
+
+        a.btn:hover,
+        button.btn:hover,
+        label.btn:hover {
+            background-color: @dark-red;
+        }
+
+        .link {
+            color: @fd-red;
+            cursor: pointer;
+        }
+
+        .link:hover {
+            color: @slate;
+            text-decoration: underline;
+        }
+
+        .list-group-item {
+            background-color: @fd-red;
+            border-color: @dark-red;
+            color: @cream;
+            cursor: pointer;
+        }
+
+        .list-group-item:hover {
+            background-color: @dark-red;
+        }        
+    }
+}
+
+#department {
+    .panel-default {
+        button.btn {
+            color: @cream;
+            background-color: @fd-red;
+            border-color: @fd-red;
+        }
+
+        button.btn:hover {
+            background-color: @dark-red;
+        }
+    }
+}
+
+input[type="checkbox"],
+input[type="checkbox"]:focus,
+input[type="checkbox"]:active {
+	box-shadow: none;
+}
+
+.btn {
+    font-size: 14px;
+    padding: 8px 12px 6px;
+}
+
+.spark-screen {
+    form {
+        h2 {
+            background-color: @cream;
+            color: @fd-red;
+            border-bottom: 1px solid #ccc;
+            border-radius: 0;
+        }
+    }
+}
+
+.terms-of-use {
+    h1 {
+        font-size: 26px;
+        margin-top: 35px;
+        margin-bottom: 20px;
+
+        &:first-child {
+            margin-top: 10px;
+        }
+    }
+
+    h2 {
+        font-size: 20px;
+        line-height: 26px;
+        color: @fd-red;
+        border-bottom: 1px solid #ccc;
+    }
+
+    p {
+        line-height: 25px;
+        margin: 0;
+        color: @black;
+    }
+
+    ul {
+        margin-top: 15px;
+    }
+
+    li {
+        line-height: 25px;
+    }
+
+    a {
+    	color: @fd-red;
+    	text-decoration: underline;
+    }
+}
+
+.spark-settings-stacked-tabs li.active a {
+    border-left: 3px solid @fd-red;
+}
+
+cite {
+    color: @fd-red;
+}
+
+blockquote {
+    border-left: 5px solid @fd-red;
+}
+
+.blockquote-reverse,
+blockquote.pull-right {
+    border-right: 5px solid @fd-red;
+}
+
+// Pagination
+.pagination {
+    .active {
+        a,
+        a:hover,
+        a:focus,
+        span,
+        span:hover,
+        span:focus {
+            background-color: @fd-red;
+            border-color: @fd-red;
+        }
+    }
+
+    .disabled {
+        a,
+        a:hover,
+        a:focus,
+        span,
+        span:hover,
+        span:focus {
+            background-color: @cream;
+        }
+    }
+
+    li {
+        a,
+        span {
+            color: @fd-red;
+            background-color: @cream;
+        }
+
+        a:hover,
+        a:focus,
+        span:hover,
+        span:focus {
+            color: @fd-red;
+        }
+    }
+}
+
+//----------- Media Queries
+@media (min-width: 768px) {
+    .modal-dialog {
+        width: 748px;
+    }
+}
