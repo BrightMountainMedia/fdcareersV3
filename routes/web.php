@@ -68,9 +68,15 @@ Route::group(['middleware' => ['web']], function() {
 	// Show Position Profile
 	Route::get('/settings/position/{id}/position_profile', 'Settings\Position\SettingsPositionController@show');
 
+	// Uplaod the 1st Document
+	Route::put('/settings/position/{id}/doc1_title_update', 'Settings\Position\Docs\PositionDocsController@storeDoc1_title');
+	Route::post('/settings/position/{id}/doc1_url_update', 'Settings\Position\Docs\PositionDocsController@storeDoc1_url');
+	Route::post('/settings/position/{id}/doc1_update', 'Settings\Position\Docs\PositionDocsController@storeDoc1');
 
-
-
+	// Uplaod the 2nd Document
+	Route::put('/settings/position/{id}/doc2_title_update', 'Settings\Position\Docs\PositionDocsController@storeDoc2_title');
+	Route::post('/settings/position/{id}/doc2_url_update', 'Settings\Position\Docs\PositionDocsController@storeDoc2_url');
+	Route::post('/settings/position/{id}/doc2_update', 'Settings\Position\Docs\PositionDocsController@storeDoc2');
 
 
 

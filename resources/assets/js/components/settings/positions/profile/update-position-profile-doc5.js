@@ -103,7 +103,7 @@ Vue.component('update-position-profile-doc5', {
                     'X-XSRF-TOKEN': Cookies.get('XSRF-TOKEN')
                 },
                 success: function () {
-                    self.$dispatch('showPosition', self.position);
+                    Bus.$emit('showPosition', self.position);
 
                     self.dualForm.finishProcessing();
                 },

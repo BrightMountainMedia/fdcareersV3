@@ -29,18 +29,12 @@ class ContactUsController extends Controller
      */
     public function send(ContactFormRequest $request)
     {
-        $user = User::find(1);
+        $users = User::whereIn('email', Spark::$developers)->get();
 
-        $user->notify(new ContactForm($request->name, $request->email, $request->message));
+        if (Notification::send($users, new ContactForm($request->name, $request->email, $request->message))) {
+            return response()->json(['message' => 'Thank you for contacting us. We will get back to you soon.']);
+        }
 
-
-
-        // return response()->json(['message' => 'Thank you for contacting us. We will get back to you soon.']);
-
-        // if (Notification::send($users, new ContactForm($request->name, $request->email, $request->message))) {
-            // return response()->json(['message' => 'Thank you for contacting us. We will get back to you soon.']);
-        // }
-
-        // return response()->json(['message' => 'Something is wrong.', 'users' => $users, 'request' => $request->all()]);
+        return response()->json(['error' => 'Something is wrong.']);
     }
 }
