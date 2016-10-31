@@ -78,10 +78,25 @@ Route::group(['middleware' => ['web']], function() {
 	Route::post('/settings/position/{id}/doc2_url_update', 'Settings\Position\Docs\PositionDocsController@storeDoc2_url');
 	Route::post('/settings/position/{id}/doc2_update', 'Settings\Position\Docs\PositionDocsController@storeDoc2');
 
+	// Uplaod the 3rd Document
+	Route::put('/settings/position/{id}/doc3_title_update', 'Settings\Position\Docs\PositionDocsController@storeDoc3_title');
+	Route::post('/settings/position/{id}/doc3_url_update', 'Settings\Position\Docs\PositionDocsController@storeDoc3_url');
+	Route::post('/settings/position/{id}/doc3_update', 'Settings\Position\Docs\PositionDocsController@storeDoc3');
 
+	// Uplaod the 4th Document
+	Route::put('/settings/position/{id}/doc4_title_update', 'Settings\Position\Docs\PositionDocsController@storeDoc4_title');
+	Route::post('/settings/position/{id}/doc4_url_update', 'Settings\Position\Docs\PositionDocsController@storeDoc4_url');
+	Route::post('/settings/position/{id}/doc4_update', 'Settings\Position\Docs\PositionDocsController@storeDoc4');
 
+	// Uplaod the 5th Document
+	Route::put('/settings/position/{id}/doc5_title_update', 'Settings\Position\Docs\PositionDocsController@storeDoc5_title');
+	Route::post('/settings/position/{id}/doc5_url_update', 'Settings\Position\Docs\PositionDocsController@storeDoc5_url');
+	Route::post('/settings/position/{id}/doc5_update', 'Settings\Position\Docs\PositionDocsController@storeDoc5');
 
-
+	// Uplaod the 6th Document
+	Route::put('/settings/position/{id}/doc6_title_update', 'Settings\Position\Docs\PositionDocsController@storeDoc6_title');
+	Route::post('/settings/position/{id}/doc6_url_update', 'Settings\Position\Docs\PositionDocsController@storeDoc6_url');
+	Route::post('/settings/position/{id}/doc6_update', 'Settings\Position\Docs\PositionDocsController@storeDoc6');
 
 	// Show specific Position
 	// Route::get('/position/{id}', 'Pages\PositionController@show');
@@ -95,28 +110,6 @@ Route::group(['middleware' => ['web']], function() {
 	// Show all Departments
 	// Route::get('/departments', 'Pages\DepartmentController@index');
 
-
 	// Positions Search...
 	// Route::post('/settings/positions/position_search', 'Settings\Position\PositionController@performBasicSearch');
-
-	
-	// Route::put('/settings/position/{id}/doc1_title_update', 'Settings\Position\Docs\DocController@storeDoc1_title');
-	// Route::post('/settings/position/{id}/doc1_url_update', 'Settings\Position\Docs\DocController@storeDoc1_url');
-	// Route::post('/settings/position/{id}/doc1_update', 'Settings\Position\Docs\DocController@storeDoc1');
-	// Route::put('/settings/position/{id}/doc2_title_update', 'Settings\Position\Docs\DocController@storeDoc2_title');
-	// Route::post('/settings/position/{id}/doc2_url_update', 'Settings\Position\Docs\DocController@storeDoc2_url');
-	// Route::post('/settings/position/{id}/doc2_update', 'Settings\Position\Docs\DocController@storeDoc2');
-	// Route::put('/settings/position/{id}/doc3_title_update', 'Settings\Position\Docs\DocController@storeDoc3_title');
-	// Route::post('/settings/position/{id}/doc3_url_update', 'Settings\Position\Docs\DocController@storeDoc3_url');
-	// Route::post('/settings/position/{id}/doc3_update', 'Settings\Position\Docs\DocController@storeDoc3');
-	// Route::put('/settings/position/{id}/doc4_title_update', 'Settings\Position\Docs\DocController@storeDoc4_title');
-	// Route::post('/settings/position/{id}/doc4_url_update', 'Settings\Position\Docs\DocController@storeDoc4_url');
-	// Route::post('/settings/position/{id}/doc4_update', 'Settings\Position\Docs\DocController@storeDoc4');
-	// Route::put('/settings/position/{id}/doc5_title_update', 'Settings\Position\Docs\DocController@storeDoc5_title');
-	// Route::post('/settings/position/{id}/doc5_url_update', 'Settings\Position\Docs\DocController@storeDoc5_url');
-	// Route::post('/settings/position/{id}/doc5_update', 'Settings\Position\Docs\DocController@storeDoc5');
-	// Route::put('/settings/position/{id}/doc6_title_update', 'Settings\Position\Docs\DocController@storeDoc6_title');
-	// Route::post('/settings/position/{id}/doc6_url_update', 'Settings\Position\Docs\DocController@storeDoc6_url');
-	// Route::post('/settings/position/{id}/doc6_update', 'Settings\Position\Docs\DocController@storeDoc6');
-	// Route::post('/settings/position/{id}/position_update', 'Settings\Position\PositionController@update');
 });
