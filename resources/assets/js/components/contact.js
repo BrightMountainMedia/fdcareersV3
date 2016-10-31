@@ -30,18 +30,13 @@ Vue.component('contact', {
         sendContactRequest() {
             Spark.post('/contact/send', this.contactForm)
                 .then(response => {
-                    if (response.data.message) {
-                        this.contactForm.busy = false;
+                    this.contactForm.busy = false;
 
-                        this.showContactRequestSuccessMessage();
+                    this.showContactRequestSuccessMessage();
 
-                        this.contactForm.name = '';
-                        this.contactForm.email = '';
-                        this.contactForm.message = '';
-                    } else {
-                        console.log(response.data.error);
-                        console.log(response.data.users);
-                    }                    
+                    this.contactForm.name = '';
+                    this.contactForm.email = '';
+                    this.contactForm.message = '';
                 });
         },
 
@@ -53,7 +48,7 @@ Vue.component('contact', {
                 title: 'Got It!',
                 text: 'We have received your message and will respond soon!',
                 type: 'success',
-                showConfirmButton: false,
+                showConfirmButton: true,
                 timer: 2000
             });
         }
