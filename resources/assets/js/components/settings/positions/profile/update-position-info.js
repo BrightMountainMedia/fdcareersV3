@@ -218,7 +218,7 @@ Vue.component('update-position-info', {
         update() {
             Spark.put('/settings/position/'+ this.position.id + '/position_update', this.form)
                 .then(() => {
-                    Bus.$emit('showPositionProfile', self.position.id);
+                    Bus.$emit('showPositionProfile', this.position.id);
                 });
         },
 
@@ -226,7 +226,7 @@ Vue.component('update-position-info', {
          * Show the department profile and hide the position profile.
          */
         showDepartment() {
-            this.$parent.$emit('showDepartment', this.department);
+            this.$parent.$emit('navigateToDepartment');
         }
     }
 });

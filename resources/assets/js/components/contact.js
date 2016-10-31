@@ -30,14 +30,17 @@ Vue.component('contact', {
         sendContactRequest() {
             Spark.post('/contact/send', this.contactForm)
                 .then(response => {
-                    this.contactForm.busy = false;
-                    console.log(response.data.message);
+                    if (response.data.message) {
+                        this.contactForm.busy = false;
 
-                    this.showContactRequestSuccessMessage();
+                        this.showContactRequestSuccessMessage();
 
-                    this.contactForm.name = '';
-                    this.contactForm.email = '';
-                    this.contactForm.message = '';
+                        this.contactForm.name = '';
+                        this.contactForm.email = '';
+                        this.contactForm.message = '';
+                    } else {
+                        console.log(response.data.error);
+                    }                    
                 });
         },
 

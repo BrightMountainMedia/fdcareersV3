@@ -69,7 +69,7 @@ Vue.component('update-position-profile-doc2', {
                     'X-XSRF-TOKEN': Cookies.get('XSRF-TOKEN')
                 },
                 success: function () {
-                    Bus.$emit('showPosition', self.position);
+                    Bus.$emit('showPositionProfile', self.position.id);
 
                     self.urlForm.finishProcessing();
                 },
@@ -103,7 +103,7 @@ Vue.component('update-position-profile-doc2', {
                     'X-XSRF-TOKEN': Cookies.get('XSRF-TOKEN')
                 },
                 success: function () {
-                    Bus.$emit('showPosition', self.position);
+                    Bus.$emit('showPositionProfile', self.position.id);
 
                     self.dualForm.finishProcessing();
                 },

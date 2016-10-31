@@ -21,8 +21,8 @@ Vue.component('position-profile', {
             self.getPositionProfile(id);
         });
 
-        this.$on('showDepartment', function(department) {
-            self.showDepartment(department);
+        this.$on('navigateToDepartment', function() {
+            self.showDepartment();
         });
     },
 
@@ -52,8 +52,8 @@ Vue.component('position-profile', {
         /**
          * Show the department profile and hide the position profile.
          */
-        showDepartment(department) {
-            this.$parent.$emit('showDepartment', department);
+        showDepartment() {
+            this.$parent.$emit('showDepartment', this.department);
 
             this.position = null;
         }

@@ -168,7 +168,7 @@ Vue.component('update-department-info', {
         update() {
             Spark.put('/settings/department/'+ this.department.id + '/department_update', this.form)
                 .then(() => {
-                    Bus.$emit('showDepartmentProfile', self.department.id);
+                    Bus.$emit('showDepartmentProfile', this.department.id);
                 });
         }
     }
