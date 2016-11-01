@@ -13,6 +13,7 @@ require('./../spark-components/bootstrap');
 
 require('./dashboard');
 require('./contact');
+require('./positions');
 
 // -- Settings
 require('./settings/profile/update-notification-details');

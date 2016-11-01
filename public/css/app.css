@@ -7498,6 +7498,9 @@ body {
 .panel-default .panel-body .list-group-item:hover {
   background-color: #860f1e;
 }
+.panel-default .panel-body .align-right {
+  text-align: right;
+}
 #department .panel-default button.btn {
   color: #f3f1e6;
   background-color: #a61326;

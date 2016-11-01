@@ -15,56 +15,34 @@ class PositionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($state = null, $per_page = 10)
+    public function index()
     {
         $departments = Department::all();
         $user = Auth::user();
 
-        if ( $state && $user && $user->subscribed() ) {
-            $positions = Position::where('state', $state)->orderBy('position_type')->get();
+        $positions = Position::all();
+        return view('pages.positions', compact('positions', 'departments'));
 
-            if ( count($positions) > $per_page ) {
-                $positions = Position::where('state', $state)->orderBy('position_type')->paginate($per_page);
-            }
-        } else if ( $state && ! $user ) {
-            $positions = Position::where([
-                ['state', $state],
-                ['position_type', '!=', 'full-time'],
-                ['position_type', '!=', 'paid-on-call'],
-                ['position_type', '!=', 'contractor'],
-            ])->orderBy('position_type')->get();
+        // if ( $state && $user && $user->subscribed() ) {
+        //     $positions = Position::where('state', $state)->get();
+        // } else if ( $state && ! $user ) {
+        //     $positions = Position::where([
+        //         ['state', $state],
+        //         ['position_type', '!=', 'full-time'],
+        //         ['position_type', '!=', 'paid-on-call'],
+        //         ['position_type', '!=', 'contractor'],
+        //     ])->orderBy('position_type')->get();
+        // } else if ( $user && $user->subscribed() ) {
+        //     $positions = Position::all();
+        // } else {
+        //     $positions = Position::where([
+        //         ['position_type', '!=', 'full-time'],
+        //         ['position_type', '!=', 'paid-on-call'],
+        //         ['position_type', '!=', 'contractor'],
+        //     ])->get();
+        // }
 
-            if ( count($positions) > $per_page ) {
-                $positions = Position::where([
-                    ['state', $state],
-                    ['position_type', '!=', 'full-time'],
-                    ['position_type', '!=', 'paid-on-call'],
-                    ['position_type', '!=', 'contractor'],
-                ])->orderBy('position_type')->paginate($per_page);
-            }
-        } else if ( $user && $user->subscribed() ) {
-            $positions = Position::orderBy('position_type', 'asc')->orderBy('state', 'asc')->get();
-
-            if ( count($positions) > $per_page ) {
-                $positions = Position::orderBy('position_type', 'asc')->orderBy('state', 'asc')->paginate($per_page);
-            }
-        } else {
-            $positions = Position::where([
-                ['position_type', '!=', 'full-time'],
-                ['position_type', '!=', 'paid-on-call'],
-                ['position_type', '!=', 'contractor'],
-            ])->orderBy('position_type', 'asc')->orderBy('state', 'asc')->get();
-
-            if ( count($positions) > $per_page ) {
-                $positions = Position::where([
-                    ['position_type', '!=', 'full-time'],
-                    ['position_type', '!=', 'paid-on-call'],
-                    ['position_type', '!=', 'contractor'],
-                ])->orderBy('state', 'asc')->orderBy('position_type', 'asc')->paginate($per_page);
-            }
-        }
-
-        return view('positions', compact('positions', 'departments'));
+        // return view('pages.positions', compact('positions', 'departments'));
     }
 
     /**

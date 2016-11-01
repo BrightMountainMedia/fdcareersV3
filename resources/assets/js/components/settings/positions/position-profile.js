@@ -17,7 +17,7 @@ Vue.component('position-profile', {
     created() {
         var self = this;
 
-        this.$parent.$on('showPositionProfile', function(id) {
+        Bus.$on('showPositionProfile', function(id) {
             self.getPositionProfile(id);
         });
 
@@ -53,7 +53,7 @@ Vue.component('position-profile', {
          * Show the department profile and hide the position profile.
          */
         showDepartment() {
-            this.$parent.$emit('showDepartment', this.department);
+            Bus.$emit('showDepartment', this.department);
 
             this.position = null;
         }

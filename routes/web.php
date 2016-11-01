@@ -40,6 +40,9 @@ Route::group(['middleware' => ['web']], function() {
 	Route::put('/settings/notification/details', 'Settings\Profile\NotificationDetailsController@update');
 
 	// ---------- Departments ---------- //
+	// Show all Departments
+	Route::get('/departments', 'Pages\DepartmentController@index');
+
 	// Get all Departments that a specific user owns
 	Route::get('/settings/user/{id}/departments', 'Settings\Department\SettingsDepartmentController@allUserDepartments');
 
@@ -59,6 +62,9 @@ Route::group(['middleware' => ['web']], function() {
 	Route::put('/settings/department/{id}/department_update', 'Settings\Department\SettingsDepartmentController@update');
 
 	// ---------- Positions ---------- //
+	// Show all Positions
+	Route::get('/positions', 'Pages\PositionController@index');
+
 	// Get all Positions that a specific department owns
 	Route::get('/settings/department/{id}/positions', 'Settings\Position\SettingsPositionController@allDepartmentPositions');
 
@@ -101,15 +107,6 @@ Route::group(['middleware' => ['web']], function() {
 	// Show specific Position
 	// Route::get('/position/{id}', 'Pages\PositionController@show');
 
-	// Show all Positions
-	// Route::get('/positions', 'Pages\PositionController@index');
-
 	// Show specific Department
 	// Route::get('/department/{id}', 'Pages\DepartmentController@show');
-
-	// Show all Departments
-	// Route::get('/departments', 'Pages\DepartmentController@index');
-
-	// Positions Search...
-	// Route::post('/settings/positions/position_search', 'Settings\Position\PositionController@performBasicSearch');
 });

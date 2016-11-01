@@ -17,7 +17,7 @@ Vue.component('department-profile', {
     created() {
         var self = this;
 
-        this.$parent.$on('showDepartmentProfile', function(id) {
+        Bus.$on('showDepartmentProfile', function(id) {
             self.getDepartmentProfile(id);
         });
     },
@@ -66,7 +66,7 @@ Vue.component('department-profile', {
          * Show the search results and hide the department profile.
          */
         showSearch() {
-            this.$parent.$emit('showSearch');
+            Bus.$emit('showSearch');
 
             this.department = null;
         },
@@ -75,7 +75,7 @@ Vue.component('department-profile', {
          * Show the position profile and hide the department profile.
          */
         showPosition(position) {
-            this.$parent.$emit('showPosition', position);
+            Bus.$emit('showPosition', position);
 
             this.department = null;
         }

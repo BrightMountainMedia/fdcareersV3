@@ -25,15 +25,15 @@ Vue.component('departments', {
     created() {
         var self = this;
 
-        this.$on('showSearch', function(){
+        Bus.$on('showSearch', function(){
             self.navigateToSearch();
         });
 
-        this.$on('showDepartment', function(department){
+        Bus.$on('showDepartment', function(department){
             self.navigateToDepartment(department);
         });
 
-        this.$on('showPosition', function(position){
+        Bus.$on('showPosition', function(position){
             self.navigateToPosition(position);
         });
 
@@ -119,7 +119,7 @@ Vue.component('departments', {
          * Load the department profile for the given department.
          */
         loadDepartmentProfile(department) {
-            this.$emit('showDepartmentProfile', department.id);
+            Bus.$emit('showDepartmentProfile', department.id);
 
             this.showingDepartmentProfile = true;
         },
@@ -145,7 +145,7 @@ Vue.component('departments', {
          * Load the position profile for the given position.
          */
         loadPositionProfile(position) {
-            this.$emit('showPositionProfile', position.id);
+            Bus.$emit('showPositionProfile', position.id);
 
             this.showingPositionProfile = true;
         }

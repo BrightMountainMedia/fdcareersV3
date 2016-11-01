@@ -14,33 +14,25 @@ Vue.component('positions', {
      * The component has been created by Vue.
      */
     created() {
-        //
-    },
+        var self = this;
 
-    events: {
-        /**
-         * Show the search results and hide the department profile.
-         */
-        showPositions() {
-            this.showPositions();
-        },
+        this.$parent.$on('showPositions', function() {
+            self.showPositions();
+        });
 
-        /**
-         * Handle the Spark tab changed event.
-         */
-        sparkHashChanged(hash, parameters) {
-            if (hash != 'state') {
+        Bus.$on('sparkHashChanged', function (hash, parameters) {
+            if (hash != 'positions') {
                 return true;
             }
 
             if (parameters && parameters.length > 0) {
-                this.loadState({ id: parameters[1] });
-            } else {
-                this.showPositions();
+                self.loadState({ id: parameters[0] });
+            }  else {
+                self.showPositions();
             }
 
             return true;
-        }
+        });
     },
 
     methods: {
