@@ -18,8 +18,6 @@ class PositionController extends Controller
     public function index($state = null)
     {
         $departments = Department::all();
-        $user = Auth::user();
-
         $paidPositions = Position::where('position_type', 'full-time')
                                 ->orWhere('position_type', 'paid-on-call')
                                 ->orWhere('position_type', 'contractor')
@@ -42,27 +40,6 @@ class PositionController extends Controller
         }
         
         return view('pages.positions', compact('paidPositions', 'unpaidPositions', 'departments'));
-
-        // if ( $state && $user && $user->subscribed() ) {
-        //     $positions = Position::where('state', $state)->get();
-        // } else if ( $state && ! $user ) {
-        //     $positions = Position::where([
-        //         ['state', $state],
-        //         ['position_type', '!=', 'full-time'],
-        //         ['position_type', '!=', 'paid-on-call'],
-        //         ['position_type', '!=', 'contractor'],
-        //     ])->orderBy('position_type')->get();
-        // } else if ( $user && $user->subscribed() ) {
-        //     $positions = Position::all();
-        // } else {
-        //     $positions = Position::where([
-        //         ['position_type', '!=', 'full-time'],
-        //         ['position_type', '!=', 'paid-on-call'],
-        //         ['position_type', '!=', 'contractor'],
-        //     ])->get();
-        // }
-
-        // return view('pages.positions', compact('positions', 'departments'));
     }
 
     /**
