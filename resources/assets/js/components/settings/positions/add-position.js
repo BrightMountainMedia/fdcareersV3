@@ -155,7 +155,7 @@ Vue.component('add-position', {
             	.then(response => {
                     this.addingPosition = false;
                     $('#modal-add-position').modal('hide');
-                    Bus.$emit('showPosition', response.data.position);
+                    Bus.$emit('showPosition', response.position);
                 });
         },
     }

@@ -40,11 +40,12 @@
                         </div>
 
                         <div class="panel-body">
-                            <ul class="list-group">
+                            <ul class="list-group" v-if="positions.length">
                                 <li class="positions list-group-item" v-for="position in positions" @click="showPosition(position)">
                                     @{{ position.title }} (@{{ position.position_type | capitalize }})
                                 </li>
                             </ul>
+                            <p v-else>There are no positions for this department at this time.</p>
                         </div>
                     </div>
 
