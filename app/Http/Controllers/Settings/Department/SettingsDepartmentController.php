@@ -129,7 +129,9 @@ class SettingsDepartmentController extends Controller
             'updated_at' => Carbon::now()
         ]);
 
-        return response(`/settings#/departments/$departmentId`);
+        $department = Department::find($departmentId);
+
+        return response()->json(['department' => $department]);
     }
 
     /**

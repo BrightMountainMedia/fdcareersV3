@@ -64,6 +64,7 @@ Route::group(['middleware' => ['web']], function() {
 	// ---------- Positions ---------- //
 	// Show all Positions
 	Route::get('/positions', 'Pages\PositionController@index');
+	Route::get('/positions/state/{state}', 'Pages\PositionController@index');
 
 	// Get all Positions that a specific department owns
 	Route::get('/settings/department/{id}/positions', 'Settings\Position\SettingsPositionController@allDepartmentPositions');

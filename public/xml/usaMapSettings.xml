@@ -21,208 +21,208 @@
 		pinSize="10"
 	/>
 
-	<stateData stateName="Alabama" url="/positions#/state/AL" stateMode="ON" initialStateColor="B12401" stateOverColor="E32F02" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/AL]]>
+	<stateData stateName="Alabama" url="/positions/state/AL" stateMode="ON" initialStateColor="B12401" stateOverColor="E32F02" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/AL]]>
 	</stateData>
 
-	<stateData stateName="Alaska" url="/positions#/state/AK" stateMode="ON" initialStateColor="B12401" stateOverColor="E32F02" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/AK]]>
+	<stateData stateName="Alaska" url="/positions/state/AK" stateMode="ON" initialStateColor="B12401" stateOverColor="E32F02" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/AK]]>
 	</stateData>
 
-	<stateData stateName="Arizona" url="/positions#/state/AZ" stateMode="ON" initialStateColor="B12401" stateOverColor="E32F02" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/AZ]]>
+	<stateData stateName="Arizona" url="/positions/state/AZ" stateMode="ON" initialStateColor="B12401" stateOverColor="E32F02" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/AZ]]>
 	</stateData>
 
-	<stateData stateName="Arkansas" url="/positions#/state/AR" stateMode="ON" initialStateColor="B12401" stateOverColor="E32F02" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/AR]]>
+	<stateData stateName="Arkansas" url="/positions/state/AR" stateMode="ON" initialStateColor="B12401" stateOverColor="E32F02" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/AR]]>
 	</stateData>
 
-	<stateData stateName="California" url="/positions#/state/CA" stateMode="ON" initialStateColor="B12401" stateOverColor="E32F02" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/CA]]>
+	<stateData stateName="California" url="/positions/state/CA" stateMode="ON" initialStateColor="B12401" stateOverColor="E32F02" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/CA]]>
 	</stateData>
 
-	<stateData stateName="Colorado" url="/positions#/state/CO" stateMode="ON" initialStateColor="B12401" stateOverColor="E32F02" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/CO]]>
+	<stateData stateName="Colorado" url="/positions/state/CO" stateMode="ON" initialStateColor="B12401" stateOverColor="E32F02" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/CO]]>
 	</stateData>
 
-	<stateData stateName="Connecticut" url="/positions#/state/CT" stateMode="ON" initialStateColor="B12401" stateOverColor="E32F02" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/CT]]>
+	<stateData stateName="Connecticut" url="/positions/state/CT" stateMode="ON" initialStateColor="B12401" stateOverColor="E32F02" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/CT]]>
 	</stateData>
 
-	<stateData stateName="Delaware" url="/positions#/state/DE" stateMode="ON" initialStateColor="B12401" stateOverColor="E32F02" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/DE]]>
+	<stateData stateName="Delaware" url="/positions/state/DE" stateMode="ON" initialStateColor="B12401" stateOverColor="E32F02" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/DE]]>
 	</stateData>
 
-	<stateData stateName="District of Columbia" url="/positions#/state/DC" stateMode="ON" initialStateColor="999966" stateOverColor="999900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/DC]]>
+	<stateData stateName="District of Columbia" url="/positions/state/DC" stateMode="ON" initialStateColor="999966" stateOverColor="999900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/DC]]>
 	</stateData>
 
-	<stateData stateName="Florida" url="/positions#/state/FL" stateMode="ON" initialStateColor="B12401" stateOverColor="E32F02" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/FL]]>
+	<stateData stateName="Florida" url="/positions/state/FL" stateMode="ON" initialStateColor="B12401" stateOverColor="E32F02" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/FL]]>
 	</stateData>
 
-	<stateData stateName="Georgia" url="/positions#/state/GA" stateMode="ON" initialStateColor="B12401" stateOverColor="E32F02" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/GA]]>
+	<stateData stateName="Georgia" url="/positions/state/GA" stateMode="ON" initialStateColor="B12401" stateOverColor="E32F02" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/GA]]>
 	</stateData>
 
-	<stateData stateName="Hawaii" url="/positions#/state/HI" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/HI]]>
+	<stateData stateName="Hawaii" url="/positions/state/HI" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/HI]]>
 	</stateData>
 
-	<stateData stateName="Idaho" url="/positions#/state/ID" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/ID]]>
+	<stateData stateName="Idaho" url="/positions/state/ID" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/ID]]>
 	</stateData>
 
-	<stateData stateName="Illinois" url="/positions#/state/IL" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/IL]]>
+	<stateData stateName="Illinois" url="/positions/state/IL" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/IL]]>
 	</stateData>
 
-	<stateData stateName="Indiana" url="/positions#/state/IN" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/IN]]>
+	<stateData stateName="Indiana" url="/positions/state/IN" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/IN]]>
 	</stateData>
 
-	<stateData stateName="Iowa" url="/positions#/state/IA" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/IA]]>
+	<stateData stateName="Iowa" url="/positions/state/IA" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/IA]]>
 	</stateData>
 
-	<stateData stateName="Kansas" url="/positions#/state/KS" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/KS]]>
+	<stateData stateName="Kansas" url="/positions/state/KS" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/KS]]>
 	</stateData>
 
-	<stateData stateName="Kentucky" url="/positions#/state/KY" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/KY]]>
+	<stateData stateName="Kentucky" url="/positions/state/KY" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/KY]]>
 	</stateData>
 
-	<stateData stateName="Louisiana" url="/positions#/state/LA" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/LA]]>
+	<stateData stateName="Louisiana" url="/positions/state/LA" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/LA]]>
 	</stateData>
 
-	<stateData stateName="Maine" url="/positions#/state/ME" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/ME]]>
+	<stateData stateName="Maine" url="/positions/state/ME" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/ME]]>
 	</stateData>
 
-	<stateData stateName="Maryland" url="/positions#/state/MD" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/MD]]>
+	<stateData stateName="Maryland" url="/positions/state/MD" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/MD]]>
 	</stateData>
 
-	<stateData stateName="Massachusetts" url="/positions#/state/MA" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/MA]]>
+	<stateData stateName="Massachusetts" url="/positions/state/MA" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/MA]]>
 	</stateData>
 
-	<stateData stateName="Michigan" url="/positions#/state/MI" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/MI]]>
+	<stateData stateName="Michigan" url="/positions/state/MI" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/MI]]>
 	</stateData>
 
-	<stateData stateName="Minnesota" url="/positions#/state/MN" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/MN]]>
+	<stateData stateName="Minnesota" url="/positions/state/MN" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/MN]]>
 	</stateData>
 
-	<stateData stateName="Mississippi" url="/positions#/state/MS" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/MS]]>
+	<stateData stateName="Mississippi" url="/positions/state/MS" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/MS]]>
 	</stateData>
 
-	<stateData stateName="Missouri" url="/positions#/state/MO" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/MO]]>
+	<stateData stateName="Missouri" url="/positions/state/MO" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/MO]]>
 	</stateData>
 
-	<stateData stateName="Montana" url="/positions#/state/MT" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/MT]]>
+	<stateData stateName="Montana" url="/positions/state/MT" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/MT]]>
 	</stateData>
 
-	<stateData stateName="Nebraska" url="/positions#/state/NE" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/NE]]>
+	<stateData stateName="Nebraska" url="/positions/state/NE" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/NE]]>
 	</stateData>
 
-	<stateData stateName="Nevada" url="/positions#/state/NV" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/NV]]>
+	<stateData stateName="Nevada" url="/positions/state/NV" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/NV]]>
 	</stateData>
 
-	<stateData stateName="New Hampshire" url="/positions#/state/NH" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/NH]]>
+	<stateData stateName="New Hampshire" url="/positions/state/NH" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/NH]]>
 	</stateData>
 
-	<stateData stateName="New Jersey" url="/positions#/state/NJ" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/NJ]]>
+	<stateData stateName="New Jersey" url="/positions/state/NJ" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/NJ]]>
 	</stateData>
 
-	<stateData stateName="New Mexico" url="/positions#/state/NM" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/NM]]>
+	<stateData stateName="New Mexico" url="/positions/state/NM" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/NM]]>
 	</stateData>
 
-	<stateData stateName="New York" url="/positions#/state/NY" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/NY]]>
+	<stateData stateName="New York" url="/positions/state/NY" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/NY]]>
 	</stateData>
 
-	<stateData stateName="North Carolina" url="/positions#/state/NC" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/NC]]>
+	<stateData stateName="North Carolina" url="/positions/state/NC" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/NC]]>
 	</stateData>
 
-	<stateData stateName="North Dakota" url="/positions#/state/ND" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/ND]]>
+	<stateData stateName="North Dakota" url="/positions/state/ND" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/ND]]>
 	</stateData>
 
-	<stateData stateName="Ohio" url="/positions#/state/OH" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/OH]]>
+	<stateData stateName="Ohio" url="/positions/state/OH" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/OH]]>
 	</stateData>
 
-	<stateData stateName="Oklahoma" url="/positions#/state/OK" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/OK]]>
+	<stateData stateName="Oklahoma" url="/positions/state/OK" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/OK]]>
 	</stateData>
 
-	<stateData stateName="Oregon" url="/positions#/state/OR" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/OR]]>
+	<stateData stateName="Oregon" url="/positions/state/OR" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/OR]]>
 	</stateData>
 
-	<stateData stateName="Pennsylvania" url="/positions#/state/PA" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/PA]]>
+	<stateData stateName="Pennsylvania" url="/positions/state/PA" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/PA]]>
 	</stateData>
 
-	<stateData stateName="Rhode Island" url="/positions#/state/RI" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/RI]]>
+	<stateData stateName="Rhode Island" url="/positions/state/RI" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/RI]]>
 	</stateData>
 
-	<stateData stateName="South Carolina" url="/positions#/state/SC" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/SC]]>
+	<stateData stateName="South Carolina" url="/positions/state/SC" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/SC]]>
 	</stateData>
 
-	<stateData stateName="South Dakota" url="/positions#/state/SD" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/SD]]>
+	<stateData stateName="South Dakota" url="/positions/state/SD" stateMode="ON" initialStateColor="58798D" stateOverColor="FF9900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/SD]]>
 	</stateData>
 
-	<stateData stateName="Tennessee" url="/positions#/state/TN" stateMode="ON" initialStateColor="999966" stateOverColor="999900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/TN]]>
+	<stateData stateName="Tennessee" url="/positions/state/TN" stateMode="ON" initialStateColor="999966" stateOverColor="999900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/TN]]>
 	</stateData>
 
-	<stateData stateName="Texas" url="/positions#/state/TX" stateMode="ON" initialStateColor="999966" stateOverColor="999900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/TX]]>
+	<stateData stateName="Texas" url="/positions/state/TX" stateMode="ON" initialStateColor="999966" stateOverColor="999900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/TX]]>
 	</stateData>
 
-	<stateData stateName="Utah" url="/positions#/state/UT" stateMode="OFF" initialStateColor="999966" stateOverColor="999900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/UT]]>
+	<stateData stateName="Utah" url="/positions/state/UT" stateMode="OFF" initialStateColor="999966" stateOverColor="999900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/UT]]>
 	</stateData>
 
-	<stateData stateName="Vermont" url="/positions#/state/VT" stateMode="ON" initialStateColor="999966" stateOverColor="999900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/VT]]>
+	<stateData stateName="Vermont" url="/positions/state/VT" stateMode="ON" initialStateColor="999966" stateOverColor="999900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/VT]]>
 	</stateData>
 
-	<stateData stateName="Virginia" url="/positions#/state/VA" stateMode="ON" initialStateColor="999966" stateOverColor="999900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/VA]]>
+	<stateData stateName="Virginia" url="/positions/state/VA" stateMode="ON" initialStateColor="999966" stateOverColor="999900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/VA]]>
 	</stateData>
 
-	<stateData stateName="Washington" url="/positions#/state/WA" stateMode="ON" initialStateColor="999966" stateOverColor="999900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/WA]]>
+	<stateData stateName="Washington" url="/positions/state/WA" stateMode="ON" initialStateColor="999966" stateOverColor="999900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/WA]]>
 	</stateData>
 
-	<stateData stateName="West Virginia" url="/positions#/state/WV" stateMode="ON" initialStateColor="999966" stateOverColor="999900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/WV]]>
+	<stateData stateName="West Virginia" url="/positions/state/WV" stateMode="ON" initialStateColor="999966" stateOverColor="999900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/WV]]>
 	</stateData>
 
-	<stateData stateName="Wisconsin" url="/positions#/state/WI" stateMode="ON" initialStateColor="999966" stateOverColor="999900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/WI]]>
+	<stateData stateName="Wisconsin" url="/positions/state/WI" stateMode="ON" initialStateColor="999966" stateOverColor="999900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/WI]]>
 	</stateData>
 
-	<stateData stateName="Wyoming" url="/positions#/state/WY" stateMode="ON" initialStateColor="999966" stateOverColor="999900" stateSelectedColor="feb41c">
-		<![CDATA[/positions#/state/WY]]>
+	<stateData stateName="Wyoming" url="/positions/state/WY" stateMode="ON" initialStateColor="999966" stateOverColor="999900" stateSelectedColor="feb41c">
+		<![CDATA[/positions/state/WY]]>
 	</stateData>
 
 </data>

@@ -136,6 +136,7 @@ Vue.component('add-department', {
             	.then(response => {
                     this.addingDeptartment = false;
                     $('#modal-add-department').modal('hide');
+                    Bus.$emit('showDepartment', response.data.department);
                 });
         },
     }
