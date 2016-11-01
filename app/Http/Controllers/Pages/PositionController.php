@@ -15,34 +15,31 @@ class PositionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($state = null)
     {
         $departments = Department::all();
-        $user = Auth::user();
+        $paidPositions = Position::where('position_type', 'full-time')
+                                ->orWhere('position_type', 'paid-on-call')
+                                ->orWhere('position_type', 'contractor')
+                                ->get();
 
-        $positions = Position::all();
-        return view('pages.positions', compact('positions', 'departments'));
+        $unpaidPositions = Position::where('position_type', 'part-time')
+                                    ->orWhere('position_type', 'volunteer')
+                                    ->get();
 
-        // if ( $state && $user && $user->subscribed() ) {
-        //     $positions = Position::where('state', $state)->get();
-        // } else if ( $state && ! $user ) {
-        //     $positions = Position::where([
-        //         ['state', $state],
-        //         ['position_type', '!=', 'full-time'],
-        //         ['position_type', '!=', 'paid-on-call'],
-        //         ['position_type', '!=', 'contractor'],
-        //     ])->orderBy('position_type')->get();
-        // } else if ( $user && $user->subscribed() ) {
-        //     $positions = Position::all();
-        // } else {
-        //     $positions = Position::where([
-        //         ['position_type', '!=', 'full-time'],
-        //         ['position_type', '!=', 'paid-on-call'],
-        //         ['position_type', '!=', 'contractor'],
-        //     ])->get();
-        // }
 
-        // return view('pages.positions', compact('positions', 'departments'));
+        if ($state) {
+            $paidPositions = Position::where([['state', $state],['position_type', 'full-time']])
+                                    ->orWhere([['state', $state],['position_type', 'paid-on-call']])
+                                    ->orWhere([['state', $state],['position_type', 'contractor']])
+                                    ->get();
+
+            $unpaidPositions = Position::where([['state', $state],['position_type', 'part-time']])
+                                    ->orWhere([['state', $state],['position_type', 'volunteer']])
+                                    ->get();
+        }
+        
+        return view('pages.positions', compact('paidPositions', 'unpaidPositions', 'departments'));
     }
 
     /**

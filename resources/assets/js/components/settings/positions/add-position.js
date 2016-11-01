@@ -152,9 +152,10 @@ Vue.component('add-position', {
          */
         savePosition() {
             Spark.post('/settings/position/position_add', this.form)
-            	.then(() => {
+            	.then(response => {
                     this.addingPosition = false;
                     $('#modal-add-position').modal('hide');
+                    Bus.$emit('showPosition', response.position);
                 });
         },
     }

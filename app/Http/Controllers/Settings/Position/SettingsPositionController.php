@@ -67,7 +67,7 @@ class SettingsPositionController extends Controller
      */
     public function store(AddPositionRequest $request)
     {
-        $id = Position::insertGetId([
+        $positionId = Position::insertGetId([
             'department_id' => $request->department_id, 
             'title' => $request->title, 
             'position_type' => $request->position_type, 
@@ -131,7 +131,11 @@ class SettingsPositionController extends Controller
             'updated_at' => Carbon::now()
         ]);
 
-        // $position = Position::find($id);
+        $position = Position::find($positionId);
+
+        return response()->json(['position' => $position]);
+
+        // $position = Position::find($positionId);
         // $department = Department::find($position->department_id);
         // $users = User::where('notification_states', 'like', '%'.$request->state.'%')->get();
         // Notification::send($users, new PositionPublished($position, $department));
