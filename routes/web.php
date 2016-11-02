@@ -39,6 +39,12 @@ Route::group(['middleware' => ['web']], function() {
 	// Update Notification Details
 	Route::put('/settings/notification/details', 'Settings\Profile\NotificationDetailsController@update');
 
+	// Get User Count for Kiosk
+	Route::get('/spark/kiosk/users', 'Kiosk\MetricsController@users');
+
+	// Get Subscriber Count for Kiosk
+	Route::get('/spark/kiosk/subscribers', 'Kiosk\MetricsController@subscribers');
+
 	// ---------- Departments ---------- //
 	// Show all Departments
 	Route::get('/departments', 'Pages\DepartmentController@index');
@@ -60,6 +66,9 @@ Route::group(['middleware' => ['web']], function() {
 	
 	// Update Department Information
 	Route::put('/settings/department/{id}/department_update', 'Settings\Department\SettingsDepartmentController@update');
+
+	// Get Department Count for Kiosk
+	Route::get('/spark/kiosk/departments', 'Kiosk\MetricsController@departments');
 
 	// ---------- Positions ---------- //
 	// Show all Positions
@@ -104,6 +113,9 @@ Route::group(['middleware' => ['web']], function() {
 	Route::put('/settings/position/{id}/doc6_title_update', 'Settings\Position\Docs\PositionDocsController@storeDoc6_title');
 	Route::post('/settings/position/{id}/doc6_url_update', 'Settings\Position\Docs\PositionDocsController@storeDoc6_url');
 	Route::post('/settings/position/{id}/doc6_update', 'Settings\Position\Docs\PositionDocsController@storeDoc6');
+
+	// Get Position Count for Kiosk
+	Route::get('/spark/kiosk/positions', 'Kiosk\MetricsController@positions');
 
 	// Show specific Position
 	// Route::get('/position/{id}', 'Pages\PositionController@show');

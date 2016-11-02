@@ -10,7 +10,12 @@
 @slate: #353535;
 @black: #000;
 @white: #fff;
-@global-font-size: 16px; 
+@global-font-size: 16px;
+
+// Firefox Responsive Table Fix
+@-moz-document url-prefix() {
+  fieldset { display: table-cell; }
+} 
 
 body {
 	background: @dark-grey;

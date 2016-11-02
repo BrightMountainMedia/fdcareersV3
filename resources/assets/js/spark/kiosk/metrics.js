@@ -7,9 +7,16 @@ module.exports = {
     data() {
         return {
             monthlyRecurringRevenue: 0,
+            threeMonthRecurringRevenue: 0,
+            sixMonthRecurringRevenue: 0,
             yearlyRecurringRevenue: 0,
             totalVolume: 0,
             genericTrialUsers: 0,
+
+            totalUsers: 0,
+            totalSubscribers: 0,
+            totalDepartments: 0,
+            totalPositions: 0,
 
             indicators: [],
             lastMonthsIndicators: null,
@@ -30,6 +37,10 @@ module.exports = {
             if (hash == 'metrics' && self.yearlyRecurringRevenue === 0) {
                 self.getRevenue();
                 self.getPlans();
+                self.getUsers();
+                self.getSubscribers();
+                self.getDepartments();
+                self.getPositions();
                 self.getTrialUsers();
                 self.getPerformanceIndicators();
             }
@@ -45,6 +56,8 @@ module.exports = {
             this.$http.get('/spark/kiosk/performance-indicators/revenue')
                 .then(response => {
                     this.yearlyRecurringRevenue = response.data.yearlyRecurringRevenue;
+                    this.sixMonthRecurringRevenue = response.data.sixMonthRecurringRevenue;
+                    this.threeMonthRecurringRevenue = response.data.threeMonthRecurringRevenue;
                     this.monthlyRecurringRevenue = response.data.monthlyRecurringRevenue;
                     this.totalVolume = response.data.totalVolume;
                 });
@@ -58,6 +71,50 @@ module.exports = {
             this.$http.get('/spark/kiosk/performance-indicators/plans')
                 .then(response => {
                     this.plans = response.data;
+                });
+        },
+
+
+        /**
+         * Get the user count for the application.
+         */
+        getUsers() {
+            this.$http.get('/spark/kiosk/users')
+                .then(response => {
+                    this.totalUsers = response.data;
+                });
+        },
+
+
+        /**
+         * Get the subscriber count for the application.
+         */
+        getSubscribers() {
+            this.$http.get('/spark/kiosk/subscribers')
+                .then(response => {
+                    this.totalSubscribers = response.data;
+                });
+        },
+
+
+        /**
+         * Get the department count for the application.
+         */
+        getDepartments() {
+            this.$http.get('/spark/kiosk/departments')
+                .then(response => {
+                    this.totalDepartments = response.data;
+                });
+        },
+
+
+        /**
+         * Get the position count for the application.
+         */
+        getPositions() {
+            this.$http.get('/spark/kiosk/positions')
+                .then(response => {
+                    this.totalPositions = response.data;
                 });
         },
 
@@ -220,6 +277,66 @@ module.exports = {
             return this.percentChange(
                 _.last(this.indicators).monthly_recurring_revenue,
                 this.lastYearsIndicators.monthly_recurring_revenue
+            );
+        },
+
+
+        /**
+         * Calculate the monthly change in 3-month recurring revenue.
+         */
+        monthlyChangeInThreeMonthRecurringRevenue() {
+            if ( ! this.lastMonthsIndicators || ! this.indicators) {
+                return false;
+            }
+
+            return this.percentChange(
+                _.last(this.indicators).three_month_recurring_revenue,
+                this.lastMonthsIndicators.three_month_recurring_revenue
+            );
+        },
+
+
+        /**
+         * Calculate the yearly change in 3-month recurring revenue.
+         */
+        yearlyChangeInThreeMonthRecurringRevenue() {
+            if ( ! this.lastYearsIndicators || ! this.indicators) {
+                return false;
+            }
+
+            return this.percentChange(
+                _.last(this.indicators).three_month_recurring_revenue,
+                this.lastYearsIndicators.three_month_recurring_revenue
+            );
+        },
+
+
+        /**
+         * Calculate the monthly change in 6-month recurring revenue.
+         */
+        monthlyChangeInSixMonthRecurringRevenue() {
+            if ( ! this.lastMonthsIndicators || ! this.indicators) {
+                return false;
+            }
+
+            return this.percentChange(
+                _.last(this.indicators).six_month_recurring_revenue,
+                this.lastMonthsIndicators.six_month_recurring_revenue
+            );
+        },
+
+
+        /**
+         * Calculate the yearly change in 6-month recurring revenue.
+         */
+        yearlyChangeInSixMonthRecurringRevenue() {
+            if ( ! this.lastYearsIndicators || ! this.indicators) {
+                return false;
+            }
+
+            return this.percentChange(
+                _.last(this.indicators).six_month_recurring_revenue,
+                this.lastYearsIndicators.six_month_recurring_revenue
             );
         },
 

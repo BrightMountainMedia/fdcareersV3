@@ -55,7 +55,26 @@ class PerformanceIndicatorsRepository implements Contract
      */
     public function yearlyRecurringRevenue()
     {
-        return $this->monthlyRecurringRevenue() * 12;
+        return $this->recurringRevenueByInterval('fdc-yearly');
+        // return $this->monthlyRecurringRevenue() * 12;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function sixMonthRecurringRevenue()
+    {
+        return $this->recurringRevenueByInterval('fdc-6-month');
+        // return $this->monthlyRecurringRevenue() * 6;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function threeMonthRecurringRevenue()
+    {
+        return $this->recurringRevenueByInterval('fdc-3-month');
+        // return $this->monthlyRecurringRevenue() * 3;
     }
 
     /**
@@ -65,8 +84,11 @@ class PerformanceIndicatorsRepository implements Contract
      */
     public function monthlyRecurringRevenue()
     {
-        return $this->recurringRevenueByInterval('monthly') +
-              ($this->recurringRevenueByInterval('yearly') / 12);
+        return $this->recurringRevenueByInterval('fdc-monthly');
+        // return $this->recurringRevenueByInterval('fdc-monthly') +
+        //       ($this->recurringRevenueByInterval('fdc-3-month') / 3) +
+        //       ($this->recurringRevenueByInterval('fdc-6-month') / 6) +
+        //       ($this->recurringRevenueByInterval('fdc-yearly') / 12);
     }
 
     /**
@@ -79,10 +101,9 @@ class PerformanceIndicatorsRepository implements Contract
     {
         $total = 0;
 
-        $plans = $interval == 'monthly' ? Spark::allMonthlyPlans() : Spark::allYearlyPlans();
-
-        foreach ($plans as $plan) {
-            $total += DB::table($plan instanceof TeamPlan ? 'team_subscriptions' : 'subscriptions')
+        foreach (Spark::allPlans() as $plan) {
+            if ( $interval === $plan->id ) {
+                $total += DB::table($plan instanceof TeamPlan ? 'team_subscriptions' : 'subscriptions')
                             ->where($this->planColumn(), $plan->id)
                             ->where(function ($query) {
                                 $query->whereNull('trial_ends_at')
@@ -90,6 +111,7 @@ class PerformanceIndicatorsRepository implements Contract
                             })
                             ->whereNull('ends_at')
                             ->sum('quantity') * $plan->price;
+            }
         }
 
         return $total;

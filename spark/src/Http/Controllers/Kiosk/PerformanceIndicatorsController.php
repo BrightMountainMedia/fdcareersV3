@@ -53,6 +53,8 @@ class PerformanceIndicatorsController extends Controller
     {
         return [
             'yearlyRecurringRevenue' => $this->indicators->yearlyRecurringRevenue(),
+            'sixMonthRecurringRevenue' => $this->indicators->sixMonthRecurringRevenue(),
+            'threeMonthRecurringRevenue' => $this->indicators->threeMonthRecurringRevenue(),
             'monthlyRecurringRevenue' => $this->indicators->monthlyRecurringRevenue(),
             'totalVolume' => $this->indicators->totalVolume(),
         ];
@@ -87,8 +89,8 @@ class PerformanceIndicatorsController extends Controller
     public function trialUsers()
     {
         return Spark::user()
-                        ->where('trial_ends_at', '>=', Carbon::now())
-                        ->whereDoesntHave('subscriptions')
-                        ->count();
+                    ->where('trial_ends_at', '>=', Carbon::now())
+                    ->whereDoesntHave('subscriptions')
+                    ->count();
     }
 }

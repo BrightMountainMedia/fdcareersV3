@@ -46,6 +46,20 @@ interface PerformanceIndicatorsRepository
     public function yearlyRecurringRevenue();
 
     /**
+     * Get the 6-month recurring revenue.
+     *
+     * @return float
+     */
+    public function sixMonthRecurringRevenue();
+
+    /**
+     * Get the 3-month recurring revenue.
+     *
+     * @return float
+     */
+    public function threeMonthRecurringRevenue();
+
+    /**
      * Get the monthly recurring revenue.
      *
      * @return float

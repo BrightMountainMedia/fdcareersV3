@@ -7385,6 +7385,11 @@ body {
 [v-cloak] {
   display: none;
 }
+@-moz-document url-prefix() {
+  fieldset {
+    display: table-cell;
+  }
+}
 body {
   background: #464648;
   font-size: 16px;
