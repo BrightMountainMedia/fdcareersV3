@@ -220,13 +220,6 @@ Vue.component('update-position-info', {
                 .then(() => {
                     Bus.$emit('showPositionProfile', this.position.id);
                 });
-        },
-
-        /**
-         * Show the department profile and hide the position profile.
-         */
-        showDepartment() {
-            this.$parent.$emit('navigateToDepartment');
         }
     }
 });

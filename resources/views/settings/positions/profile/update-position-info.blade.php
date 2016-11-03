@@ -1,7 +1,6 @@
 <update-position-info :position="position" :department="department" inline-template>
     <div class="panel panel-default" v-if="position">
         <div class="panel-heading">
-            <i class="fa fa-btn fa-times" style="cursor: pointer;" @click="showDepartment()"></i>
             Position @{{ position.id }} Information
         </div>
 

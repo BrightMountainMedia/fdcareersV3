@@ -663,6 +663,8 @@
                         </form>
                     </div>
 
+                    <center><note>After you save the position, you will be able to upload your documents.</note></center>
+
                     <!-- Modal Actions -->
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>

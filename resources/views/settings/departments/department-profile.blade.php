@@ -28,6 +28,13 @@
                 <div class="col-sm-12">
                     <div class="panel panel-default panel-flush">
                         <!-- Create Button -->
+                        <button type="submit" class="btn btn-primary btn-block inverse" @click="showSearch()">
+                            <i class="fa fa-arrow-left"></i> Go Back to All Departments
+                        </button>
+                    </div>
+
+                    <div class="panel panel-default panel-flush">
+                        <!-- Create Button -->
                         <button type="submit" class="btn btn-primary btn-block" @click="addPosition()">
                             <i class="fa fa-plus"></i> Add Position
                         </button>
@@ -35,7 +42,6 @@
 
                     <div class="panel panel-default" v-if="department">
                         <div class="panel-heading">
-                            <i class="fa fa-btn fa-times" style="cursor: pointer;" @click="showSearch()"></i>
                             Department Positions
                         </div>
 

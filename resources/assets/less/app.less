@@ -182,7 +182,16 @@ body {
         }
 
         button.btn:hover {
-            background-color: @dark-red;
+            background-color: darken(@fd-red, 20%);
+        }
+
+        button.btn.inverse {
+            background-color: @cream;
+            color: @fd-red;
+        }
+
+        button.btn.inverse:hover {
+            background-color: darken(@cream, 20%);
         }
     }
 }

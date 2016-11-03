@@ -7512,7 +7512,14 @@ body {
   border-color: #a61326;
 }
 #department .panel-default button.btn:hover {
-  background-color: #860f1e;
+  background-color: #4a0911;
+}
+#department .panel-default button.btn.inverse {
+  background-color: #f3f1e6;
+  color: #a61326;
+}
+#department .panel-default button.btn.inverse:hover {
+  background-color: #d2caa1;
 }
 input[type="checkbox"],
 input[type="checkbox"]:focus,

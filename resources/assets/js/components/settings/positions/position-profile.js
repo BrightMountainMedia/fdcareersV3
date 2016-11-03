@@ -20,10 +20,6 @@ Vue.component('position-profile', {
         Bus.$on('showPositionProfile', function(id) {
             self.getPositionProfile(id);
         });
-
-        this.$on('navigateToDepartment', function() {
-            self.showDepartment();
-        });
     },
 
     methods: {

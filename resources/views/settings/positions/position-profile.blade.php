@@ -26,26 +26,55 @@
         <div v-if=" ! loading && position">
             <div class="row">
                 <div class="col-md-12">
-                    <!-- Update Position Information -->
-                    @include('settings.positions.profile.update-position-info')
+                    <div class="panel panel-default panel-flush">
+                        <!-- Create Button -->
+                        <button type="submit" class="btn btn-primary btn-block inverse" @click="showDepartment()">
+                            <i class="fa fa-arrow-left"></i> Go Back to Department
+                        </button>
+                    </div>
+                </div>
+            </div>
 
+            <div class="row">
+                <div class="col-md-6">
                     <!-- Update Position Profile Doc1 -->
                     @include('settings.positions.profile.update-position-profile-doc1')
+                </div>
 
+                <div class="col-md-6">
                     <!-- Update Position Profile Doc2 -->
                     @include('settings.positions.profile.update-position-profile-doc2')
+                </div>
+            </div>
 
+            <div class="row">
+                <div class="col-md-6">
                     <!-- Update Position Profile Doc3 -->
                     @include('settings.positions.profile.update-position-profile-doc3')
+                </div>
 
+                <div class="col-md-6">
                     <!-- Update Position Profile Doc4 -->
                     @include('settings.positions.profile.update-position-profile-doc4')
+                </div>
+            </div>
 
+            <div class="row">
+                <div class="col-md-6">
                     <!-- Update Position Profile Doc5 -->
                     @include('settings.positions.profile.update-position-profile-doc5')
+                </div>
 
+                <div class="col-md-6">
                     <!-- Update Position Profile Doc6 -->
                     @include('settings.positions.profile.update-position-profile-doc6')
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- Update Position Information -->
+                    @include('settings.positions.profile.update-position-info')
                 </div>
             </div>
         </div>

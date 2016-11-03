@@ -12,9 +12,9 @@
                 <form class="form-horizontal" role="form" v-if="position.doc3_title">
                     <!-- Document 3 -->
                     <div class="form-group" :class="{'has-error': labelForm.errors.has('doc3_title')}">
-                        <label class="col-md-4 control-label">Label:</label>
+                        <label class="col-md-2 control-label">Label:</label>
 
-                        <div class="col-md-5">
+                        <div class="col-md-6">
                             <input type="text" class="form-control" name="doc3_title" v-model="labelForm.doc3_title">
 
                             <span class="help-block" v-show="labelForm.errors.has('doc3_title')">
@@ -22,17 +22,17 @@
                             </span>
                         </div>
 
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <button type="submit" class="btn btn-primary"
                                     @click.prevent="update_doc3_title"
                                     :disabled="labelForm.busy">
 
                                 <span v-if="labelForm.busy">
-                                    <i class="fa fa-btn fa-spinner fa-spin"></i>Updating Label
+                                    <i class="fa fa-btn fa-spinner fa-spin"></i>Updating
                                 </span>
 
                                 <span v-else>
-                                    Update Label
+                                    Update
                                 </span>
                             </button>
                         </div>
@@ -45,9 +45,9 @@
 
                 <form class="form-horizontal" role="form" v-if="position.doc3_title">
                     <div class="form-group" v-show="position.doc3_url">
-                        <label class="col-md-4 control-label">Link:</label>
+                        <label class="col-md-2 control-label">Link:</label>
 
-                        <div class="col-md-6">
+                        <div class="col-md-10">
                             <a :href="doc3_url" target="_blank">@{{ position.doc3_url }}</a>
                         </div>
                     </div>
@@ -74,17 +74,17 @@
                 <form class="form-horizontal" role="form" v-if="! position.doc3_title">
                     <!-- Document 3 -->
                     <div class="form-group">
-                        <label class="col-md-4 control-label">Label:</label>
+                        <label class="col-md-2 control-label">Label:</label>
 
-                        <div class="col-md-6">
+                        <div class="col-md-10">
                             <input type="text" class="form-control" name="doc3_title" v-model="dualForm.doc3_title">
                         </div>
                     </div>
 
                     <div class="form-group" v-show="position.doc3_url">
-                        <label class="col-md-4 control-label">Link:</label>
+                        <label class="col-md-2 control-label">Link:</label>
 
-                        <div class="col-md-6">
+                        <div class="col-md-10">
                             <a :href="doc3_url" target="_blank">@{{ position.doc3_url }}</a>
                         </div>
                     </div>
