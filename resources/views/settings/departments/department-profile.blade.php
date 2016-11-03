@@ -29,7 +29,7 @@
                     <div class="panel panel-default panel-flush">
                         <!-- Create Button -->
                         <button type="submit" class="btn btn-primary btn-block inverse" @click="showSearch()">
-                            <i class="fa fa-arrow-left"></i> Go Back to All Departments
+                            <i class="fa fa-arrow-left"></i> Go Back to Your Departments
                         </button>
                     </div>
 

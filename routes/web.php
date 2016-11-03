@@ -46,6 +46,9 @@ Route::group(['middleware' => ['web']], function() {
 	Route::get('/spark/kiosk/subscribers', 'Kiosk\MetricsController@subscribers');
 
 	// ---------- Departments ---------- //
+	// Show specific Department
+	Route::get('/department/{id}', 'Pages\DepartmentController@show');
+	
 	// Show all Departments
 	Route::get('/departments', 'Pages\DepartmentController@index');
 
@@ -71,6 +74,9 @@ Route::group(['middleware' => ['web']], function() {
 	Route::get('/spark/kiosk/departments', 'Kiosk\MetricsController@departments');
 
 	// ---------- Positions ---------- //
+	// Show specific Position
+	Route::get('/position/{id}', 'Pages\PositionController@show');
+
 	// Show all Positions
 	Route::get('/positions', 'Pages\PositionController@index');
 	Route::get('/positions/state/{state}', 'Pages\PositionController@index');
@@ -116,10 +122,4 @@ Route::group(['middleware' => ['web']], function() {
 
 	// Get Position Count for Kiosk
 	Route::get('/spark/kiosk/positions', 'Kiosk\MetricsController@positions');
-
-	// Show specific Position
-	// Route::get('/position/{id}', 'Pages\PositionController@show');
-
-	// Show specific Department
-	// Route::get('/department/{id}', 'Pages\DepartmentController@show');
 });
