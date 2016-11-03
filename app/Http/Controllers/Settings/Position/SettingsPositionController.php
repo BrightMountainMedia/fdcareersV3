@@ -30,13 +30,25 @@ class SettingsPositionController extends Controller
     }
 
     /**
-     * Get all positions within department.
+     * Get all positions within department that are active.
      *
      * @return Response
      */
     public function allDepartmentPositions($id)
     {
-        $positions = Position::where('departmentId', $id)->get();
+        $positions = Position::where([['departmentId', $id],['active', '1']])->get();
+        
+        return response()->json(['positions' => $positions]);
+    }
+
+    /**
+     * Get all positions within department that are inactive.
+     *
+     * @return Response
+     */
+    public function allInActiveDepartmentPositions($id)
+    {
+        $positions = Position::where([['departmentId', $id],['active', '0']])->get();
         
         return response()->json(['positions' => $positions]);
     }

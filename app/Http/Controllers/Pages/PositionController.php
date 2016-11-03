@@ -18,24 +18,24 @@ class PositionController extends Controller
     public function index($state = null)
     {
         $departments = Department::all();
-        $paidPositions = Position::where('position_type', 'full-time')
-                                ->orWhere('position_type', 'paid-on-call')
-                                ->orWhere('position_type', 'contractor')
+        $paidPositions = Position::where([['position_type', 'full-time'],['active', '1']])
+                                ->orWhere([['position_type', 'paid-on-call'],['active', '1']])
+                                ->orWhere([['position_type', 'contractor'],['active', '1']])
                                 ->get();
 
-        $unpaidPositions = Position::where('position_type', 'part-time')
-                                    ->orWhere('position_type', 'volunteer')
+        $unpaidPositions = Position::where([['position_type', 'part-time'],['active', '1']])
+                                    ->orWhere([['position_type', 'volunteer'],['active', '1']])
                                     ->get();
 
 
         if ($state) {
-            $paidPositions = Position::where([['state', $state],['position_type', 'full-time']])
-                                    ->orWhere([['state', $state],['position_type', 'paid-on-call']])
-                                    ->orWhere([['state', $state],['position_type', 'contractor']])
+            $paidPositions = Position::where([['state', $state],['position_type', 'full-time'],['active', '1']])
+                                    ->orWhere([['state', $state],['position_type', 'paid-on-call'],['active', '1']])
+                                    ->orWhere([['state', $state],['position_type', 'contractor'],['active', '1']])
                                     ->get();
 
-            $unpaidPositions = Position::where([['state', $state],['position_type', 'part-time']])
-                                    ->orWhere([['state', $state],['position_type', 'volunteer']])
+            $unpaidPositions = Position::where([['state', $state],['position_type', 'part-time'],['active', '1']])
+                                    ->orWhere([['state', $state],['position_type', 'volunteer'],['active', '1']])
                                     ->get();
         }
         
@@ -83,7 +83,7 @@ class PositionController extends Controller
             }
         }
         
-        return view('position', compact('position', 'department'));
+        return view('pages.position', compact('position', 'department'));
     }
 
     /**
