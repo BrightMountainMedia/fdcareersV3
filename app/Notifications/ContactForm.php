@@ -7,7 +7,7 @@ use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 
-class ContactForm extends Notification implements ShouldQueue
+class ContactForm extends Notification
 {
     use Queueable;
 
@@ -47,11 +47,10 @@ class ContactForm extends Notification implements ShouldQueue
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->error()
-                    ->subject('Contact Form on FD Careers')
-                    ->line('Name: ' . $this->name)
-                    ->line('Email: ' . $this->email)
-                    ->line('Message: ' . $this->message);
+            ->subject('Contact Form on FD Careers')
+            ->line('Name: ' . $this->name)
+            ->line('Email: ' . $this->email)
+            ->line('Message: ' . $this->message);
     }
 
     /**
