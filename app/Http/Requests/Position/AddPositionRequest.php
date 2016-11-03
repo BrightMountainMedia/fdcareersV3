@@ -24,7 +24,7 @@ class AddPositionRequest extends FormRequest
     public function rules()
     {
         return [
-            'dept_id' => 'required|numeric',
+            'department_id' => 'required|numeric',
             'title' => 'required|max:255',
             'position_type' => 'required',
             'state' => 'required',

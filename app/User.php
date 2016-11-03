@@ -48,4 +48,14 @@ class User extends SparkUser
         'trial_ends_at' => 'date',
         'uses_two_factor_auth' => 'boolean',
     ];
+
+    /**
+     * Route notifications for the Nexmo channel.
+     *
+     * @return string
+     */
+    public function routeNotificationForNexmo()
+    {
+        return $this->sms_phone;
+    }
 }

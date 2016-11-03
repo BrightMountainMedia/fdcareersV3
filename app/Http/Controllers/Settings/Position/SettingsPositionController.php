@@ -11,7 +11,9 @@ use App\User;
 use App\Position;
 use App\Department;
 use App\Http\Controllers\Controller;
-use App\Notifications\PositionPublished;
+use App\Notifications\PositionPublishedAPP;
+use App\Notifications\PositionPublishedMail;
+use App\Notifications\PositionPublishedSMS;
 use App\Http\Requests\Position\AddPositionRequest;
 use App\Http\Requests\Position\UpdatePositionRequest;
 
@@ -132,13 +134,21 @@ class SettingsPositionController extends Controller
         ]);
 
         $position = Position::find($positionId);
+        $department = Department::find($position->department_id);
+        $users = User::where('notification_states', 'like', '%'.$position->state.'%')->get();
+        foreach ($users as $user) {
+            if ( $user->subscribed() && $user->app_notification ) {
+                $user->notify(new PositionPublishedAPP($position));
+            }
+            if ( $user->subscribed() && $user->email_notification ) {
+                $user->notify(new PositionPublishedMail($user, $position, $department));
+            }
+            if ( $user->subscribed() && $user->sms_notification ) {
+                $user->notify(new PositionPublishedSMS($position));
+            }
+        }
 
         return response()->json(['position' => $position]);
-
-        // $position = Position::find($positionId);
-        // $department = Department::find($position->department_id);
-        // $users = User::where('notification_states', 'like', '%'.$request->state.'%')->get();
-        // Notification::send($users, new PositionPublished($position, $department));
     }
 
     /**

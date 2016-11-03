@@ -67,7 +67,7 @@
 
                                         <span v-if="activePlan(profile)">
                                             <a :href="customerUrlOnBillingProvider(profile)" target="_blank">
-                                                @{{ activePlan(profile).name }} (@{{ activePlan(profile).interval | capitalize }})
+                                                @{{ activePlan(profile).name }} (@{{ activePlan(profile).name | removeSubscription }})
                                             </a>
                                         </span>
 

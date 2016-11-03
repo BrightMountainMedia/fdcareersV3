@@ -109,7 +109,10 @@ class PerformanceIndicatorsRepository implements Contract
                                 $query->whereNull('trial_ends_at')
                                       ->orWhere('trial_ends_at', '<=', Carbon::now());
                             })
-                            ->whereNull('ends_at')
+                            ->where(function ($query) {
+                                $query->whereNull('ends_at')
+                                      ->orWhere('ends_at', '>=', Carbon::now());
+                            })
                             ->sum('quantity') * $plan->price;
             }
         }
@@ -128,7 +131,10 @@ class PerformanceIndicatorsRepository implements Contract
                                 $query->whereNull('trial_ends_at')
                                       ->orWhere('trial_ends_at', '<=', Carbon::now());
                             })
-                            ->whereNull('ends_at')
+                            ->where(function ($query) {
+                                $query->whereNull('ends_at')
+                                      ->orWhere('ends_at', '>=', Carbon::now());
+                            })
                             ->count();
     }
 

@@ -13,7 +13,8 @@
         "laravel/cashier": "~7.0",
         "laravel/spark": "*@dev",
         "predis/predis": "^1.1",
-        "guzzlehttp/guzzle": "^6.2"
+        "guzzlehttp/guzzle": "^6.2",
+        "nexmo/client": "@beta"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

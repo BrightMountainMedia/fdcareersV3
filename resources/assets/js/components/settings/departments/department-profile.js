@@ -34,7 +34,7 @@ Vue.component('department-profile', {
          * Show the department modal.
          */
         addPosition() {
-            Bus.$emit('addPosition');
+            Bus.$emit('addPosition', this.department.id);
         },
 
         /**

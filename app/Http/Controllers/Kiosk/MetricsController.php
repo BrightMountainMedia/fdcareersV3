@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Kiosk;
 
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use App\User;
 use App\Position;
@@ -57,6 +58,6 @@ class MetricsController extends Controller
      */
     public function subscribers()
     {
-        return DB::table('subscriptions')->count();
+        return DB::table('subscriptions')->whereNull('ends_at')->orWhere('ends_at', '>=', Carbon::now())->count();
     }
 }
