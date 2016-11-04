@@ -13,6 +13,14 @@
 <spark-settings :user="user" :teams="teams" inline-template>
     <div class="spark-screen container">
         <div class="row">
+            @if(Session::has('error'))
+            <div class="col-md-12">
+                <div class="panel panel-danger">
+                    <div class="panel-heading">Error: {{ Session::get('error') }}</div>
+                </div>
+            </div>
+            @endif
+
             <!-- Tabs -->
             <div class="col-md-4">
                 <div class="panel panel-default panel-flush">

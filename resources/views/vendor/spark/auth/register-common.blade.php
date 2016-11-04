@@ -1,3 +1,11 @@
+@if(Session::has('error'))
+<div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-danger">
+        <div class="panel-heading">Error: {{ Session::get('error') }}</div>
+    </div>
+</div>
+@endif
+
 <!-- Coupon -->
 <div class="row" v-if="coupon">
     <div class="col-md-8 col-md-offset-2">
@@ -89,7 +97,7 @@
                                     </span>
 
                                     <span v-else>
-                                        @{{ plan.price | currency spark.currencySymbol }} / @{{ plan.name | removeSubscription }}
+                                        @{{ plan.price | currency }} / @{{ plan.name | removeSubscription }}
                                     </span>
                                 </div>
                             </td>

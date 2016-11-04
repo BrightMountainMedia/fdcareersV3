@@ -3,6 +3,14 @@
 @section('content')
     <div class="container">
         <div class="row">
+            @if(Session::has('error'))
+            <div class="col-md-12">
+                <div class="panel panel-danger">
+                    <div class="panel-heading">Error: {{ Session::get('error') }}</div>
+                </div>
+            </div>
+            @endif
+
             <div class="col-sm-7">
                 <div class="panel panel-default">
                     <div class="panel-heading">

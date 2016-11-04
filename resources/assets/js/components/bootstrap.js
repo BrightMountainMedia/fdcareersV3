@@ -14,6 +14,9 @@ require('./../spark-components/bootstrap');
 require('./dashboard');
 require('./contact');
 require('./positions');
+require('./featured/featured');
+require('./featured/featured-example');
+require('./featured/featured-position');
 
 // -- Settings
 require('./settings/profile/update-notification-details');

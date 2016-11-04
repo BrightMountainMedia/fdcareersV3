@@ -32,7 +32,7 @@ class DepartmentController extends Controller
             ])->get();
         }
 
-        return view('departments', compact('departments', 'positions'));
+        return view('pages.department.departments', compact('departments', 'positions'));
     }
 
     /**
@@ -77,7 +77,7 @@ class DepartmentController extends Controller
             ])->get();
         }
 
-        return view('department', compact('department', 'positions'));
+        return view('pages.department.department', compact('department', 'positions'));
     }
 
     /**

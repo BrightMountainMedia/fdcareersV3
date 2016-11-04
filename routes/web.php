@@ -48,7 +48,7 @@ Route::group(['middleware' => ['web']], function() {
 	// ---------- Departments ---------- //
 	// Show specific Department
 	Route::get('/department/{id}', 'Pages\DepartmentController@show');
-	
+
 	// Show all Departments
 	Route::get('/departments', 'Pages\DepartmentController@index');
 
@@ -122,4 +122,20 @@ Route::group(['middleware' => ['web']], function() {
 
 	// Get Position Count for Kiosk
 	Route::get('/spark/kiosk/positions', 'Kiosk\MetricsController@positions');
+
+	// ---------- Featured Position ---------- //
+	// Show Featured Position
+	Route::get('/position/{id}/featured', 'FeaturedPositionController@show');
+
+	// Get Random Featured Position for Display
+	Route::get('/positions/get_featured', 'FeaturedPositionController@example');
+
+	// Show all Featured Positions
+	Route::get('/positions/featured', 'FeaturedPositionController@index');
+
+	// Add Featured Position
+	Route::post('/position/add_featured_position', 'FeaturedPositionController@store');
+
+	// Update Featured Position
+	Route::post('/position/update_featured_position', 'FeaturedPositionController@update');
 });
