@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Position;
+use App\Department;
 use App\FeaturedPosition;
 use App\Http\Request\Position\AddFeaturedPositionRequest;
 use App\Http\Request\Position\UpdateFeaturedPositionRequest;
@@ -74,14 +75,15 @@ class FeaturedPositionController extends Controller
         $featured = FeaturedPosition::where('position_id', $id)->active()->first();
         if ($featured) {
         	$position = Position::where('id', $featured->position_id)->first();
-        	return view('pages.featured.featured-position', compact('position'));
+        	$department = Department::where('id', $position->department_id)->first();
+        	return view('pages.featured.featured-position', compact('position', 'department'));
         }
 
         $user = Auth::user();
         if ( $user && $user->subscribed() ) {
         	return redirect('/position/'.$id)->with(['error' => 'The position you requested is not featured at this time.']);
         } else if ( $user && ! $user->subscribed() ) {
-        	return redirect('/settings#/subscription')->with(['error' => 'The position you requested is not featured at this time and also requires a subscription to vie.']);
+        	return redirect('/settings#/subscription')->with(['error' => 'The position you requested is not featured at this time and also requires a subscription to view.']);
         }
 
         return redirect('/register')->with(['error' => 'The position you requested is not featured at this time and also requires a subscription to view.']);

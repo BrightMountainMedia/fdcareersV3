@@ -7454,12 +7454,6 @@ body {
 .panel-default .panel-heading .align-right {
   text-align: right;
 }
-.panel-default .panel-heading .stButton .stFb,
-.panel-default .panel-heading .stButton .stTwbutton,
-.panel-default .panel-heading .stButton .stMainServices {
-  height: 22px;
-  line-height: 22px;
-}
 .panel-default .panel-subheading {
   background-color: #f3f1e6;
   padding: 5px 15px;
@@ -7511,6 +7505,14 @@ body {
 }
 .panel-default .panel-body .align-right {
   text-align: right;
+}
+.panel-default .panel-body .featured-title {
+  color: #a61326;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+.panel-default .panel-body .featured-url {
+  text-decoration: underline;
 }
 #department .panel-default button.btn {
   color: #f3f1e6;

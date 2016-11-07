@@ -37,7 +37,6 @@ class AddPositionRequest extends FormRequest
             'ending' => 'required',
             'duedate' => 'required_if:ending,duedate',
             'application_details' => 'required',
-            'where_to_get_apps_label' => 'required',
             'featured' => 'required|boolean',
         ];
     }

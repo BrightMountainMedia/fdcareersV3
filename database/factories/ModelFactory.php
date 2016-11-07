@@ -60,15 +60,20 @@ $factory->define(App\Position::class, function (Faker\Generator $faker) {
     return [
         'department_id' => $faker->numberBetween($min = 1, $max = 50),
         'title' => $faker->sentence(6),
+        'salary' => $faker->randomElement( $array = array( 'Hourly', 'Salary' ) ),
         'position_type' => $faker->randomElement( $array = array( 'full-time', 'paid-on-call', 'part-time', 'volunteer', 'contractor' ) ),
-        'state' => 'FL', // $faker->stateAbbr
-        'ending' => $faker->randomElement( $array = array( 'untilFilled', 'continuous' ) ),
+        'state' => $faker->stateAbbr,
         'application_details' => $faker->paragraph(5),
-        'where_to_get_apps_label' => $faker->sentence(4),
+        'testing_details' => $faker->paragraph(5),
+        'orientation_details' => $faker->paragraph(5),
+        'requirements' => $faker->paragraph(5),
+        'qualifications' => $faker->paragraph(5),
+        'residency_requirements' => $faker->paragraph(5),
+        'ending' => $faker->randomElement( $array = array( 'untilFilled', 'continuous' ) ),
         'publish' => Carbon\Carbon::now(),
-        'featured' => $faker->randomElement( $array = array( '0', '1' ) ),
-        'active' => 1,
         'created_at' => Carbon\Carbon::now(),
         'updated_at' => Carbon\Carbon::now(),
+        'featured' => 0,
+        'active' => 1,
     ];
 });

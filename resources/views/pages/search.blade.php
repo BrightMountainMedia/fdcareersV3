@@ -13,16 +13,25 @@
     <script src="/js/scale.raphael.js"></script>
     <script src="/js/paths.js"></script>
     <script src="/js/init.js"></script>
-    <script type="text/javascript">var switchTo5x=true;</script>
-    <script type="text/javascript" id="st_insights_js" src="https://ws.sharethis.com/button/buttons.js?publisher=030d97a2-0ec3-484d-8e90-840d2e0c3824"></script>
-    <script type="text/javascript">stLight.options({publisher: "030d97a2-0ec3-484d-8e90-840d2e0c3824", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
 @endsection
 
 @section('content')
+<search-page inline-template>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                @include('pages.featured.featured-example')
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Featured Position
+                        <div class="pull-right">
+                            <div class="addthis_inline_share_toolbox" :data-url="href" :data-title="title"></div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <p class="featured-title">@{{ title }}</p>
+                        <p>@{{ details }} <a class="featured-url" :href="href">learn more</a></p>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -41,4 +50,10 @@
             </div>
         </div>
     </div>
+</search-page>
+@endsection
+
+@section('footerScripts')
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5820bcba4f82a184"></script> 
 @endsection
