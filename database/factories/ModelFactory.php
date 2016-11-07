@@ -77,3 +77,12 @@ $factory->define(App\Position::class, function (Faker\Generator $faker) {
         'active' => 1,
     ];
 });
+
+$factory->define(App\FeaturedPosition::class, function (Faker\Generator $faker) {
+    return [
+        'position_id' => $faker->numberBetween($min = 1, $max = 200),
+        'created_at' => Carbon\Carbon::now(),
+        'updated_at' => Carbon\Carbon::now(),
+        'active' => 1,
+    ];
+});
