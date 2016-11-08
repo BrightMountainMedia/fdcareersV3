@@ -24,7 +24,7 @@ class UpdateFeaturedPositionRequest extends FormRequest
     public function rules()
     {
         return [
-            'active' => 'required|boolean'
+            'position_id' => 'required'
         ];
     }
 }

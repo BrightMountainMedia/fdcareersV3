@@ -164,7 +164,7 @@ Vue.component('update-position-info', {
         update() {
             Spark.put('/settings/position/'+ this.position.id + '/position_update', this.form)
                 .then(() => {
-                    Bus.$emit('showPositionProfile', this.position.id);
+                    // Bus.$emit('showPositionProfile', this.position.id);
                 });
         }
     }

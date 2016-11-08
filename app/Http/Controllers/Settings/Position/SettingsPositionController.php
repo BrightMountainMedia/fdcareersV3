@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Notification;
 use App\User;
 use App\Position;
 use App\Department;
+use App\FeaturedPosition;
 use App\Http\Controllers\Controller;
 use App\Notifications\PositionPublishedAPP;
 use App\Notifications\PositionPublishedMail;
@@ -165,6 +166,28 @@ class SettingsPositionController extends Controller
      */
     public function update(UpdatePositionRequest $request, $id)
     {
+        if ( $request->featured == 1 ) {
+            $count = FeaturedPosition::count();
+            if ( $count < 10 ) {
+                FeaturedPosition::insert([
+                    'position_id' => $id,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now()
+                ]);
+            } else if ( $count == 10 ) {
+                $oldest = FeaturedPosition::active()->orderBy('created_at', 'ASC')->first();
+                $position = Position::find($oldest->position_id);
+                $position->featured = 0;
+                $position->save();
+                $oldest->delete();
+                FeaturedPosition::insert([
+                    'position_id' => $id,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now()
+                ]);
+            }
+        }
+
         Position::where('id', $id)
             ->update([
                 'title' => $request->title, 

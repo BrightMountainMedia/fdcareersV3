@@ -16,7 +16,6 @@ class CreateFeaturedPositionsTable extends Migration
         Schema::create('featured_positions', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('position_id')->index();
-            $table->boolean('active')->default(1);
             $table->softDeletes();
             $table->timestamps();
         });

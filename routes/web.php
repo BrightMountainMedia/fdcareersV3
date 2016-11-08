@@ -90,6 +90,9 @@ Route::group(['middleware' => ['web']], function() {
 	// Show Position Profile
 	Route::get('/settings/position/{id}/position_profile', 'Settings\Position\SettingsPositionController@show');
 
+	// Update Position Profile
+	Route::put('/settings/position/{id}/position_update', 'Settings\Position\SettingsPositionController@update');
+
 	// Uplaod the 1st Document
 	Route::put('/settings/position/{id}/doc1_title_update', 'Settings\Position\Docs\PositionDocsController@storeDoc1_title');
 	Route::post('/settings/position/{id}/doc1_url_update', 'Settings\Position\Docs\PositionDocsController@storeDoc1_url');

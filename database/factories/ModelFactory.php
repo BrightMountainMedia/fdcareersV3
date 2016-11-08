@@ -83,6 +83,5 @@ $factory->define(App\FeaturedPosition::class, function (Faker\Generator $faker) 
         'position_id' => $faker->numberBetween($min = 1, $max = 200),
         'created_at' => Carbon\Carbon::now(),
         'updated_at' => Carbon\Carbon::now(),
-        'active' => 1,
     ];
 });
