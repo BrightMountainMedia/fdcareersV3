@@ -84,6 +84,10 @@ class SettingsPositionController extends Controller
     {
         $publish = Carbon::now();
 
+        $video = $request->video;
+        $video = explode('/', $video);
+        $video = end($video);
+
         $positionId = Position::insertGetId([
             'department_id' => $request->department_id, 
             'title' => $request->title, 
@@ -96,7 +100,7 @@ class SettingsPositionController extends Controller
             'requirements' => $request->requirements, 
             'qualifications' => $request->qualifications, 
             'residency_requirements' => $request->residency_requirements, 
-            'video' => $request->video,
+            'video' => $video,
             'apply_link' => $request->apply_link,
             'ending' => $request->ending, 
             'duedate' => $request->duedate, 
@@ -188,6 +192,10 @@ class SettingsPositionController extends Controller
             }
         }
 
+        $video = $request->video;
+        $video = explode('/', $video);
+        $video = end($video);
+
         Position::where('id', $id)
             ->update([
                 'title' => $request->title, 
@@ -200,7 +208,7 @@ class SettingsPositionController extends Controller
                 'requirements' => $request->requirements, 
                 'qualifications' => $request->qualifications, 
                 'residency_requirements' => $request->residency_requirements, 
-                'video' => $request->video,
+                'video' => $video,
                 'apply_link' => $request->apply_link,
                 'ending' => $request->ending, 
                 'duedate' => $request->duedate, 

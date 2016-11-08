@@ -218,12 +218,13 @@
                     </div>
                 </div>
 
-                <!-- Video -->
+                <!-- YouTube Video ID -->
                 <div class="form-group" :class="{'has-error': form.errors.has('video')}">
-                    <label class="col-md-4 control-label">Video</label>
+                    <label class="col-md-4 control-label">YouTube Video ID</label>
 
                     <div class="col-md-6">
                         <input type="text" class="form-control" name="video" v-model="form.video">
+                        <p class="help-block">You can paste the share URL here and it will extract the video ID from that.</p>
 
                         <span class="help-block" v-show="form.errors.has('video')">
                             @{{ form.errors.get('video') }}

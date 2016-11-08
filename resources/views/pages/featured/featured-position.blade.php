@@ -11,7 +11,7 @@
             </div>
             @endif
 
-            <div class="col-sm-7">
+            <div class="col-sm-8">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <table width="100%">
@@ -26,105 +26,186 @@
                     </div>
                     <div class="panel-body">
                         @if ($position->video)
-                        <iframe></iframe>
+                        <div class="video-container">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ $position->video }}" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <br/>
                         @endif
                         @if ($position->salary)
-                        <p class="col-sm-3">
-                            <strong>Salary:</strong>
-                        </p>
-                        <p class="col-sm-9">
-                            {{ $position->salary }}
-                        </p>
+                        <div class="row">
+                            <p class="col-sm-3">
+                                <strong>Salary:</strong>
+                            </p>
+                            <p class="col-sm-9">
+                                {{ $position->salary }}
+                            </p>
+                        </div>
                         @endif
-                        <p class="col-sm-3">
-                            <strong>Application Details:</strong>
-                        </p>
-                        <p class="col-sm-9">
-                            {{ $position->application_details }}
-                        </p>
+                        <div class="row">
+                            <p class="col-sm-3">
+                                <strong>Application Details:</strong>
+                            </p>
+                            <p class="col-sm-9">
+                                {!! nl2br(html_entity_decode($position->application_details, ENT_QUOTES, 'UTF-8')) !!}
+                            </p>
+                        </div>
                         @if ($position->testing_details)
-                        <p class="col-sm-3">
-                            <strong>Testing Details:</strong>
-                        </p>
-                        <p class="col-sm-9">
-                            {{ $position->testing_details }}
-                        </p>
+                        <div class="row">
+                            <p class="col-sm-3">
+                                <strong>Testing Details:</strong>
+                            </p>
+                            <p class="col-sm-9">
+                                {!! nl2br(html_entity_decode($position->testing_details, ENT_QUOTES, 'UTF-8')) !!}
+                            </p>
+                        </div>
                         @endif
                         @if ($position->orientation_details)
-                        <p class="col-sm-3">
-                            <strong>Orientation Details:</strong>
-                        </p>
-                        <p class="col-sm-9">
-                            {{ $position->orientation_details }}
-                        </p>
+                        <div class="row">
+                            <p class="col-sm-3">
+                                <strong>Orientation Details:</strong>
+                            </p>
+                            <p class="col-sm-9">
+                                {!! nl2br(html_entity_decode($position->orientation_details, ENT_QUOTES, 'UTF-8')) !!}
+                            </p>
+                        </div>
                         @endif
                         @if ($position->requirements)
-                        <p class="col-sm-3">
-                            <strong>Duties / Requirements:</strong>
-                        </p>
-                        <p class="col-sm-9">
-                            {{ $position->requirements }}
-                        </p>
+                        <div class="row">
+                            <p class="col-sm-3">
+                                <strong>Duties / Requirements:</strong>
+                            </p>
+                            <p class="col-sm-9">
+                                {!! nl2br(html_entity_decode($position->requirements, ENT_QUOTES, 'UTF-8')) !!}
+                            </p>
+                        </div>
                         @endif
                         @if ($position->qualifications)
-                        <p class="col-sm-3">
-                            <strong>Qualifications:</strong>
-                        </p>
-                        <p class="col-sm-9">
-                            {{ $position->qualifications }}
-                        </p>
+                        <div class="row">
+                            <p class="col-sm-3">
+                                <strong>Qualifications:</strong>
+                            </p>
+                            <p class="col-sm-9">
+                                {!! nl2br(html_entity_decode($position->qualifications, ENT_QUOTES, 'UTF-8')) !!}
+                            </p>
+                        </div>
                         @endif
                         @if ($position->residency_requirements)
-                        <p class="col-sm-3">
-                            <strong>Residency Requirements:</strong>
-                        </p>
-                        <p class="col-sm-9">
-                            {{ $position->residency_requirements }}
-                        </p>
+                        <div class="row">
+                            <p class="col-sm-3">
+                                <strong>Residency Requirements:</strong>
+                            </p>
+                            <p class="col-sm-9">
+                                {!! nl2br(html_entity_decode($position->residency_requirements, ENT_QUOTES, 'UTF-8')) !!}
+                            </p>
+                        </div>
                         @endif
                         @if ($position->doc1_title && $position->doc1_url)
-                        <a href="{{ $position->doc1_url }}">{{ $position->doc1_title }}</a>
+                        <div class="row">
+                            <div class="col-sm-9 col-sm-offset-3">
+                                <a href="{{ $position->doc1_url }}">{{ $position->doc1_title }}</a>
+                            </div>
+                        </div>
+                        <br/>
                         @endif
                         @if (! $position->doc1_title && $position->doc1_url)
-                        <a href="{{ $position->doc1_url }}">{{ $position->doc1_url }}</a>
+                        <div class="row">
+                            <div class="col-sm-9 col-sm-offset-3">
+                                <a href="{{ $position->doc1_url }}">{{ $position->doc1_url }}</a>
+                            </div>
+                        </div>
+                        <br/>
                         @endif
                         @if ($position->doc2_title && $position->doc2_url)
-                        <a href="{{ $position->doc2_url }}">{{ $position->doc2_title }}</a>
+                        <div class="row">
+                            <div class="col-sm-9 col-sm-offset-3">
+                                <a href="{{ $position->doc2_url }}">{{ $position->doc2_title }}</a>
+                            </div>
+                        </div>
+                        <br/>
                         @endif
                         @if (! $position->doc2_title && $position->doc2_url)
-                        <a href="{{ $position->doc2_url }}">{{ $position->doc2_url }}</a>
+                        <div class="row">
+                            <div class="col-sm-9 col-sm-offset-3">
+                                <a href="{{ $position->doc2_url }}">{{ $position->doc2_url }}</a>
+                            </div>
+                        </div>
+                        <br/>
                         @endif
                         @if ($position->doc3_title && $position->doc3_url)
-                        <a href="{{ $position->doc3_url }}">{{ $position->doc3_title }}</a>
+                        <div class="row">
+                            <div class="col-sm-9 col-sm-offset-3">
+                                <a href="{{ $position->doc3_url }}">{{ $position->doc3_title }}</a>
+                            </div>
+                        </div>
+                        <br/>
                         @endif
                         @if (! $position->doc3_title && $position->doc3_url)
-                        <a href="{{ $position->doc3_url }}">{{ $position->doc3_url }}</a>
+                        <div class="row">
+                            <div class="col-sm-9 col-sm-offset-3">
+                                <a href="{{ $position->doc3_url }}">{{ $position->doc3_url }}</a>
+                            </div>
+                        </div>
+                        <br/>
                         @endif
                         @if ($position->doc4_title && $position->doc4_url)
-                        <a href="{{ $position->doc4_url }}">{{ $position->doc4_title }}</a>
+                        <div class="row">
+                            <div class="col-sm-9 col-sm-offset-3">
+                                <a href="{{ $position->doc4_url }}">{{ $position->doc4_title }}</a>
+                            </div>
+                        </div>
+                        <br/>
                         @endif
                         @if (! $position->doc4_title && $position->doc4_url)
-                        <a href="{{ $position->doc4_url }}">{{ $position->doc4_url }}</a>
+                        <div class="row">
+                            <div class="col-sm-9 col-sm-offset-3">
+                                <a href="{{ $position->doc4_url }}">{{ $position->doc4_url }}</a>
+                            </div>
+                        </div>
+                        <br/>
                         @endif
                         @if ($position->doc5_title && $position->doc5_url)
-                        <a href="{{ $position->doc5_url }}">{{ $position->doc5_title }}</a>
+                        <div class="row">
+                            <div class="col-sm-9 col-sm-offset-3">
+                                <a href="{{ $position->doc5_url }}">{{ $position->doc5_title }}</a>
+                            </div>
+                        </div>
+                        <br/>
                         @endif
                         @if (! $position->doc5_title && $position->doc5_url)
-                        <a href="{{ $position->doc5_url }}">{{ $position->doc5_url }}</a>
+                        <div class="row">
+                            <div class="col-sm-9 col-sm-offset-3">
+                                <a href="{{ $position->doc5_url }}">{{ $position->doc5_url }}</a>
+                            </div>
+                        </div>
+                        <br/>
                         @endif
                         @if ($position->doc6_title && $position->doc6_url)
-                        <a href="{{ $position->doc6_url }}">{{ $position->doc6_title }}</a>
+                        <div class="row">
+                            <div class="col-sm-9 col-sm-offset-3">
+                                <a href="{{ $position->doc6_url }}">{{ $position->doc6_title }}</a>
+                            </div>
+                        </div>
+                        <br/>
                         @endif
                         @if (! $position->doc6_title && $position->doc6_url)
-                        <a href="{{ $position->doc6_url }}">{{ $position->doc6_url }}</a>
+                        <div class="row">
+                            <div class="col-sm-9 col-sm-offset-3">
+                                <a href="{{ $position->doc6_url }}">{{ $position->doc6_url }}</a>
+                            </div>
+                        </div>
+                        <br/>
                         @endif
                         @if ($position->apply_link)
-                        <a class="btn btn-primary" href="{{ $position->apply_link }}">Apply</a>
+                        <div class="row">
+                            <div class="col-sm-9 col-sm-offset-3">
+                                <a class="btn btn-primary" href="{{ $position->apply_link }}" target="_blank">Apply</a>
+                            </div>
+                        </div>
                         @endif
                     </div>
                 </div>
             </div>
-            <div class="col-sm-5">
+            <div class="col-sm-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <table width="100%">
