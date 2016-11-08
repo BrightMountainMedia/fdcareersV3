@@ -103,9 +103,9 @@ class SettingsPositionController extends Controller
             'applications_available_end' => $request->applications_available_end, 
             'publish' => $publish,
             'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
+            'updated_at' => Carbon::now(),
             'featured' => $request->featured, 
-            'active' => 1,
+            'active' => 1
         ]);
 
         $position = Position::find($positionId);
@@ -183,9 +183,9 @@ class SettingsPositionController extends Controller
                 'duedate' => $request->duedate, 
                 'applications_available_start' => $request->applications_available_start, 
                 'applications_available_end' => $request->applications_available_end, 
-                'updated_at' => Carbon::now()
+                'updated_at' => Carbon::now(),
                 'featured' => $request->featured, 
-                'active' => $request->active,
+                'active' => $request->active
             ]);
     }
 

@@ -109,48 +109,21 @@ Vue.component('update-position-info', {
             form: $.extend(true, new SparkForm({
                 department_id: '',
                 title: '',
+                salary: '',
                 position_type: 'full-time',
                 state: '',
                 ending: 'untilFilled',
                 duedate: '',
                 application_details: '',
-                qualifications_to_apply: '',
+                testing_details: '',
+                orientation_details: '',
+                requirements: '',
+                qualifications: '',
+                residency_requirements: '',
                 applications_available_start: '',
                 applications_available_end: '',
-                residency_requirements: '',
-                where_to_get_apps_label: '',
-                where_to_get_apps_address1: '',
-                where_to_get_apps_address2: '',
-                where_to_get_apps_city: '',
-                where_to_get_apps_state: '',
-                where_to_get_apps_zip: '',
-                where_to_return_apps_label: '',
-                where_to_return_apps_address1: '',
-                where_to_return_apps_address2: '',
-                where_to_return_apps_city: '',
-                where_to_return_apps_state: '',
-                where_to_return_apps_zip: '',
-                orientation_details: '',
-                orientation_label: '',
-                orientation_address1: '',
-                orientation_address2: '',
-                orientation_city: '',
-                orientation_state: '',
-                orientation_zip: '',
-                written_exam_details: '',
-                written_exam_label: '',
-                written_exam_address1: '',
-                written_exam_address2: '',
-                written_exam_city: '',
-                written_exam_state: '',
-                written_exam_zip: '',
-                physical_details: '',
-                physical_label: '',
-                physical_address1: '',
-                physical_address2: '',
-                physical_city: '',
-                physical_state: '',
-                physical_zip: '',
+                video: '',
+                apply_link: '',
                 featured: '0',
                 active: '1',
             }), Spark.forms.updatePositionInformation)
@@ -165,48 +138,21 @@ Vue.component('update-position-info', {
 
         this.form.department_id = this.position.department_id;
         this.form.title = this.position.title;
+        this.form.salary = this.position.salary;
         this.form.position_type = this.position.position_type;
         this.form.state = this.position.state;
         this.form.ending = this.position.ending;
         this.form.duedate = this.position.duedate;
         this.form.application_details = this.position.application_details;
-        this.form.qualifications_to_apply = this.position.qualifications_to_apply;
+        this.form.testing_details = this.position.testing_details;
+        this.form.orientation_details = this.position.orientation_details;
+        this.form.requirements = this.position.requirements;
+        this.form.qualifications = this.position.qualifications;
+        this.form.residency_requirements = this.position.residency_requirements;
         this.form.applications_available_start = this.position.applications_available_start;
         this.form.applications_available_end = this.position.applications_available_end;
-        this.form.residency_requirements = this.position.residency_requirements;
-        this.form.where_to_get_apps_label = this.position.where_to_get_apps_label;
-        this.form.where_to_get_apps_address1 = this.position.where_to_get_apps_address1;
-        this.form.where_to_get_apps_address2 = this.position.where_to_get_apps_address2;
-        this.form.where_to_get_apps_city = this.position.where_to_get_apps_city;
-        this.form.where_to_get_apps_state = this.where_to_get_apps_state;
-        this.form.where_to_get_apps_zip = this.position.where_to_get_apps_zip;
-        this.form.where_to_return_apps_label = this.position.where_to_return_apps_label;
-        this.form.where_to_return_apps_address1 = this.position.where_to_return_apps_address1;
-        this.form.where_to_return_apps_address2 = this.position.where_to_return_apps_address2;
-        this.form.where_to_return_apps_city = this.position.where_to_return_apps_city;
-        this.form.where_to_return_apps_state = this.where_to_return_apps_state;
-        this.form.where_to_return_apps_zip = this.position.where_to_return_apps_zip;
-        this.form.orientation_details = this.position.orientation_details;
-        this.form.orientation_label = this.position.orientation_label;
-        this.form.orientation_address1 = this.position.orientation_address1;
-        this.form.orientation_address2 = this.position.orientation_address2;
-        this.form.orientation_city = this.position.orientation_city;
-        this.form.orientation_state = this.orientation_state;
-        this.form.orientation_zip = this.position.orientation_zip;
-        this.form.written_exam_details = this.position.written_exam_details;
-        this.form.written_exam_label = this.position.written_exam_label;
-        this.form.written_exam_address1 = this.position.written_exam_address1;
-        this.form.written_exam_address2 = this.position.written_exam_address2;
-        this.form.written_exam_city = this.position.written_exam_city;
-        this.form.written_exam_state = this.written_exam_state;
-        this.form.written_exam_zip = this.position.written_exam_zip;
-        this.form.physical_details = this.position.physical_details;
-        this.form.physical_label = this.position.physical_label;
-        this.form.physical_address1 = this.position.physical_address1;
-        this.form.physical_address2 = this.position.physical_address2;
-        this.form.physical_city = this.position.physical_city;
-        this.form.physical_state = this.physical_state;
-        this.form.physical_zip = this.position.physical_zip;
+        this.form.video = this.position.video;
+        this.form.apply_link = this.position.apply_link;
         this.form.featured = this.position.featured;
         this.form.active = this.position.active;
     },

@@ -37,6 +37,19 @@
                     </div>
                 </div>
 
+                <!-- Position Salary -->
+                <div class="form-group" :class="{'has-error': form.errors.has('salary')}">
+                    <label class="col-md-4 control-label">Salary</label>
+
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" name="salary" v-model="form.salary">
+
+                        <span class="help-block" v-show="form.errors.has('salary')">
+                            @{{ form.errors.get('salary') }}
+                        </span>
+                    </div>
+                </div>
+
                 <!-- Position Type -->
                 <div class="form-group" :class="{'has-error': form.errors.has('position_type')}">
                     <label class="col-md-4 control-label">Position Type</label>
@@ -73,7 +86,7 @@
 
                 <!-- Ending -->
                 <div class="form-group" :class="{'has-error': form.errors.has('ending')}">
-                    <label class="col-md-4 control-label">Application Ends</label>
+                    <label class="col-md-4 control-label">Ending</label>
 
                     <div class="col-md-6">
                         <select class="form-control" name="ending" v-model="form.ending">
@@ -114,15 +127,67 @@
                     </div>
                 </div>
 
-                <!-- Qualifications to Apply -->
-                <div class="form-group" :class="{'has-error': form.errors.has('qualifications_to_apply')}">
-                    <label class="col-md-4 control-label">Qualifications to Apply</label>
+                <!-- Testing Details -->
+                <div class="form-group" :class="{'has-error': form.errors.has('testing_details')}">
+                    <label class="col-md-4 control-label">Testing Details</label>
 
                     <div class="col-md-6">
-                        <textarea class="form-control" name="qualifications_to_apply" v-model="form.qualifications_to_apply" rows="8"></textarea>
+                        <textarea class="form-control" name="testing_details" v-model="form.testing_details" rows="8"></textarea>
 
-                        <span class="help-block" v-show="form.errors.has('qualifications_to_apply')">
-                            @{{ form.errors.get('qualifications_to_apply') }}
+                        <span class="help-block" v-show="form.errors.has('testing_details')">
+                            @{{ form.errors.get('testing_details') }}
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Orientation Details -->
+                <div class="form-group" :class="{'has-error': form.errors.has('orientation_details')}">
+                    <label class="col-md-4 control-label">Orientation Details</label>
+
+                    <div class="col-md-6">
+                        <textarea class="form-control" name="orientation_details" v-model="form.orientation_details" rows="8"></textarea>
+
+                        <span class="help-block" v-show="form.errors.has('orientation_details')">
+                            @{{ form.errors.get('orientation_details') }}
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Duties / Requirements -->
+                <div class="form-group" :class="{'has-error': form.errors.has('requirements')}">
+                    <label class="col-md-4 control-label">Duties / Requirements</label>
+
+                    <div class="col-md-6">
+                        <textarea class="form-control" name="requirements" v-model="form.requirements" rows="8"></textarea>
+
+                        <span class="help-block" v-show="form.errors.has('requirements')">
+                            @{{ form.errors.get('requirements') }}
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Qualifications -->
+                <div class="form-group" :class="{'has-error': form.errors.has('qualifications')}">
+                    <label class="col-md-4 control-label">Qualifications</label>
+
+                    <div class="col-md-6">
+                        <textarea class="form-control" name="qualifications" v-model="form.qualifications" rows="8"></textarea>
+
+                        <span class="help-block" v-show="form.errors.has('qualifications')">
+                            @{{ form.errors.get('qualifications') }}
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Residency Requirements -->
+                <div class="form-group" :class="{'has-error': form.errors.has('residency_requirements')}">
+                    <label class="col-md-4 control-label">Residency Requirements</label>
+
+                    <div class="col-md-6">
+                        <textarea class="form-control" name="residency_requirements" v-model="form.residency_requirements" rows="8"></textarea>
+
+                        <span class="help-block" v-show="form.errors.has('residency_requirements')">
+                            @{{ form.errors.get('residency_requirements') }}
                         </span>
                     </div>
                 </div>
@@ -153,464 +218,28 @@
                     </div>
                 </div>
 
-                <!-- Residency Requirements -->
-                <div class="form-group" :class="{'has-error': form.errors.has('residency_requirements')}">
-                    <label class="col-md-4 control-label">Residency Requirements</label>
+                <!-- Video -->
+                <div class="form-group" :class="{'has-error': form.errors.has('video')}">
+                    <label class="col-md-4 control-label">Video</label>
 
                     <div class="col-md-6">
-                        <input type="text" class="form-control" name="residency_requirements" v-model="form.residency_requirements">
+                        <input type="text" class="form-control" name="video" v-model="form.video">
 
-                        <span class="help-block" v-show="form.errors.has('residency_requirements')">
-                            @{{ form.errors.get('residency_requirements') }}
+                        <span class="help-block" v-show="form.errors.has('video')">
+                            @{{ form.errors.get('video') }}
                         </span>
                     </div>
                 </div>
 
-                <!-- Where to get Apps Label -->
-                <div class="form-group" :class="{'has-error': form.errors.has('where_to_get_apps_label')}">
-                    <label class="col-md-4 control-label">Where to get Apps Label</label>
+                <!-- Apply Link -->
+                <div class="form-group" :class="{'has-error': form.errors.has('apply_link')}">
+                    <label class="col-md-4 control-label">Apply Link</label>
 
                     <div class="col-md-6">
-                        <input type="text" class="form-control" name="where_to_get_apps_label" v-model="form.where_to_get_apps_label">
+                        <input type="text" class="form-control" name="apply_link" v-model="form.apply_link">
 
-                        <span class="help-block" v-show="form.errors.has('where_to_get_apps_label')">
-                            @{{ form.errors.get('where_to_get_apps_label') }}
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Where to get Apps Address1 -->
-                <div class="form-group" :class="{'has-error': form.errors.has('where_to_get_apps_address1')}">
-                    <label class="col-md-4 control-label">Where to get Apps Address1</label>
-
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" name="where_to_get_apps_address1" v-model="form.where_to_get_apps_address1">
-
-                        <span class="help-block" v-show="form.errors.has('where_to_get_apps_address1')">
-                            @{{ form.errors.get('where_to_get_apps_address1') }}
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Where to get Apps Address2 -->
-                <div class="form-group" :class="{'has-error': form.errors.has('where_to_get_apps_address2')}">
-                    <label class="col-md-4 control-label">Where to get Apps Address2</label>
-
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" name="where_to_get_apps_address2" v-model="form.where_to_get_apps_address2">
-
-                        <span class="help-block" v-show="form.errors.has('where_to_get_apps_address2')">
-                            @{{ form.errors.get('where_to_get_apps_address2') }}
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Where to get Apps City -->
-                <div class="form-group" :class="{'has-error': form.errors.has('where_to_get_apps_city')}">
-                    <label class="col-md-4 control-label">Where to get Apps City</label>
-
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" name="where_to_get_apps_city" v-model="form.where_to_get_apps_city">
-
-                        <span class="help-block" v-show="form.errors.has('where_to_get_apps_city')">
-                            @{{ form.errors.get('where_to_get_apps_city') }}
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Where to get Apps State -->
-                <div class="form-group" :class="{'has-error': form.errors.has('where_to_get_apps_state')}">
-                    <label class="col-md-4 control-label">Where to get Apps State</label>
-
-                    <div class="col-md-6">
-                        <select class="form-control" name="where_to_get_apps_state" v-model="form.where_to_get_apps_state">
-                            <option v-for="state_option in state_options" v-bind:value="state_option.value">
-                                @{{ state_option.text }}
-                            </option>
-                        </select>
-
-                        <span class="help-block" v-show="form.errors.has('where_to_get_apps_state')">
-                            @{{ form.errors.get('where_to_get_apps_state') }}
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Where to get Apps Zip -->
-                <div class="form-group" :class="{'has-error': form.errors.has('where_to_get_apps_zip')}">
-                    <label class="col-md-4 control-label">Where to get Apps Zip</label>
-
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" name="where_to_get_apps_zip" v-model="form.where_to_get_apps_zip">
-
-                        <span class="help-block" v-show="form.errors.has('where_to_get_apps_zip')">
-                            @{{ form.errors.get('where_to_get_apps_zip') }}
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Where to return Apps Label -->
-                <div class="form-group" :class="{'has-error': form.errors.has('where_to_return_apps_label')}">
-                    <label class="col-md-4 control-label">Where to return Apps Label</label>
-
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" name="where_to_return_apps_label" v-model="form.where_to_return_apps_label">
-
-                        <span class="help-block" v-show="form.errors.has('where_to_return_apps_label')">
-                            @{{ form.errors.get('where_to_return_apps_label') }}
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Where to return Apps Address1 -->
-                <div class="form-group" :class="{'has-error': form.errors.has('where_to_return_apps_address1')}">
-                    <label class="col-md-4 control-label">Where to return Apps Address1</label>
-
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" name="where_to_return_apps_address1" v-model="form.where_to_return_apps_address1">
-
-                        <span class="help-block" v-show="form.errors.has('where_to_return_apps_address1')">
-                            @{{ form.errors.get('where_to_return_apps_address1') }}
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Where to return Apps Address2 -->
-                <div class="form-group" :class="{'has-error': form.errors.has('where_to_return_apps_address2')}">
-                    <label class="col-md-4 control-label">Where to return Apps Address2</label>
-
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" name="where_to_return_apps_address2" v-model="form.where_to_return_apps_address2">
-
-                        <span class="help-block" v-show="form.errors.has('where_to_return_apps_address2')">
-                            @{{ form.errors.get('where_to_return_apps_address2') }}
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Where to return Apps City -->
-                <div class="form-group" :class="{'has-error': form.errors.has('where_to_return_apps_city')}">
-                    <label class="col-md-4 control-label">Where to return Apps City</label>
-
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" name="where_to_return_apps_city" v-model="form.where_to_return_apps_city">
-
-                        <span class="help-block" v-show="form.errors.has('where_to_return_apps_city')">
-                            @{{ form.errors.get('where_to_return_apps_city') }}
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Where to return Apps State -->
-                <div class="form-group" :class="{'has-error': form.errors.has('where_to_return_apps_state')}">
-                    <label class="col-md-4 control-label">Where to return Apps State</label>
-
-                    <div class="col-md-6">
-                        <select class="form-control" name="where_to_return_apps_state" v-model="form.where_to_return_apps_state">
-                            <option v-for="state_option in state_options" v-bind:value="state_option.value">
-                                @{{ state_option.text }}
-                            </option>
-                        </select>
-
-                        <span class="help-block" v-show="form.errors.has('where_to_return_apps_state')">
-                            @{{ form.errors.get('where_to_return_apps_state') }}
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Where to return Apps Zip -->
-                <div class="form-group" :class="{'has-error': form.errors.has('where_to_return_apps_zip')}">
-                    <label class="col-md-4 control-label">Where to return Apps Zip</label>
-
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" name="where_to_return_apps_zip" v-model="form.where_to_return_apps_zip">
-
-                        <span class="help-block" v-show="form.errors.has('where_to_return_apps_zip')">
-                            @{{ form.errors.get('where_to_return_apps_zip') }}
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Orientation Details -->
-                <div class="form-group" :class="{'has-error': form.errors.has('orientation_details')}">
-                    <label class="col-md-4 control-label">Orientation Details</label>
-
-                    <div class="col-md-6">
-                        <textarea class="form-control" name="orientation_details" v-model="form.orientation_details" rows="8"></textarea>
-
-                        <span class="help-block" v-show="form.errors.has('orientation_details')">
-                            @{{ form.errors.get('orientation_details') }}
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Orientation Label -->
-                <div class="form-group" :class="{'has-error': form.errors.has('orientation_label')}">
-                    <label class="col-md-4 control-label">Orientation Label</label>
-
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" name="orientation_label" v-model="form.orientation_label">
-
-                        <span class="help-block" v-show="form.errors.has('orientation_label')">
-                            @{{ form.errors.get('orientation_label') }}
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Orientation Address1 -->
-                <div class="form-group" :class="{'has-error': form.errors.has('orientation_address1')}">
-                    <label class="col-md-4 control-label">Orientation Address1</label>
-
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" name="orientation_address1" v-model="form.orientation_address1">
-
-                        <span class="help-block" v-show="form.errors.has('orientation_address1')">
-                            @{{ form.errors.get('orientation_address1') }}
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Orientation Address2 -->
-                <div class="form-group" :class="{'has-error': form.errors.has('orientation_address2')}">
-                    <label class="col-md-4 control-label">Orientation Address2</label>
-
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" name="orientation_address2" v-model="form.orientation_address2">
-
-                        <span class="help-block" v-show="form.errors.has('orientation_address2')">
-                            @{{ form.errors.get('orientation_address2') }}
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Orientation City -->
-                <div class="form-group" :class="{'has-error': form.errors.has('orientation_city')}">
-                    <label class="col-md-4 control-label">Orientation City</label>
-
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" name="orientation_city" v-model="form.orientation_city">
-
-                        <span class="help-block" v-show="form.errors.has('orientation_city')">
-                            @{{ form.errors.get('orientation_city') }}
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Orientation State -->
-                <div class="form-group" :class="{'has-error': form.errors.has('orientation_state')}">
-                    <label class="col-md-4 control-label">Orientation State</label>
-
-                    <div class="col-md-6">
-                        <select class="form-control" name="orientation_state" v-model="form.orientation_state">
-                            <option v-for="state_option in state_options" v-bind:value="state_option.value">
-                                @{{ state_option.text }}
-                            </option>
-                        </select>
-
-                        <span class="help-block" v-show="form.errors.has('orientation_state')">
-                            @{{ form.errors.get('orientation_state') }}
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Orientation Zip -->
-                <div class="form-group" :class="{'has-error': form.errors.has('orientation_zip')}">
-                    <label class="col-md-4 control-label">Orientation Zip</label>
-
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" name="orientation_zip" v-model="form.orientation_zip">
-
-                        <span class="help-block" v-show="form.errors.has('orientation_zip')">
-                            @{{ form.errors.get('orientation_zip') }}
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Written Exam Details -->
-                <div class="form-group" :class="{'has-error': form.errors.has('written_exam_details')}">
-                    <label class="col-md-4 control-label">Written Exam Details</label>
-
-                    <div class="col-md-6">
-                        <textarea class="form-control" name="written_exam_details" v-model="form.written_exam_details" rows="8"></textarea>
-
-                        <span class="help-block" v-show="form.errors.has('written_exam_details')">
-                            @{{ form.errors.get('written_exam_details') }}
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Written Exam Label -->
-                <div class="form-group" :class="{'has-error': form.errors.has('written_exam_label')}">
-                    <label class="col-md-4 control-label">Written Exam Label</label>
-
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" name="written_exam_label" v-model="form.written_exam_label">
-
-                        <span class="help-block" v-show="form.errors.has('written_exam_label')">
-                            @{{ form.errors.get('written_exam_label') }}
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Written Exam Address1 -->
-                <div class="form-group" :class="{'has-error': form.errors.has('written_exam_address1')}">
-                    <label class="col-md-4 control-label">Written Exam Address1</label>
-
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" name="written_exam_address1" v-model="form.written_exam_address1">
-
-                        <span class="help-block" v-show="form.errors.has('written_exam_address1')">
-                            @{{ form.errors.get('written_exam_address1') }}
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Written Exam Address2 -->
-                <div class="form-group" :class="{'has-error': form.errors.has('written_exam_address2')}">
-                    <label class="col-md-4 control-label">Written Exam Address2</label>
-
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" name="written_exam_address2" v-model="form.written_exam_address2">
-
-                        <span class="help-block" v-show="form.errors.has('written_exam_address2')">
-                            @{{ form.errors.get('written_exam_address2') }}
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Written Exam City -->
-                <div class="form-group" :class="{'has-error': form.errors.has('written_exam_city')}">
-                    <label class="col-md-4 control-label">Written Exam City</label>
-
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" name="written_exam_city" v-model="form.written_exam_city">
-
-                        <span class="help-block" v-show="form.errors.has('written_exam_city')">
-                            @{{ form.errors.get('written_exam_city') }}
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Written Exam State -->
-                <div class="form-group" :class="{'has-error': form.errors.has('written_exam_state')}">
-                    <label class="col-md-4 control-label">Written Exam State</label>
-
-                    <div class="col-md-6">
-                        <select class="form-control" name="written_exam_state" v-model="form.written_exam_state">
-                            <option v-for="state_option in state_options" v-bind:value="state_option.value">
-                                @{{ state_option.text }}
-                            </option>
-                        </select>
-
-                        <span class="help-block" v-show="form.errors.has('written_exam_state')">
-                            @{{ form.errors.get('written_exam_state') }}
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Written Exam Zip -->
-                <div class="form-group" :class="{'has-error': form.errors.has('written_exam_zip')}">
-                    <label class="col-md-4 control-label">Written Exam Zip</label>
-
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" name="written_exam_zip" v-model="form.written_exam_zip">
-
-                        <span class="help-block" v-show="form.errors.has('written_exam_zip')">
-                            @{{ form.errors.get('written_exam_zip') }}
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Physical Details -->
-                <div class="form-group" :class="{'has-error': form.errors.has('physical_details')}">
-                    <label class="col-md-4 control-label">Physical Details</label>
-
-                    <div class="col-md-6">
-                        <textarea class="form-control" name="physical_details" v-model="form.physical_details" rows="8"></textarea>
-
-                        <span class="help-block" v-show="form.errors.has('physical_details')">
-                            @{{ form.errors.get('physical_details') }}
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Physical Label -->
-                <div class="form-group" :class="{'has-error': form.errors.has('physical_label')}">
-                    <label class="col-md-4 control-label">Physical Label</label>
-
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" name="physical_label" v-model="form.physical_label">
-
-                        <span class="help-block" v-show="form.errors.has('physical_label')">
-                            @{{ form.errors.get('physical_label') }}
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Physical Address1 -->
-                <div class="form-group" :class="{'has-error': form.errors.has('physical_address1')}">
-                    <label class="col-md-4 control-label">Physical Address1</label>
-
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" name="physical_address1" v-model="form.physical_address1">
-
-                        <span class="help-block" v-show="form.errors.has('physical_address1')">
-                            @{{ form.errors.get('physical_address1') }}
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Physical Address2 -->
-                <div class="form-group" :class="{'has-error': form.errors.has('physical_address2')}">
-                    <label class="col-md-4 control-label">Physical Address2</label>
-
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" name="physical_address2" v-model="form.physical_address2">
-
-                        <span class="help-block" v-show="form.errors.has('physical_address2')">
-                            @{{ form.errors.get('physical_address2') }}
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Physical City -->
-                <div class="form-group" :class="{'has-error': form.errors.has('physical_city')}">
-                    <label class="col-md-4 control-label">Physical City</label>
-
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" name="physical_city" v-model="form.physical_city">
-
-                        <span class="help-block" v-show="form.errors.has('physical_city')">
-                            @{{ form.errors.get('physical_city') }}
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Physical State -->
-                <div class="form-group" :class="{'has-error': form.errors.has('physical_state')}">
-                    <label class="col-md-4 control-label">Physical State</label>
-
-                    <div class="col-md-6">
-                        <select class="form-control" name="physical_state" v-model="form.physical_state">
-                            <option v-for="state_option in state_options" v-bind:value="state_option.value">
-                                @{{ state_option.text }}
-                            </option>
-                        </select>
-
-                        <span class="help-block" v-show="form.errors.has('physical_state')">
-                            @{{ form.errors.get('physical_state') }}
-                        </span>
-                    </div>
-                </div>
-
-                <!-- Physical Zip -->
-                <div class="form-group" :class="{'has-error': form.errors.has('physical_zip')}">
-                    <label class="col-md-4 control-label">Physical Zip</label>
-
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" name="physical_zip" v-model="form.physical_zip">
-
-                        <span class="help-block" v-show="form.errors.has('physical_zip')">
-                            @{{ form.errors.get('physical_zip') }}
+                        <span class="help-block" v-show="form.errors.has('apply_link')">
+                            @{{ form.errors.get('apply_link') }}
                         </span>
                     </div>
                 </div>
