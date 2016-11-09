@@ -16,3 +16,7 @@ use Illuminate\Foundation\Inspiring;
 Artisan::command('inspire', function () {
     $this->comment(Inspiring::quote());
 })->describe('Display an inspiring quote');
+
+Artisan::command('positions:publish', function () {
+	$this->info('Publishing positions...');
+})->describe('Publish positions that are scheduled for this moment');

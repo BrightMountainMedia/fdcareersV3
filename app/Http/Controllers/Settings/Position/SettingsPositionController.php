@@ -37,7 +37,7 @@ class SettingsPositionController extends Controller
      */
     public function allDepartmentPositions($id)
     {
-        $positions = Position::where([['departmentId', $id],['active', '1']])->get();
+        $positions = Position::where(['departmentId', $id])->active()->get();
         
         return response()->json(['positions' => $positions]);
     }
@@ -49,7 +49,7 @@ class SettingsPositionController extends Controller
      */
     public function allInActiveDepartmentPositions($id)
     {
-        $positions = Position::where([['departmentId', $id],['active', '0']])->get();
+        $positions = Position::where(['departmentId', $id])->inActive()->get();
         
         return response()->json(['positions' => $positions]);
     }
@@ -82,7 +82,42 @@ class SettingsPositionController extends Controller
      */
     public function store(AddPositionRequest $request)
     {
-        $publish = Carbon::now();
+        if ($request->scheduled) {
+            $month = $request->publishmonth;
+            $day = strlen($request->publishday) == 1 ? '0'.$request->publishday : $request->publishday;
+            $year = $request->publishyear;
+            $hour = strlen($request->publishhour) == 1 ? '0'.$request->publishhour : $request->publishhour;
+            $minute = strlen($request->publishminute) == 1 ? '0'.$request->publishminute : $request->publishminute;
+
+
+            $publish = Carbon::setDateTime($year, $month, $day, $hour, $minute);
+            $active = 0;
+        } else {
+            $publish = Carbon::now();
+            $active = 1;
+        }
+
+        if ( $request->featured == 1 ) {
+            $count = FeaturedPosition::count();
+            if ( $count < 10 ) {
+                FeaturedPosition::insert([
+                    'position_id' => $id,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now()
+                ]);
+            } else if ( $count == 10 ) {
+                $oldest = FeaturedPosition::active()->orderBy('created_at', 'ASC')->first();
+                $position = Position::find($oldest->position_id);
+                $position->featured = 0;
+                $position->save();
+                $oldest->delete();
+                FeaturedPosition::insert([
+                    'position_id' => $id,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now()
+                ]);
+            }
+        }
 
         $video = $request->video;
         $video = explode('/', $video);
@@ -110,24 +145,27 @@ class SettingsPositionController extends Controller
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
             'featured' => $request->featured, 
-            'active' => 1
+            'active' => $active 
         ]);
 
         $position = Position::find($positionId);
-        $department = Department::find($position->department_id);
-        $users = User::where('notification_states', 'like', '%'.$position->state.'%')->get();
-        foreach ($users as $user) {
-            if ( $user->subscribed() && $user->app_notification ) {
-                $user->notify(new PositionPublishedAPP($position));
-            }
-            if ( $user->subscribed() && $user->email_notification ) {
-                $user->notify(new PositionPublishedMail($user, $position, $department));
-            }
-            if ( $user->subscribed() && $user->sms_notification ) {
-                $user->notify(new PositionPublishedSMS($position));
+
+        if ( $active ) {
+            $department = Department::find($position->department_id);
+            $users = User::where('notification_states', 'like', '%'.$position->state.'%')->get();
+            foreach ($users as $user) {
+                if ( $user->subscribed() && $user->app_notification ) {
+                    $user->notify(new PositionPublishedAPP($position));
+                }
+                if ( $user->subscribed() && $user->email_notification ) {
+                    $user->notify(new PositionPublishedMail($user, $position, $department));
+                }
+                if ( $user->subscribed() && $user->sms_notification ) {
+                    $user->notify(new PositionPublishedSMS($position));
+                }
             }
         }
-
+    
         return response()->json(['position' => $position]);
     }
 

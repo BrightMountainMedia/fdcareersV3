@@ -1,27 +1,29 @@
-function settingsAddPositionForm (department_id) {
-    var currentMonth = new Date().getMonth();
-    var currentDay = new Date().getDay();
-    var currentYear = new Date().getFullYear();
-    var currentHour = new Date().getHours();
-    var currentMinute = new Date().getMinutes();
-    return {
-        department_id: department_id,
-        position_type: 'full-time',
-        state: 'FL',
-        scheduled: '1',
-        ending: 'untilFilled',
-        where_to_get_apps_state: '',
-        where_to_return_apps_state: '',
-        orientation_state: '',
-        written_exam_state: '',
-        physical_state: '',
-        featured: '0',
-        publishmonth: currentMonth,
-        publishday: currentDay,
-        publishyear: currentYear,
-        publishhour: currentHour,
-	    publishminute: currentMinute,
-	};
+function settingsAddPositionForm (department) {
+    if ( department ) {
+    	var currentMonth = new Date().getMonth();
+	    var currentDay = new Date().getDay();
+	    var currentYear = new Date().getFullYear();
+	    var currentHour = new Date().getHours();
+	    var currentMinute = new Date().getMinutes();
+	    return {
+	        department_id: department.id,
+	        position_type: 'full-time',
+	        state: department.hq_state,
+	        scheduled: '0',
+	        ending: 'untilFilled',
+	        where_to_get_apps_state: '',
+	        where_to_return_apps_state: '',
+	        orientation_state: '',
+	        written_exam_state: '',
+	        physical_state: '',
+	        featured: '0',
+	        publishmonth: currentMonth,
+	        publishday: currentDay,
+	        publishyear: currentYear,
+	        publishhour: currentHour,
+		    publishminute: currentMinute,
+		};
+    }
 }
 
 Vue.component('add-position', {
@@ -110,22 +112,22 @@ Vue.component('add-position', {
 	        	{ text: 'No', value: '0' }
 	        ],
 	        scheduled_options: [
-	        	{ text: 'Immediately', value: '1' },
-	        	{ text: 'Future', value: '0' }
+	        	{ text: 'Immediately', value: '0' },
+	        	{ text: 'Future', value: '1' }
 	        ],
 	        publish_options: [
-	        	{ text: '01-Jan', value: '0' },
-	        	{ text: '02-Feb', value: '1' },
-	        	{ text: '03-Mar', value: '2' },
-	        	{ text: '04-Apr', value: '3' },
-	        	{ text: '05-May', value: '4' },
-	        	{ text: '06-Jun', value: '5' },
-	        	{ text: '07-Jul', value: '6' },
-	        	{ text: '08-Aug', value: '7' },
-	        	{ text: '09-Sep', value: '8' },
-	        	{ text: '10-Oct', value: '9' },
-	        	{ text: '11-Nov', value: '10' },
-	        	{ text: '12-Dec', value: '11' }
+	        	{ text: '01-Jan', value: '01' },
+	        	{ text: '02-Feb', value: '02' },
+	        	{ text: '03-Mar', value: '03' },
+	        	{ text: '04-Apr', value: '04' },
+	        	{ text: '05-May', value: '05' },
+	        	{ text: '06-Jun', value: '06' },
+	        	{ text: '07-Jul', value: '07' },
+	        	{ text: '08-Aug', value: '08' },
+	        	{ text: '09-Sep', value: '09' },
+	        	{ text: '10-Oct', value: '10' },
+	        	{ text: '11-Nov', value: '11' },
+	        	{ text: '12-Dec', value: '12' }
 	        ],
             form: new SparkForm(settingsAddPositionForm())
         };
@@ -137,8 +139,8 @@ Vue.component('add-position', {
     created() {
         var self = this;
 
-        Bus.$on('addPosition', function (department_id) {
-            self.form = new SparkForm(settingsAddPositionForm(department_id));
+        Bus.$on('addPosition', function (department) {
+            self.form = new SparkForm(settingsAddPositionForm(department));
 
             self.addingPosition = true;
 
