@@ -9,7 +9,7 @@
                     Your Document 3 Label has been updated!
                 </div>
 
-                <form class="form-horizontal" role="form" v-if="position.doc3_title">
+                <form class="form-horizontal" role="form" v-if="position.doc3_url">
                     <!-- Document 3 -->
                     <div class="form-group" :class="{'has-error': labelForm.errors.has('doc3_title')}">
                         <label class="col-md-2 control-label">Label:</label>
@@ -43,7 +43,7 @@
                     @{{ urlForm.errors.get('doc3_url') }}
                 </div>
 
-                <form class="form-horizontal" role="form" v-if="position.doc3_title">
+                <form class="form-horizontal" role="form" v-if="position.doc3_url">
                     <div class="form-group" v-show="position.doc3_url">
                         <label class="col-md-2 control-label">Link:</label>
 
@@ -71,7 +71,7 @@
                     @{{ dualForm.errors.get('doc3_url') }}
                 </div>
 
-                <form class="form-horizontal" role="form" v-if="! position.doc3_title">
+                <form class="form-horizontal" role="form" v-if="! position.doc3_url">
                     <!-- Document 3 -->
                     <div class="form-group">
                         <label class="col-md-2 control-label">Label:</label>
