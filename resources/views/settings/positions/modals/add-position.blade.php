@@ -663,7 +663,7 @@
                         </form>
                     </div>
 
-                    <center><note>After you save the position, you will be able to upload your documents.</note></center>
+                    <p class="bg-info align-center">After you save the position, you will be able to upload your documents.</p>
 
                     <!-- Modal Actions -->
                     <div class="modal-footer">

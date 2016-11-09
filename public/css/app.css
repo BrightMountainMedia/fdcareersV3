@@ -7400,6 +7400,12 @@ body {
 .required {
   color: #a61326;
 }
+.align-center {
+  text-align: center;
+}
+.align-right {
+  text-align: right;
+}
 .department-photo-xs {
   width: 80px;
   height: 80px;
@@ -7450,9 +7456,6 @@ body {
   color: #353535;
   cursor: pointer;
   text-decoration: none;
-}
-.panel-default .panel-heading .align-right {
-  text-align: right;
 }
 .panel-default .panel-subheading {
   background-color: #f3f1e6;
