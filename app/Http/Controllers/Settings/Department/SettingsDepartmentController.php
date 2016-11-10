@@ -143,11 +143,14 @@ class SettingsDepartmentController extends Controller
     public function show($id)
     {
         $department = Department::where('id', $id)->first();
-        $positions = Position::where('department_id', $id)->get();
         $user = Auth::user();
 
         if ($department->owner_id === $user->id) {
-            return response()->json(['department' => $department, 'positions' => $positions]);
+            $positions = Position::where('department_id', $id)->published()->active()->get();
+            $scheduled = Position::where('department_id', $id)->scheduled()->inActive()->orderBy('publish', 'ASC')->get();
+            $inactive = Position::where('department_id', $id)->published()->inActive()->get();
+
+            return response()->json(['department' => $department, 'positions' => $positions, 'scheduled' => $scheduled, 'inactive' => $inactive]);
         }
 
         return response()->json(['error' => 'You are unauthorized to modify this department. Please contact your department head if you believe this to be an error.']);

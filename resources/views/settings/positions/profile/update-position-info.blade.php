@@ -84,6 +84,28 @@
                     </div>
                 </div>
 
+                <!-- Publish -->
+                <div class="form-group" :class="{'has-error': form.errors.has('publish')}" v-if="form.active == 0 && form.publish > today()">
+                    <label class="col-md-4 control-label">Publish</label>
+                    
+                    <div class="col-md-2">
+                        <select class="form-control" name="publishmonth" v-model="form.publishmonth">
+                            <option v-for="publish_option in publish_options" v-bind:value="publish_option.value">
+                                @{{ publish_option.text }}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="text" name="publishday" v-model="form.publishday" size="3">, 
+                        <input type="text" name="publishyear" v-model="form.publishyear" size="4"> @
+                        <input type="text" name="publishhour" v-model="form.publishhour" size="2"> :
+                        <input type="text" name="publishminute" v-model="form.publishminute" size="2">
+                    </div>
+                    <span class="help-block" v-show="form.errors.has('publish')">
+                        @{{ form.errors.get('publish') }}
+                    </span>
+                </div>
+
                 <!-- Ending -->
                 <div class="form-group" :class="{'has-error': form.errors.has('ending')}">
                     <label class="col-md-4 control-label">Ending</label>

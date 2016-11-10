@@ -156,13 +156,32 @@
             </div>
             <div class="col-sm-5">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Positions</div>
+                    <div class="panel-heading">Full Time, Paid-On-Call and Contractor Positions</div>
                     <div class="panel-body">
+                        @if (isset($paidPositions) && count($paidPositions) > 0)
                         <ul>
-                            @foreach ($positions as $position)
+                            @foreach ($paidPositions as $position)
                                 <li><a href="/position/{{ $position->id }}">{{ $position->title }}</a> (<span class="capitalize">{{ $position->position_type }}</span>)</li>
                             @endforeach
                         </ul>
+                        @else
+                        <p>Unfortunately, there aren't any Full Time, Paid-On-Call or Contractor positions to display at this time.</p>
+                        @endif
+                    </div>
+                </div>
+
+                <div class="panel panel-default">
+                    <div class="panel-heading">Part Time and Volunteer Positions</div>
+                    <div class="panel-body">
+                        @if (isset($unpaidPositions) && count($unpaidPositions) > 0)
+                        <ul>
+                            @foreach ($unpaidPositions as $position)
+                                <li><a href="/position/{{ $position->id }}">{{ $position->title }}</a> (<span class="capitalize">{{ $position->position_type }}</span>)</li>
+                            @endforeach
+                        </ul>
+                        @else
+                        <p>Unfortunately, there aren't any Part Time or Volunteer positions to display at this time.</p>
+                        @endif
                     </div>
                 </div>
             </div>

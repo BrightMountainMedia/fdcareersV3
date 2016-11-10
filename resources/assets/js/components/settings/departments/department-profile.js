@@ -7,6 +7,8 @@ Vue.component('department-profile', {
             loading: false,
             department: null,
             positions: null,
+            scheduled: null,
+            inactive: null,
             error: null,
         };
     },
@@ -50,6 +52,8 @@ Vue.component('department-profile', {
                     if ( response.data.department && response.data.positions ) {
                         this.department = response.data.department;
                         this.positions = response.data.positions;
+                        this.scheduled = response.data.scheduled;
+                        this.inactive = response.data.inactive;
                         (this.department.hq_address2) ? this.department.hq_address = this.department.hq_address1 + ', ' + this.department.hq_address2 + ', ' + this.department.hq_city + ', ' + this.department.hq_state + '  ' + this.department.hq_zip : this.department.hq_address = this.department.hq_address1 + ', ' + this.department.hq_city + ', ' + this.department.hq_state + '  ' + this.department.hq_zip;
                         (this.department.mail_address2) ? this.department.mail_address = this.department.mail_address1 + ', ' + this.department.mail_address2 + ', ' + this.department.mail_city + ', ' + this.department.mail_state + '  ' + this.department.mail_zip : this.department.mail_address = this.department.mail_address1 + ', ' + this.department.mail_city + ', ' + this.department.mail_state + '  ' + this.department.mail_zip;
                         this.loading = false;
@@ -57,6 +61,8 @@ Vue.component('department-profile', {
                         this.error = response.data.error;
                         this.department = null;
                         this.positions = null;
+                        this.scheduled = null;
+                        this.inactive = null;
                         this.loading = false;
                     }
                 });

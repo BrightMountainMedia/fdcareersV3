@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Pages;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Position;
@@ -23,13 +24,13 @@ class DepartmentController extends Controller
         }
         $user = Auth::user();
         if ($user && $user->subscribed()) {
-            $positions = Position::select('id', 'department_id', 'title', 'position_type')->get();
+            $positions = Position::select('id', 'department_id', 'title', 'position_type')->published()->active()->get();
         } else {
             $positions = Position::select('id', 'department_id', 'title', 'position_type')->where([
                 ['position_type', '!=', 'full-time'],
                 ['position_type', '!=', 'paid-on-call'],
                 ['position_type', '!=', 'contractor'],
-            ])->get();
+            ])->published()->active()->get();
         }
 
         return view('pages.department.departments', compact('departments', 'positions'));
@@ -66,18 +67,26 @@ class DepartmentController extends Controller
     {
         $department = Department::find($id);
         $user = Auth::user();
+
         if ($user && $user->subscribed()) {
-            $positions = Position::select('id', 'department_id', 'title', 'position_type')->where('department_id', $id)->get();
+            $paidPositions = Position::select('id', 'department_id', 'title', 'position_type')
+                                     ->where([['department_id', $id],['position_type', 'full-time'],['publish', '<=', Carbon::now()],['active', '1']])
+                                     ->orWhere([['department_id', $id],['position_type', 'paid-on-call'],['publish', '<=', Carbon::now()],['active', '1']])
+                                     ->orWhere([['department_id', $id],['position_type', 'contractor'],['publish', '<=', Carbon::now()],['active', '1']])
+                                     ->get();
+
+            $unpaidPositions = Position::select('id', 'department_id', 'title', 'position_type')
+                                     ->where([['department_id', $id],['position_type', 'part-time'],['publish', '<=', Carbon::now()],['active', '1']])
+                                     ->orWhere([['department_id', $id],['position_type', 'volunteer'],['publish', '<=', Carbon::now()],['active', '1']])
+                                     ->get();
         } else {
-            $positions = Position::select('id', 'department_id', 'title', 'position_type')->where([
-                ['department_id', $id],
-                ['position_type', '!=', 'full-time'],
-                ['position_type', '!=', 'paid-on-call'],
-                ['position_type', '!=', 'contractor'],
-            ])->get();
+            $unpaidPositions = Position::select('id', 'department_id', 'title', 'position_type')
+                                     ->where([['department_id', $id],['position_type', 'part-time'],['publish', '<=', Carbon::now()],['active', '1']])
+                                     ->orWhere([['department_id', $id],['position_type', 'volunteer'],['publish', '<=', Carbon::now()],['active', '1']])
+                                     ->get();
         }
 
-        return view('pages.department.department', compact('department', 'positions'));
+        return view('pages.department.department', compact('department', 'paidPositions', 'unpaidPositions'));
     }
 
     /**

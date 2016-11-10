@@ -37,7 +37,19 @@ class SettingsPositionController extends Controller
      */
     public function allDepartmentPositions($id)
     {
-        $positions = Position::where(['departmentId', $id])->active()->get();
+        $positions = Position::where('departmentId', $id)->active()->get();
+        
+        return response()->json(['positions' => $positions]);
+    }
+
+    /**
+     * Get all positions within department that are inactive.
+     *
+     * @return Response
+     */
+    public function allDepartmentScheduledPositions($id)
+    {
+        $positions = Position::where(['departmentId', $id])->scheduled()->inActive()->get();
         
         return response()->json(['positions' => $positions]);
     }
@@ -82,20 +94,39 @@ class SettingsPositionController extends Controller
      */
     public function store(AddPositionRequest $request)
     {
-        if ($request->scheduled) {
-            $month = $request->publishmonth;
-            $day = strlen($request->publishday) == 1 ? '0'.$request->publishday : $request->publishday;
-            $year = $request->publishyear;
-            $hour = strlen($request->publishhour) == 1 ? '0'.$request->publishhour : $request->publishhour;
-            $minute = strlen($request->publishminute) == 1 ? '0'.$request->publishminute : $request->publishminute;
+        $position = new Position;
 
+        $position->department_id = $request->department_id;
+        $position->title = $request->title;
+        $position->salary = $request->salary;
+        $position->position_type = $request->position_type;
+        $position->state = $request->state;
+        $position->application_details = $request->application_details;
+        $position->testing_details = $request->testing_details;
+        $position->orientation_details = $request->orientation_details;
+        $position->requirements = $request->requirements;
+        $position->qualifications = $request->qualifications;
+        $position->residency_requirements = $request->residency_requirements;
 
-            $publish = Carbon::setDateTime($year, $month, $day, $hour, $minute);
-            $active = 0;
+        if ( strlen($request->video) > 28 ) {
+            $video = explode('/', $request->video);
+            $video = explode('"', $video[4]);
+            $position->video = $video[0];
+        } else if ( strlen($request->video) > 11 && strlen($request->video) <= 28 ) {
+            $video = explode('/', $request->video);
+            $video = end($video);
+            $position->video = $video;
         } else {
-            $publish = Carbon::now();
-            $active = 1;
+            $position->video = $request->video;
         }
+
+        $position->apply_link = $request->apply_link;
+        $position->ending = $request->ending;
+        $position->duedate = $request->duedate;
+        $position->applications_available_start = $request->applications_available_start;
+        $position->applications_available_end = $request->applications_available_end;
+        $position->created_at = Carbon::now();
+        $position->updated_at = Carbon::now();
 
         if ( $request->featured == 1 ) {
             $count = FeaturedPosition::count();
@@ -105,52 +136,36 @@ class SettingsPositionController extends Controller
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ]);
+                $position->featured = 1;
             } else if ( $count == 10 ) {
                 $oldest = FeaturedPosition::active()->orderBy('created_at', 'ASC')->first();
-                $position = Position::find($oldest->position_id);
-                $position->featured = 0;
-                $position->save();
                 $oldest->delete();
                 FeaturedPosition::insert([
                     'position_id' => $id,
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ]);
+                $position->featured = 0;
             }
         }
 
-        $video = $request->video;
-        $video = explode('/', $video);
-        $video = end($video);
+        if ($request->scheduled) {
+            $month = $request->publishmonth;
+            $day = strlen($request->publishday) == 1 ? '0'.$request->publishday : $request->publishday;
+            $year = $request->publishyear;
+            $hour = strlen($request->publishhour) == 1 ? '0'.$request->publishhour : $request->publishhour;
+            $minute = strlen($request->publishminute) == 1 ? '0'.$request->publishminute : $request->publishminute;
 
-        $positionId = Position::insertGetId([
-            'department_id' => $request->department_id, 
-            'title' => $request->title, 
-            'salary' => $request->salary,
-            'position_type' => $request->position_type, 
-            'state' => $request->state, 
-            'application_details' => $request->application_details, 
-            'testing_details' => $request->testing_details, 
-            'orientation_details' => $request->orientation_details, 
-            'requirements' => $request->requirements, 
-            'qualifications' => $request->qualifications, 
-            'residency_requirements' => $request->residency_requirements, 
-            'video' => $video,
-            'apply_link' => $request->apply_link,
-            'ending' => $request->ending, 
-            'duedate' => $request->duedate, 
-            'applications_available_start' => $request->applications_available_start, 
-            'applications_available_end' => $request->applications_available_end, 
-            'publish' => $publish,
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now(),
-            'featured' => $request->featured, 
-            'active' => $active 
-        ]);
+            $position->publish = Carbon::setDateTime($year, $month, $day, $hour, $minute);
+            $position->active = 0;
+        } else {
+            $position->publish = Carbon::now();
+            $position->active = 1;
+        }
 
-        $position = Position::find($positionId);
+        $position->save();
 
-        if ( $active ) {
+        if ( $position->$active ) {
             $department = Department::find($position->department_id);
             $users = User::where('notification_states', 'like', '%'.$position->state.'%')->get();
             foreach ($users as $user) {
@@ -208,6 +223,43 @@ class SettingsPositionController extends Controller
      */
     public function update(UpdatePositionRequest $request, $id)
     {
+        $position = Position::find($id);
+
+        $position->title = $request->title;
+        $position->salary = $request->salary;
+        $position->position_type = $request->position_type;
+        $position->state = $request->state;
+
+        if ( $request->publishmonth && $request->publishday && $request->publishyear && $request->publishday && $request->publishhour && $request->publishminute ) {
+            $position->publish = $request->publishyear.'-'.$request->publishmonth.'-'.$request->publishday.' '.$request->publishhour.':'.$request->publishminute.':00';
+        }
+
+        $position->application_details = $request->application_details;
+        $position->testing_details = $request->testing_details;
+        $position->orientation_details = $request->orientation_details;
+        $position->requirements = $request->requirements;
+        $position->qualifications = $request->qualifications;
+        $position->residency_requirements = $request->residency_requirements;
+
+        if ( strlen($request->video) > 28 ) {
+            $video = explode('/', $request->video);
+            $video = explode('"', $video[4]);
+            $position->video = $video[0];
+        } else if ( strlen($request->video) > 11 && strlen($request->video) <= 28 ) {
+            $video = explode('/', $request->video);
+            $video = end($video);
+            $position->video = $video;
+        } else {
+            $position->video = $request->video;
+        }
+
+        $position->apply_link = $request->apply_link;
+        $position->ending = $request->ending;
+        $position->duedate = $request->duedate;
+        $position->applications_available_start = $request->applications_available_start;
+        $position->applications_available_end = $request->applications_available_end;
+        $position->updated_at = Carbon::now();
+
         if ( $request->featured == 1 ) {
             $count = FeaturedPosition::count();
             if ( $count < 10 ) {
@@ -216,46 +268,27 @@ class SettingsPositionController extends Controller
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ]);
+                $position->featured = 1;
             } else if ( $count == 10 ) {
                 $oldest = FeaturedPosition::active()->orderBy('created_at', 'ASC')->first();
-                $position = Position::find($oldest->position_id);
-                $position->featured = 0;
-                $position->save();
                 $oldest->delete();
                 FeaturedPosition::insert([
                     'position_id' => $id,
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ]);
+                $position->featured = 0;
             }
         }
 
-        $video = $request->video;
-        $video = explode('/', $video);
-        $video = end($video);
-
-        Position::where('id', $id)
-            ->update([
-                'title' => $request->title, 
-                'salary' => $request->salary,
-                'position_type' => $request->position_type, 
-                'state' => $request->state, 
-                'application_details' => $request->application_details, 
-                'testing_details' => $request->testing_details, 
-                'orientation_details' => $request->orientation_details, 
-                'requirements' => $request->requirements, 
-                'qualifications' => $request->qualifications, 
-                'residency_requirements' => $request->residency_requirements, 
-                'video' => $video,
-                'apply_link' => $request->apply_link,
-                'ending' => $request->ending, 
-                'duedate' => $request->duedate, 
-                'applications_available_start' => $request->applications_available_start, 
-                'applications_available_end' => $request->applications_available_end, 
-                'updated_at' => Carbon::now(),
-                'featured' => $request->featured, 
-                'active' => $request->active
-            ]);
+        if ( $request->active == 1 && $position->publish > Carbon::now() ) {
+            $position->publish = Carbon::now();
+            $position->active = 1;
+        } else {
+            $position->active = $request->active;
+        }
+        
+        $position->save();
     }
 
     /**

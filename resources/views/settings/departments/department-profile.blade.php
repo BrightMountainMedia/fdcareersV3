@@ -42,13 +42,30 @@
 
                     <div class="panel panel-default" v-if="department">
                         <div class="panel-heading">
-                            Department Positions
+                            Scheduled Positions
+                        </div>
+
+                        <div class="panel-body">
+                            <ul class="list-group" v-if="scheduled.length">
+                                <li class="positions list-group-item" v-for="position in scheduled" @click="showPosition(position)">
+                                    @{{ position.title }}
+                                    <span class="pull-right">@{{ position.publish }}</span>
+                                    <span class="clearfix"></span>
+                                </li>
+                            </ul>
+                            <p v-else>There are no scheduled positions for this department at this time.</p>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default" v-if="department">
+                        <div class="panel-heading">
+                            Active Positions
                         </div>
 
                         <div class="panel-body">
                             <ul class="list-group" v-if="positions.length">
                                 <li class="positions list-group-item" v-for="position in positions" @click="showPosition(position)">
-                                    @{{ position.title }} (@{{ position.position_type | capitalize }})
+                                    @{{ position.title }}
                                 </li>
                             </ul>
                             <p v-else>There are no positions for this department at this time.</p>
@@ -60,6 +77,21 @@
 
                     <!-- Update Department Information -->
                     @include('settings.departments.profile.update-department-info')
+
+                    <div class="panel panel-default" v-if="department">
+                        <div class="panel-heading">
+                            In-Active Positions
+                        </div>
+
+                        <div class="panel-body">
+                            <ul class="list-group" v-if="inactive.length">
+                                <li class="inactive list-group-item" v-for="position in inactive" @click="showPosition(position)">
+                                    @{{ position.title }}
+                                </li>
+                            </ul>
+                            <p v-else>There are no in-active positions for this department at this time.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

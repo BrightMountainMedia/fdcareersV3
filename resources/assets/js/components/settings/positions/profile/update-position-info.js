@@ -93,18 +93,18 @@ Vue.component('update-position-info', {
                 { text: 'Future', value: '0' }
             ],
             publish_options: [
-                { text: '01-Jan', value: '0' },
-                { text: '02-Feb', value: '1' },
-                { text: '03-Mar', value: '2' },
-                { text: '04-Apr', value: '3' },
-                { text: '05-May', value: '4' },
-                { text: '06-Jun', value: '5' },
-                { text: '07-Jul', value: '6' },
-                { text: '08-Aug', value: '7' },
-                { text: '09-Sep', value: '8' },
-                { text: '10-Oct', value: '9' },
-                { text: '11-Nov', value: '10' },
-                { text: '12-Dec', value: '11' }
+                { text: '01-Jan', value: '01' },
+                { text: '02-Feb', value: '02' },
+                { text: '03-Mar', value: '03' },
+                { text: '04-Apr', value: '04' },
+                { text: '05-May', value: '05' },
+                { text: '06-Jun', value: '06' },
+                { text: '07-Jul', value: '07' },
+                { text: '08-Aug', value: '08' },
+                { text: '09-Sep', value: '09' },
+                { text: '10-Oct', value: '10' },
+                { text: '11-Nov', value: '11' },
+                { text: '12-Dec', value: '12' }
             ],
             form: $.extend(true, new SparkForm({
                 department_id: '',
@@ -112,6 +112,12 @@ Vue.component('update-position-info', {
                 salary: '',
                 position_type: 'full-time',
                 state: '',
+                publish: '',
+                publishmonth: '',
+                publishday: '',
+                publishyear: '',
+                publishhour: '',
+                publishminute: '',
                 ending: 'untilFilled',
                 duedate: '',
                 application_details: '',
@@ -135,11 +141,25 @@ Vue.component('update-position-info', {
      */
     mounted() {
         Mousetrap.bind('esc', e => this.showDepartment());
+        var datetime = this.position.publish.split(" ");
+        var date = datetime[0].split('-');
+        var time = datetime[1].split(':');
+        var publishMonth = date[1];
+        var publishDay = date[2];
+        var publishYear = date[0];
+        var publishHour = time[0];
+        var publishMinute = time[1];
 
         this.form.department_id = this.position.department_id;
         this.form.title = this.position.title;
         this.form.salary = this.position.salary;
         this.form.position_type = this.position.position_type;
+        this.form.publish = this.position.publish;
+        this.form.publishmonth = publishMonth;
+        this.form.publishday = publishDay;
+        this.form.publishyear = publishYear;
+        this.form.publishhour = publishHour;
+        this.form.publishminute = publishMinute;
         this.form.state = this.position.state;
         this.form.ending = this.position.ending;
         this.form.duedate = this.position.duedate;
@@ -158,6 +178,16 @@ Vue.component('update-position-info', {
     },
 
     methods: {
+        today() {
+            var currentMonth = new Date().getMonth();
+            var currentDay = new Date().getDay();
+            var currentYear = new Date().getFullYear();
+            var currentHour = new Date().getHours();
+            var currentMinute = new Date().getMinutes();
+            var currentSeconds = new Date().getSeconds();
+            return currentYear+'-'+currentMonth+'-'+currentDay+' '+currentHour+':'+currentMinute+':'+currentSeconds;
+        },
+
         /**
          * Update the position information.
          */

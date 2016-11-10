@@ -47,6 +47,17 @@ class Position extends Model
     }
 
     /**
+     * Scope a query to only include inactive positions.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeInActive($query)
+    {
+        return $query->where('active', 0);
+    }
+
+    /**
      * Scope a query to only include active positions.
      *
      * @param \Illuminate\Database\Eloquent\Builder $query
@@ -58,14 +69,14 @@ class Position extends Model
     }
 
     /**
-     * Scope a query to only include inactive positions.
+     * Scope a query to only include active positions.
      *
      * @param \Illuminate\Database\Eloquent\Builder $query
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeInActive($query)
+    public function scopeScheduled($query)
     {
-        return $query->where('active', 0);
+        return $query->where('publish', '>', Carbon::now());
     }
 
     /**
