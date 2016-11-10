@@ -85,5 +85,11 @@ Vue.component('department-profile', {
 
             this.department = null;
         }
+    },
+
+    computed: {
+        view() {
+            return '/department/' + this.department.id;
+        }
     }
 });
