@@ -26,13 +26,25 @@
         <div v-if=" ! loading && department">
             <div class="row">
                 <div class="col-sm-12">
-                    <div class="panel panel-default panel-flush">
-                        <!-- Create Button -->
-                        <button type="submit" class="btn btn-primary btn-block inverse" @click="showSearch()">
-                            <i class="fa fa-arrow-left"></i> Go Back to Your Departments
-                        </button>
+                    <div class="col-sm-6">
+                        <div class="panel panel-default">
+                            <!-- Back Button -->
+                            <button type="submit" class="btn btn-primary btn-block inverse" @click="showSearch()">
+                                <i class="fa fa-arrow-left"></i> Go Back to Your Departments
+                            </button>
+                        </div>
                     </div>
+                    <div class="col-sm-6">
+                        <div class="panel panel-default">
+                            <!-- View Department -->
+                            <a class="btn btn-primary btn-block inverse" :href="view">
+                                <i class="fa fa-eye"></i> View Department
+                            </a>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="col-sm-12">
                     <div class="panel panel-default panel-flush">
                         <!-- Create Button -->
                         <button type="submit" class="btn btn-primary btn-block" @click="addPosition()">

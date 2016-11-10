@@ -25,14 +25,16 @@
 
         <div v-if=" ! loading && position">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <div class="panel panel-default panel-flush">
                         <!-- Show Department -->
                         <button type="submit" class="btn btn-primary btn-block inverse" @click="showDepartment()">
                             <i class="fa fa-arrow-left"></i> Go Back to Department
                         </button>
                     </div>
+                </div>
 
+                <div class="col-md-6">
                     <div class="panel panel-default panel-flush">
                         <!-- Show Department -->
                         <a class="btn btn-primary btn-block inverse" :href="view">

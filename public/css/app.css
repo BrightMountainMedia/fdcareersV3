@@ -7454,6 +7454,13 @@ input[disabled] {
 .panel-default a.btn:hover {
   background-color: #860f1e;
 }
+.panel-default a.btn.inverse {
+  background-color: #f3f1e6;
+  color: #a61326;
+}
+.panel-default a.btn.inverse:hover {
+  background-color: #d2caa1;
+}
 .panel-default .panel-heading {
   font-size: 18px;
   background: #a61326;
