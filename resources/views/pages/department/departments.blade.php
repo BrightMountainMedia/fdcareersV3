@@ -105,6 +105,8 @@
         </div>
         @endforeach
 
+        @if ( method_exists($departments, 'links') )
         {{ $departments->links() }}
+        @endif
     </div>
 @endsection

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Position;
 use App\Department;
@@ -72,14 +73,16 @@ class FeaturedPositionController extends Controller
      */
     public function show($id)
     {
+        $user = Auth::user();
         $featured = FeaturedPosition::where('position_id', $id)->active()->first();
         if ($featured) {
         	$position = Position::where('id', $featured->position_id)->first();
         	$department = Department::where('id', $position->department_id)->first();
-        	return view('pages.featured.featured-position', compact('position', 'department'));
+            $saved = DB::table('positions_saved')->where('position_id', $position->id)->where('user_id', $user->id)->first();
+            $applied = DB::table('positions_applied')->where('position_id', $position->id)->where('user_id', $user->id)->first();
+        	return view('pages.featured.featured-position', compact('position', 'department', 'saved', 'applied'));
         }
 
-        $user = Auth::user();
         if ( $user && $user->subscribed() ) {
         	return redirect('/position/'.$id)->with(['error' => 'The position you requested is not featured at this time.']);
         } else if ( $user && ! $user->subscribed() ) {

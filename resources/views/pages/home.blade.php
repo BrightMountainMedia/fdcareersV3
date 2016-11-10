@@ -9,13 +9,13 @@
                     <div class="panel-body">
                         <div class="content-container">
                             <h2>Starting the Hiring Process</h2>
-                            <img src="{{ URL::to('/') }}/img/fire-closet.jpg" alt="Starting the Hiring Process" align="left" style="margin: 5px 10px 0 0;" />
+                            <img src="{{ url('/img/fire-closet.jpg') }}" alt="Starting the Hiring Process" align="left" style="margin: 5px 10px 0 0;" />
                             <p>A crucial step in landing a firefighter job is knowing which fire departments are accepting applications. <u><em><strong>We send out over <u><em>300 new fire job notices every month</em></u>!</strong></em></u> And with <u><em><strong>a database of over 800 active fire jobs</strong></em></u>, FD Careers will keep you on top of which departments have posted fire jobs, where to go and what you need to do to start your career as a full-time firefighter.</p>
                         </div>
                         <a href="/accepting" class="btn btn-primary">Learn More</a>
                         <div class="content-container">
                             <h2>Tips for Getting Started</h2>
-                            <img src="{{ URL::to('/') }}/img/firefighter.jpg" alt="Tips for Getting Started" align="left" style="margin: 5px 10px 0 0;" />
+                            <img src="{{ url('/img/firefighter.jpg') }}" alt="Tips for Getting Started" align="left" style="margin: 5px 10px 0 0;" />
                             <p>Whether you have just started to hunt for a fire job or have already dedicated yourself to the process, there are usually a few suggestions to make the journey easier.</p>
                             <p>Here are a few ideas to help you get started...</p>
                             <p>&nbsp;</p>
@@ -23,7 +23,7 @@
                         <a href="/tips" class="btn btn-primary">Learn More</a>
                         <div class="content-container">
                             <h2>Fire Departments... Post Your Job for FREE!</h2>
-                            <img src="{{ URL::to('/') }}/img/skylight.jpg" alt="Fire Departments... Post Your Job for FREE!" align="left" style="margin: 5px 10px 0 0;" />
+                            <img src="{{ url('/img/skylight.jpg') }}" alt="Fire Departments... Post Your Job for FREE!" align="left" style="margin: 5px 10px 0 0;" />
                             <p>Since 1992, FD Careers has helped bring future firefighters and fire departments together.</p>
                             <p>If your organization has a position to fill, let us know and once we have confirmed everything, you will be able to post your position and it will notify everyone who has registered to receive a notification in your state!</p>
                         </div>
@@ -51,7 +51,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Advertisement</div>
                     <div class="panel-body">
-                        <center><a href="http://gopoliceblotter.com/product/firefighter-thin-red-line-vertical-flag-hoodie/" target="_blank"><img src="{{ URL::to('/') }}/img/ThinRedLine_Hoodie.jpg" alt="Thin Red Line Hoodie Now Available!" style="width: 100%; max-width: 300px;" /></a></center>
+                        <center><a href="http://gopoliceblotter.com/product/firefighter-thin-red-line-vertical-flag-hoodie/" target="_blank"><img src="{{ url('/img/ThinRedLine_Hoodie.jpg') }}" alt="Thin Red Line Hoodie Now Available!" style="width: 100%; max-width: 300px;" /></a></center>
                     </div>
                 </div>
                 <div class="panel panel-default">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Pages;
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Position;
 use App\Department;
@@ -54,6 +55,8 @@ class PositionController extends Controller
         $position = Position::find($id);
         $department = Department::find($position->department_id);
         $user = Auth::user();
+        $saved = DB::table('positions_saved')->where('position_id', $position->id)->where('user_id', $user->id)->first();
+        $applied = DB::table('positions_applied')->where('position_id', $position->id)->where('user_id', $user->id)->first();
 
         if ( $position->active == 1 ) {
             if ($position->position_type === 'full-time' || $position->position_type === 'paid-on-call' || $position->position_type === 'contractor') {
@@ -64,7 +67,7 @@ class PositionController extends Controller
                 }
             }
 
-            return view('pages.position.position', compact('position', 'department'));
+            return view('pages.position.position', compact('position', 'department', 'saved', 'applied'));
         }
 
         if ( ! $position->active && $position->publish > Carbon::now() ) {

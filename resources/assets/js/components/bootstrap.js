@@ -16,6 +16,9 @@ require('./contact');
 require('./positions');
 require('./search');
 
+// Pages
+require('./pages/position/position-dashboard');
+
 // -- Settings
 require('./settings/profile/update-notification-details');
 

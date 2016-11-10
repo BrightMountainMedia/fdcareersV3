@@ -11,7 +11,25 @@
             </div>
             @endif
 
+            @if ( isset($info) )
+            <div class="col-md-12">
+                <div class="panel panel-info">
+                    <div class="panel-heading"><center>{{ $info }}</center></div>
+                </div>
+            </div>
+            @endif
+
+            @if ( isset($department) )
             <div class="col-sm-8">
+                @if (Auth::user()->id === $department->owner_id)
+                <div class="panel panel-default panel-flush">
+                    <!-- Create Button -->
+                    <a class="btn btn-primary btn-block" href="/settings#/department/{{ $department->id }}/position/{{ $position->id }}">
+                        <i class="fa fa-pencil"></i> Edit this Position
+                    </a>
+                </div>
+                @endif
+
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <table width="100%">
@@ -46,7 +64,7 @@
                                 <strong>Application Details:</strong>
                             </p>
                             <p class="col-sm-9">
-                                {!! nl2br(html_entity_decode($position->application_details, ENT_QUOTES, 'UTF-8')) !!}
+                                {!! nl2br(htmlentities($position->application_details, ENT_QUOTES, 'UTF-8')) !!}
                             </p>
                         </div>
                         @if ($position->testing_details)
@@ -55,7 +73,7 @@
                                 <strong>Testing Details:</strong>
                             </p>
                             <p class="col-sm-9">
-                                {!! nl2br(html_entity_decode($position->testing_details, ENT_QUOTES, 'UTF-8')) !!}
+                                {!! nl2br(htmlentities($position->testing_details, ENT_QUOTES, 'UTF-8')) !!}
                             </p>
                         </div>
                         @endif
@@ -65,7 +83,7 @@
                                 <strong>Orientation Details:</strong>
                             </p>
                             <p class="col-sm-9">
-                                {!! nl2br(html_entity_decode($position->orientation_details, ENT_QUOTES, 'UTF-8')) !!}
+                                {!! nl2br(htmlentities($position->orientation_details, ENT_QUOTES, 'UTF-8')) !!}
                             </p>
                         </div>
                         @endif
@@ -75,7 +93,7 @@
                                 <strong>Duties / Requirements:</strong>
                             </p>
                             <p class="col-sm-9">
-                                {!! nl2br(html_entity_decode($position->requirements, ENT_QUOTES, 'UTF-8')) !!}
+                                {!! nl2br(htmlentities($position->requirements, ENT_QUOTES, 'UTF-8')) !!}
                             </p>
                         </div>
                         @endif
@@ -85,7 +103,7 @@
                                 <strong>Qualifications:</strong>
                             </p>
                             <p class="col-sm-9">
-                                {!! nl2br(html_entity_decode($position->qualifications, ENT_QUOTES, 'UTF-8')) !!}
+                                {!! nl2br(htmlentities($position->qualifications, ENT_QUOTES, 'UTF-8')) !!}
                             </p>
                         </div>
                         @endif
@@ -95,7 +113,7 @@
                                 <strong>Residency Requirements:</strong>
                             </p>
                             <p class="col-sm-9">
-                                {!! nl2br(html_entity_decode($position->residency_requirements, ENT_QUOTES, 'UTF-8')) !!}
+                                {!! nl2br(htmlentities($position->residency_requirements, ENT_QUOTES, 'UTF-8')) !!}
                             </p>
                         </div>
                         @endif
@@ -206,6 +224,38 @@
                 </div>
             </div>
             <div class="col-sm-4">
+                <position-dashboard inline-template>
+                    <div>
+                        <div class="panel panel-default panel-flush">
+                            @if ( isset($saved) )
+                            <!-- Saved -->
+                            <button type="submit" class="btn btn-primary btn-block inverse" disabled="disabled">
+                                Saved <i class="fa fa-check-square-o"></i>
+                            </button>
+                            @else
+                            <!-- Save to Dashboard -->
+                            <button type="submit" class="btn btn-primary btn-block inverse" @click="addToDashboard({{ json_encode($position->toArray()) }})">
+                                Save to Dashboard <i class="fa fa-square-o"></i>
+                            </button>
+                            @endif
+                        </div>
+
+                        <div class="panel panel-default panel-flush">
+                            @if ( isset($applied) )
+                            <!-- Saved -->
+                            <button type="submit" class="btn btn-primary btn-block inverse" disabled="disabled">
+                                Applied <i class="fa fa-check-square-o"></i>
+                            </button>
+                            @else
+                            <!-- Mark as Applied -->
+                            <button type="submit" class="btn btn-primary btn-block inverse" @click="markApplied({{ json_encode($position->toArray()) }})">
+                                Mark Applied <i class="fa fa-square-o"></i>
+                            </button>
+                            @endif
+                        </div>
+                    </div>
+                </position-dashboard>
+
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <table width="100%">
@@ -305,6 +355,7 @@
                     </div>
                 </div>
             </div>
+            @endif
         </div>
     </div>
 @endsection

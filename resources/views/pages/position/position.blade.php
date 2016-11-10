@@ -224,6 +224,38 @@
                 </div>
             </div>
             <div class="col-sm-4">
+                <position-dashboard inline-template>
+                    <div>
+                        <div class="panel panel-default panel-flush">
+                            @if ( isset($saved) )
+                            <!-- Saved -->
+                            <button type="submit" class="btn btn-primary btn-block inverse" disabled="disabled">
+                                Saved <i class="fa fa-check-square-o"></i>
+                            </button>
+                            @else
+                            <!-- Save to Dashboard -->
+                            <button type="submit" class="btn btn-primary btn-block inverse" @click="addToDashboard({{ json_encode($position->toArray()) }})">
+                                Save to Dashboard <i class="fa fa-square-o"></i>
+                            </button>
+                            @endif
+                        </div>
+
+                        <div class="panel panel-default panel-flush">
+                            @if ( isset($applied) )
+                            <!-- Saved -->
+                            <button type="submit" class="btn btn-primary btn-block inverse" disabled="disabled">
+                                Applied <i class="fa fa-check-square-o"></i>
+                            </button>
+                            @else
+                            <!-- Mark as Applied -->
+                            <button type="submit" class="btn btn-primary btn-block inverse" @click="markApplied({{ json_encode($position->toArray()) }})">
+                                Mark Applied <i class="fa fa-square-o"></i>
+                            </button>
+                            @endif
+                        </div>
+                    </div>
+                </position-dashboard>
+
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <table width="100%">
