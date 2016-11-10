@@ -1,7 +1,7 @@
 <update-position-info :position="position" :department="department" inline-template>
     <div class="panel panel-default" v-if="position">
         <div class="panel-heading">
-            Position @{{ position.id }} Information
+            Position @{{ scheduled() }} Information
         </div>
 
         <div class="panel-body">
@@ -16,7 +16,7 @@
                     <label class="col-md-4 control-label">Department ID</label>
 
                     <div class="col-md-6">
-                        <input type="text" class="form-control" name="department_id" v-model="form.department_id">
+                        <input type="text" class="form-control" name="department_id" v-model="form.department_id" :disabled="! form.active && ! scheduled()">
 
                         <span class="help-block" v-show="form.errors.has('department_id')">
                             @{{ form.errors.get('department_id') }}
@@ -29,7 +29,7 @@
                     <label class="col-md-4 control-label">Title</label>
 
                     <div class="col-md-6">
-                        <input type="text" class="form-control" name="title" v-model="form.title">
+                        <input type="text" class="form-control" name="title" v-model="form.title" :disabled="! form.active && ! scheduled()">
 
                         <span class="help-block" v-show="form.errors.has('title')">
                             @{{ form.errors.get('title') }}
@@ -42,7 +42,7 @@
                     <label class="col-md-4 control-label">Salary</label>
 
                     <div class="col-md-6">
-                        <input type="text" class="form-control" name="salary" v-model="form.salary">
+                        <input type="text" class="form-control" name="salary" v-model="form.salary" :disabled="! form.active && ! scheduled()">
 
                         <span class="help-block" v-show="form.errors.has('salary')">
                             @{{ form.errors.get('salary') }}
@@ -55,7 +55,7 @@
                     <label class="col-md-4 control-label">Position Type</label>
 
                     <div class="col-md-6">
-                        <select class="form-control" name="position_type" v-model="form.position_type">
+                        <select class="form-control" name="position_type" v-model="form.position_type" :disabled="! form.active && ! scheduled()">
                             <option v-for="type_option in type_options" v-bind:value="type_option.value">
                                 @{{ type_option.text }}
                             </option>
@@ -72,7 +72,7 @@
                     <label class="col-md-4 control-label">State</label>
 
                     <div class="col-md-6">
-                        <select class="form-control" name="state" v-model="form.state">
+                        <select class="form-control" name="state" v-model="form.state" :disabled="! form.active && ! scheduled()">
                             <option v-for="state_option in state_options" v-bind:value="state_option.value">
                                 @{{ state_option.text }}
                             </option>
@@ -85,21 +85,21 @@
                 </div>
 
                 <!-- Publish -->
-                <div class="form-group" :class="{'has-error': form.errors.has('publish')}" v-if="form.active == 0 && form.publish > today()">
+                <div class="form-group" :class="{'has-error': form.errors.has('publish')}" v-if="scheduled()">
                     <label class="col-md-4 control-label">Publish</label>
                     
                     <div class="col-md-2">
-                        <select class="form-control" name="publishmonth" v-model="form.publishmonth">
+                        <select class="form-control" name="publishmonth" v-model="form.publishmonth" :disabled="! form.active && ! scheduled()">
                             <option v-for="publish_option in publish_options" v-bind:value="publish_option.value">
                                 @{{ publish_option.text }}
                             </option>
                         </select>
                     </div>
                     <div class="col-md-5">
-                        <input type="text" name="publishday" v-model="form.publishday" size="3">, 
-                        <input type="text" name="publishyear" v-model="form.publishyear" size="4"> @
-                        <input type="text" name="publishhour" v-model="form.publishhour" size="2"> :
-                        <input type="text" name="publishminute" v-model="form.publishminute" size="2">
+                        <input type="text" name="publishday" v-model="form.publishday" size="3" :disabled="! form.active && ! scheduled()">, 
+                        <input type="text" name="publishyear" v-model="form.publishyear" size="4" :disabled="! form.active && ! scheduled()"> @
+                        <input type="text" name="publishhour" v-model="form.publishhour" size="2" :disabled="! form.active && ! scheduled()"> :
+                        <input type="text" name="publishminute" v-model="form.publishminute" size="2" :disabled="! form.active && ! scheduled()">
                     </div>
                     <span class="help-block" v-show="form.errors.has('publish')">
                         @{{ form.errors.get('publish') }}
@@ -111,7 +111,7 @@
                     <label class="col-md-4 control-label">Ending</label>
 
                     <div class="col-md-6">
-                        <select class="form-control" name="ending" v-model="form.ending">
+                        <select class="form-control" name="ending" v-model="form.ending" :disabled="! form.active && ! scheduled()">
                             <option v-for="ending_option in ending_options" v-bind:value="ending_option.value">
                                 @{{ ending_option.text }}
                             </option>
@@ -128,7 +128,7 @@
                     <label class="col-md-4 control-label">Due Date</label>
 
                     <div class="col-md-6">
-                        <input type="date" class="form-control" name="duedate" v-model="form.duedate">
+                        <input type="date" class="form-control" name="duedate" v-model="form.duedate" :disabled="! form.active && ! scheduled()">
 
                         <span class="help-block" v-show="form.errors.has('duedate')">
                             @{{ form.errors.get('duedate') }}
@@ -141,7 +141,7 @@
                     <label class="col-md-4 control-label">Application Details</label>
 
                     <div class="col-md-6">
-                        <textarea class="form-control" name="application_details" v-model="form.application_details" rows="8"></textarea>
+                        <textarea class="form-control" name="application_details" v-model="form.application_details" rows="8" :disabled="! form.active && ! scheduled()"></textarea>
 
                         <span class="help-block" v-show="form.errors.has('application_details')">
                             @{{ form.errors.get('application_details') }}
@@ -154,7 +154,7 @@
                     <label class="col-md-4 control-label">Testing Details</label>
 
                     <div class="col-md-6">
-                        <textarea class="form-control" name="testing_details" v-model="form.testing_details" rows="8"></textarea>
+                        <textarea class="form-control" name="testing_details" v-model="form.testing_details" rows="8" :disabled="! form.active && ! scheduled()"></textarea>
 
                         <span class="help-block" v-show="form.errors.has('testing_details')">
                             @{{ form.errors.get('testing_details') }}
@@ -167,7 +167,7 @@
                     <label class="col-md-4 control-label">Orientation Details</label>
 
                     <div class="col-md-6">
-                        <textarea class="form-control" name="orientation_details" v-model="form.orientation_details" rows="8"></textarea>
+                        <textarea class="form-control" name="orientation_details" v-model="form.orientation_details" rows="8" :disabled="! form.active && ! scheduled()"></textarea>
 
                         <span class="help-block" v-show="form.errors.has('orientation_details')">
                             @{{ form.errors.get('orientation_details') }}
@@ -180,7 +180,7 @@
                     <label class="col-md-4 control-label">Duties / Requirements</label>
 
                     <div class="col-md-6">
-                        <textarea class="form-control" name="requirements" v-model="form.requirements" rows="8"></textarea>
+                        <textarea class="form-control" name="requirements" v-model="form.requirements" rows="8" :disabled="! form.active && ! scheduled()"></textarea>
 
                         <span class="help-block" v-show="form.errors.has('requirements')">
                             @{{ form.errors.get('requirements') }}
@@ -193,7 +193,7 @@
                     <label class="col-md-4 control-label">Qualifications</label>
 
                     <div class="col-md-6">
-                        <textarea class="form-control" name="qualifications" v-model="form.qualifications" rows="8"></textarea>
+                        <textarea class="form-control" name="qualifications" v-model="form.qualifications" rows="8" :disabled="! form.active && ! scheduled()"></textarea>
 
                         <span class="help-block" v-show="form.errors.has('qualifications')">
                             @{{ form.errors.get('qualifications') }}
@@ -206,7 +206,7 @@
                     <label class="col-md-4 control-label">Residency Requirements</label>
 
                     <div class="col-md-6">
-                        <textarea class="form-control" name="residency_requirements" v-model="form.residency_requirements" rows="8"></textarea>
+                        <textarea class="form-control" name="residency_requirements" v-model="form.residency_requirements" rows="8" :disabled="! form.active && ! scheduled()"></textarea>
 
                         <span class="help-block" v-show="form.errors.has('residency_requirements')">
                             @{{ form.errors.get('residency_requirements') }}
@@ -219,7 +219,7 @@
                     <label class="col-md-4 control-label">Applications Available Start</label>
 
                     <div class="col-md-6">
-                        <input type="date" class="form-control" name="applications_available_start" v-model="form.applications_available_start">
+                        <input type="date" class="form-control" name="applications_available_start" v-model="form.applications_available_start" :disabled="! form.active && ! scheduled()">
 
                         <span class="help-block" v-show="form.errors.has('applications_available_start')">
                             @{{ form.errors.get('applications_available_start') }}
@@ -232,7 +232,7 @@
                     <label class="col-md-4 control-label">Applications Available End</label>
 
                     <div class="col-md-6">
-                        <input type="date" class="form-control" name="applications_available_end" v-model="form.applications_available_end">
+                        <input type="date" class="form-control" name="applications_available_end" v-model="form.applications_available_end" :disabled="! form.active && ! scheduled()">
 
                         <span class="help-block" v-show="form.errors.has('applications_available_end')">
                             @{{ form.errors.get('applications_available_end') }}
@@ -245,7 +245,7 @@
                     <label class="col-md-4 control-label">YouTube Video ID</label>
 
                     <div class="col-md-6">
-                        <input type="text" class="form-control" name="video" v-model="form.video">
+                        <input type="text" class="form-control" name="video" v-model="form.video" :disabled="! form.active && ! scheduled()">
                         <p class="help-block">You can paste the share URL here and it will extract the video ID from that.</p>
 
                         <span class="help-block" v-show="form.errors.has('video')">
@@ -259,7 +259,7 @@
                     <label class="col-md-4 control-label">Apply Link</label>
 
                     <div class="col-md-6">
-                        <input type="text" class="form-control" name="apply_link" v-model="form.apply_link">
+                        <input type="text" class="form-control" name="apply_link" v-model="form.apply_link" :disabled="! form.active && ! scheduled()">
 
                         <span class="help-block" v-show="form.errors.has('apply_link')">
                             @{{ form.errors.get('apply_link') }}
@@ -272,7 +272,7 @@
                     <label class="col-md-4 control-label">Featured</label>
 
                     <div class="col-md-6">
-                        <select class="form-control" name="featured" v-model="form.featured">
+                        <select class="form-control" name="featured" v-model="form.featured" :disabled="! form.active && ! scheduled()">
                             <option v-for="featured_option in featured_options" v-bind:value="featured_option.value">
                                 @{{ featured_option.text }}
                             </option>

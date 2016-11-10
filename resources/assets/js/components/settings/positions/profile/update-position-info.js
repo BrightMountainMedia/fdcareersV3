@@ -185,7 +185,12 @@ Vue.component('update-position-info', {
             var currentHour = new Date().getHours();
             var currentMinute = new Date().getMinutes();
             var currentSeconds = new Date().getSeconds();
-            return currentYear+'-'+currentMonth+'-'+currentDay+' '+currentHour+':'+currentMinute+':'+currentSeconds;
+            return new Date();
+        },
+
+        scheduled() {
+            var date = new Date(this.position.publish);
+            return date > this.today() ? true : false;
         },
 
         /**

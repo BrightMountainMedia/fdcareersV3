@@ -147,7 +147,7 @@ class SettingsDepartmentController extends Controller
 
         if ($department->owner_id === $user->id) {
             $positions = Position::where('department_id', $id)->published()->active()->get();
-            $scheduled = Position::where('department_id', $id)->scheduled()->inActive()->orderBy('publish', 'ASC')->get();
+            $scheduled = Position::where('department_id', $id)->scheduled()->orderBy('publish', 'ASC')->get();
             $inactive = Position::where('department_id', $id)->published()->inActive()->get();
 
             return response()->json(['department' => $department, 'positions' => $positions, 'scheduled' => $scheduled, 'inactive' => $inactive]);

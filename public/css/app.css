@@ -7394,6 +7394,9 @@ body {
   background: #464648;
   font-size: 16px;
 }
+input[disabled] {
+  background-color: #eeeeee;
+}
 .capitalize {
   text-transform: capitalize;
 }

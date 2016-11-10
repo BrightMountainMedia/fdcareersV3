@@ -57,11 +57,11 @@ class FeaturedPositionController extends Controller
         $featuredPosition = new FeaturedPosition;
         $featuredPosition->position_id = $request->position_id;
         $featuredPosition->active = 1;
-        $featuredPosition->save;
+        $featuredPosition->save();
 
         $position = Position::find($request->position_id);
         $position->featured = 1;
-        $position->save;
+        $position->save();
     }
 
     /**
@@ -114,11 +114,11 @@ class FeaturedPositionController extends Controller
         $featuredPosition = FeaturedPosition::find($id);
         $featuredPosition->active = $request->active;
         $featuredPosition->unfeatured = $unfeatured;
-        $featuredPosition->save;
+        $featuredPosition->save();
 
         $position = Position::find($featuredPosition->position_id);
         $position->featured = $request->active;
-        $position->save;
+        $position->save();
     }
 
     /**
