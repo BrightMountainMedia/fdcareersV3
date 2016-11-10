@@ -7495,10 +7495,14 @@ input[disabled] {
 .panel-default .panel-body .link {
   color: #a61326;
   cursor: pointer;
+  margin-bottom: 10px;
 }
 .panel-default .panel-body .link:hover {
   color: #353535;
   text-decoration: underline;
+}
+.panel-default .panel-body .faq-content:not(:last-child) {
+  margin-bottom: 50px;
 }
 .panel-default .panel-body .list-group-item {
   background-color: #a61326;
