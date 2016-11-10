@@ -27,10 +27,17 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="panel panel-default panel-flush">
-                        <!-- Create Button -->
+                        <!-- Show Department -->
                         <button type="submit" class="btn btn-primary btn-block inverse" @click="showDepartment()">
                             <i class="fa fa-arrow-left"></i> Go Back to Department
                         </button>
+                    </div>
+
+                    <div class="panel panel-default panel-flush">
+                        <!-- Show Department -->
+                        <a class="btn btn-primary btn-block inverse" :href="view">
+                            <i class="fa fa-eye"></i> View Position
+                        </a>
                     </div>
                 </div>
             </div>

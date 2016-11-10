@@ -1,7 +1,7 @@
 <update-position-info :position="position" :department="department" inline-template>
     <div class="panel panel-default" v-if="position">
         <div class="panel-heading">
-            Position @{{ scheduled() }} Information
+            Position @{{ position.id }} Information
         </div>
 
         <div class="panel-body">

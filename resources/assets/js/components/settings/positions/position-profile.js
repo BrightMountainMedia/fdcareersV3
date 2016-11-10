@@ -53,5 +53,11 @@ Vue.component('position-profile', {
 
             this.position = null;
         }
+    },
+
+    computed: {
+        view() {
+            return '/position/' + this.position.id;
+        }
     }
 });

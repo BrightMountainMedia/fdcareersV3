@@ -7446,6 +7446,14 @@ input[disabled] {
 .panel-default {
   border: none;
 }
+.panel-default a.btn {
+  color: #f3f1e6;
+  background-color: #a61326;
+  border-color: #a61326;
+}
+.panel-default a.btn:hover {
+  background-color: #860f1e;
+}
 .panel-default .panel-heading {
   font-size: 18px;
   background: #a61326;

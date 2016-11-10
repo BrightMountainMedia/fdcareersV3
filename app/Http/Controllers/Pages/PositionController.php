@@ -55,14 +55,22 @@ class PositionController extends Controller
         $department = Department::find($position->department_id);
         $user = Auth::user();
 
-        if ($position->position_type === 'full-time' || $position->position_type === 'paid-on-call' || $position->position_type === 'contractor') {
-            if (! $user) {
-                return redirect('/register');
-            } elseif ($user && ! $user->subscribed()) {
-                return redirect('/settings#/subscription');
+        if ( $position->active == 1 ) {
+            if ($position->position_type === 'full-time' || $position->position_type === 'paid-on-call' || $position->position_type === 'contractor') {
+                if (! $user) {
+                    return redirect('/register');
+                } elseif ($user && ! $user->subscribed()) {
+                    return redirect('/settings#/subscription');
+                }
             }
+
+            return view('pages.position.position', compact('position', 'department'));
         }
-        
-        return view('pages.position.position', compact('position', 'department'));
+
+        if ( ! $position->active && $position->publish > Carbon::now() ) {
+            return view('pages.position.position')->with('info', 'This position is scheduled to be posted on '.date('l, F m, Y @ h:i A', strtotime($position->publish)).'.');
+        }
+
+        return view('pages.position.position')->with('info', 'This position is not active at this time.');
     }
 }

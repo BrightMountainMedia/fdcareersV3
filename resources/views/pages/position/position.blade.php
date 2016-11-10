@@ -11,7 +11,25 @@
             </div>
             @endif
 
+            @if ( isset($info) )
+            <div class="col-md-12">
+                <div class="panel panel-info">
+                    <div class="panel-heading"><center>{{ $info }}</center></div>
+                </div>
+            </div>
+            @endif
+
+            @if ( isset($department) )
             <div class="col-sm-8">
+                @if (Auth::user()->id === $department->owner_id)
+                <div class="panel panel-default panel-flush">
+                    <!-- Create Button -->
+                    <a class="btn btn-primary btn-block" href="/settings#/department/{{ $department->id }}/position/{{ $position->id }}">
+                        <i class="fa fa-pencil"></i> Edit this Position
+                    </a>
+                </div>
+                @endif
+
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <table width="100%">
@@ -305,6 +323,7 @@
                     </div>
                 </div>
             </div>
+            @endif
         </div>
     </div>
 @endsection
