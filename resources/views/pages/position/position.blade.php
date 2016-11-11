@@ -25,7 +25,7 @@
                     @if ( Auth::user()->id === $department->owner_id )
                     <div class="panel panel-default panel-flush">
                         <!-- Create Button -->
-                        <a class="btn btn-primary btn-block" href="/settings#/department/{{ $department->id }}/position/{{ $position->id }}">
+                        <a class="btn btn-primary btn-block inverse" href="/settings#/department/{{ $department->id }}/position/{{ $position->id }}">
                             <i class="fa fa-pencil"></i> Edit this Position
                         </a>
                     </div>

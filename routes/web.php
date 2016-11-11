@@ -74,12 +74,16 @@ Route::group(['middleware' => ['web']], function() {
 	Route::get('/spark/kiosk/departments', 'Kiosk\MetricsController@departments');
 
 	// ---------- Positions ---------- //
+	// Show specific Position
+	Route::get('/position/{id}', 'Pages\PositionController@show');
+
 	// Store Saved Positions & Applied Positions
 	Route::put('/position/{id}/save_to_dashboard', 'Settings\DashboardController@storeSavedPosition');
 	Route::put('/position/{id}/mark_applied', 'Settings\DashboardController@storeAppliedPosition');
 
-	// Show specific Position
-	Route::get('/position/{id}', 'Pages\PositionController@show');
+	// Remove Saved Positions & Applied Positions
+	Route::post('/position/{id}/remove_from_dashboard', 'Settings\DashboardController@removeSavedPosition');
+	Route::post('/position/{id}/remove_applied', 'Settings\DashboardController@removeAppliedPosition');
 
 	// Show all Positions
 	Route::get('/positions', 'Pages\PositionController@index');

@@ -78,14 +78,18 @@ class FeaturedPositionController extends Controller
         if ($featured) {
         	$position = Position::where('id', $featured->position_id)->first();
         	$department = Department::where('id', $position->department_id)->first();
-            $saved = DB::table('positions_saved')->where('position_id', $position->id)->where('user_id', $user->id)->first();
-            $applied = DB::table('positions_applied')->where('position_id', $position->id)->where('user_id', $user->id)->first();
-        	return view('pages.featured.featured-position', compact('position', 'department', 'saved', 'applied'));
+            if ( $user ) {
+                $saved = DB::table('positions_saved')->where('position_id', $position->id)->where('user_id', $user->id)->first();
+                $applied = DB::table('positions_applied')->where('position_id', $position->id)->where('user_id', $user->id)->first();
+                return view('pages.featured.featured-position', compact('position', 'department', 'saved', 'applied'));
+            }
+            
+        	return view('pages.featured.featured-position', compact('position', 'department'));
         }
 
         if ( $user && $user->subscribed() ) {
         	return redirect('/position/'.$id)->with(['error' => 'The position you requested is not featured at this time.']);
-        } else if ( $user && ! $user->subscribed() ) {
+        } elseif ( $user && ! $user->subscribed() ) {
         	return redirect('/settings#/subscription')->with(['error' => 'The position you requested is not featured at this time and also requires a subscription to view.']);
         }
 

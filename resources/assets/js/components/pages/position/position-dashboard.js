@@ -22,7 +22,6 @@ Vue.component('position-dashboard', {
         addToDashboard(position) {
             this.$http.put('/position/' + position.id + '/save_to_dashboard')
                 .then(response => {
-                    console.log(response.data.saved);
                     window.location.reload();
                 });
         },
@@ -33,7 +32,6 @@ Vue.component('position-dashboard', {
         markApplied(position) {
             this.$http.put('/position/' + position.id + '/mark_applied')
                 .then(response => {
-                    console.log(response.data.applied);
                     window.location.reload();
                 });
         }

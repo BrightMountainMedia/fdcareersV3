@@ -7394,6 +7394,31 @@ body {
   background: #464648;
   font-size: 16px;
 }
+body table tbody tr td.dashboard {
+  border-top: none;
+  background-color: #a61326;
+  color: #f3f1e6;
+  cursor: pointer;
+}
+body table tbody tr td.dashboard:hover {
+  background-color: #f3f1e6;
+  color: #a61326;
+}
+body table tbody tr td.vertical-align-middle {
+  vertical-align: middle;
+}
+body table tbody tr td.remove {
+  text-align: center;
+}
+body table.table-bordered {
+  border: 1px solid #353535;
+}
+body table.table-bordered thead tr th {
+  border: 1px solid #353535;
+}
+body table.table-bordered tbody tr td {
+  border: 1px solid #353535;
+}
 input[disabled] {
   background-color: #eeeeee;
 }
@@ -7446,19 +7471,23 @@ input[disabled] {
 .panel-default {
   border: none;
 }
-.panel-default a.btn {
+.panel-default a.btn,
+.panel-default button.btn {
   color: #f3f1e6;
   background-color: #a61326;
   border-color: #a61326;
 }
-.panel-default a.btn:hover {
-  background-color: #860f1e;
+.panel-default a.btn:hover,
+.panel-default button.btn:hover {
+  background-color: #4a0911;
 }
-.panel-default a.btn.inverse {
+.panel-default a.btn.inverse,
+.panel-default button.btn.inverse {
   background-color: #f3f1e6;
   color: #a61326;
 }
-.panel-default a.btn.inverse:hover {
+.panel-default a.btn.inverse:hover,
+.panel-default button.btn.inverse:hover {
   background-color: #d2caa1;
 }
 .panel-default .panel-heading {
@@ -7525,6 +7554,9 @@ input[disabled] {
   color: #f3f1e6;
   cursor: pointer;
 }
+.panel-default .panel-body .list-group-item a {
+  color: #f3f1e6;
+}
 .panel-default .panel-body .list-group-item:hover {
   background-color: #860f1e;
 }
@@ -7538,21 +7570,6 @@ input[disabled] {
 }
 .panel-default .panel-body .featured-url {
   text-decoration: underline;
-}
-#department .panel-default button.btn {
-  color: #f3f1e6;
-  background-color: #a61326;
-  border-color: #a61326;
-}
-#department .panel-default button.btn:hover {
-  background-color: #4a0911;
-}
-#department .panel-default button.btn.inverse {
-  background-color: #f3f1e6;
-  color: #a61326;
-}
-#department .panel-default button.btn.inverse:hover {
-  background-color: #d2caa1;
 }
 input[type="checkbox"],
 input[type="checkbox"]:focus,

@@ -20,6 +20,52 @@
 body {
 	background: @dark-grey;
     font-size: @global-font-size;
+
+    table {
+        tbody {
+            tr {
+                td.dashboard {
+                    border-top: none;
+                    background-color: @fd-red;
+                    color: @cream;
+                    cursor: pointer;
+                }
+
+                td.dashboard:hover {
+                    background-color: @cream;
+                    color: @fd-red;
+                }
+                
+                td.vertical-align-middle {
+                    vertical-align: middle;
+                }
+
+                td.remove {
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    table.table-bordered {
+        border: 1px solid @slate;
+
+        thead {
+            tr {
+                th {
+                    border: 1px solid @slate;
+                }
+            }
+        }
+        
+        tbody {
+            tr {
+                td {
+                    border: 1px solid @slate;
+                }
+            }
+        }
+    }
 }
 
 input[disabled] {
@@ -97,22 +143,26 @@ input[disabled] {
 .panel-default {
 	border: none;
 
-    a.btn {
+    a.btn,
+    button.btn {
         color: @cream;
         background-color: @fd-red;
         border-color: @fd-red;
     }
 
-    a.btn:hover {
-        background-color: @dark-red;
+    a.btn:hover,
+    button.btn:hover {
+        background-color: darken(@fd-red, 20%);
     }
 
-    a.btn.inverse {
+    a.btn.inverse,
+    button.btn.inverse {
         background-color: @cream;
         color: @fd-red;
     }
 
-    a.btn.inverse:hover {
+    a.btn.inverse:hover,
+    button.btn.inverse:hover {
         background-color: darken(@cream, 20%);
     }
 
@@ -193,6 +243,10 @@ input[disabled] {
             border-color: @dark-red;
             color: @cream;
             cursor: pointer;
+
+            a {
+                color: @cream;
+            }
         }
 
         .list-group-item:hover {
@@ -211,29 +265,6 @@ input[disabled] {
 
         .featured-url {
             text-decoration: underline;
-        }
-    }
-}
-
-#department {
-    .panel-default {
-        button.btn {
-            color: @cream;
-            background-color: @fd-red;
-            border-color: @fd-red;
-        }
-
-        button.btn:hover {
-            background-color: darken(@fd-red, 20%);
-        }
-
-        button.btn.inverse {
-            background-color: @cream;
-            color: @fd-red;
-        }
-
-        button.btn.inverse:hover {
-            background-color: darken(@cream, 20%);
         }
     }
 }
