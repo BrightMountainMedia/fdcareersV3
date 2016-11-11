@@ -11,6 +11,7 @@
 
                     <div class="panel-body">
                         <div class="table-responsive">
+                            @if ( isset( $saved_positions ) && count( $saved_positions ) > 0  )
                             <table class="table table-bordered">
                                 <tbody>
                                     @foreach ( $saved_positions as $position )
@@ -25,6 +26,9 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            @else
+                            <p>There are no saved positions yet.</p>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -33,6 +37,7 @@
                     <div class="panel-heading">Applied Positions</div>
 
                     <div class="panel-body">
+                        @if ( isset( $applied_positions ) && count( $applied_positions ) > 0 )
                         <div class="table-responsive">
                             <table class="table table-bordered">
                                 <tbody>
@@ -49,6 +54,9 @@
                                 </tbody>
                             </table>
                         </div>
+                        @else
+                        <p>No positions have been marked applied yet.</p>
+                        @endif
                     </div>
                 </div>
             </div>
