@@ -7390,6 +7390,25 @@ body {
     display: table-cell;
   }
 }
+* {
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
+}
+#spark-app {
+  min-height: 100%;
+  height: auto !important;
+  /* This line and the next line are not necessary unless you need IE6 support */
+  height: 100%;
+  margin: 0 auto -70px;
+  /* the bottom margin is the negative value of the footer's height */
+}
+.push {
+  height: 70px;
+  /* .push must be the same height as .footer */
+}
 body {
   background: #464648;
   font-size: 16px;
@@ -7418,6 +7437,26 @@ body table.table-bordered thead tr th {
 }
 body table.table-bordered tbody tr td {
   border: 1px solid #353535;
+}
+footer {
+  height: 70px;
+  padding: 10px;
+  text-align: center;
+  background-color: #f3f1e6;
+  color: #a61326;
+  border-top: 1px solid #a61326;
+}
+footer a {
+  color: #a61326;
+}
+footer a:hover {
+  color: #4a0911;
+}
+.spark-nav-profile-photo {
+  border: 2px solid #a61326;
+}
+.navbar-inverse {
+  border-color: #a61326;
 }
 input[disabled] {
   background-color: #eeeeee;

@@ -31,3 +31,7 @@ Spark.forms.register = {
 var app = new Vue({
     mixins: [require('spark')]
 });
+
+$(document).ready(function () {
+	$('footer[v-cloak]').show();
+});

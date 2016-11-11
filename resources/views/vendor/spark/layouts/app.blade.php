@@ -46,7 +46,13 @@
             @include('spark::modals.support')
             @include('spark::modals.session-expired')
         @endif
+
+        <div class="push"></div>
     </div>
+    <footer v-cloak>
+        <div>This site is owned and operated by Bright Mountain Media, Inc., a publicly owned company trading with the symbol: <a href="http://ir.brightmountainmedia.com/" target="_blank">BMTM</a>.</div>
+        <div class="copyright">Copyright &copy; <?php echo date('Y'); ?> FD Careers. All Rights Reserved.</div>
+    </footer>
 
     <!-- JavaScript -->
     <script src="/js/app.js"></script>

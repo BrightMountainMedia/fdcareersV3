@@ -15,7 +15,26 @@
 // Firefox Responsive Table Fix
 @-moz-document url-prefix() {
   fieldset { display: table-cell; }
-} 
+}
+
+* {
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
+#spark-app {
+    min-height: 100%;
+    height: auto !important; /* This line and the next line are not necessary unless you need IE6 support */
+    height: 100%;
+    margin: 0 auto -70px; /* the bottom margin is the negative value of the footer's height */
+}
+
+.push {
+    height: 70px; /* .push must be the same height as .footer */
+}
 
 body {
 	background: @dark-grey;
@@ -57,7 +76,7 @@ body {
                 }
             }
         }
-        
+
         tbody {
             tr {
                 td {
@@ -66,6 +85,31 @@ body {
             }
         }
     }
+}
+
+footer {
+    height: 70px;
+    padding: 10px;
+    text-align: center;
+    background-color: @cream;
+    color: @fd-red;
+    border-top: 1px solid @fd-red;
+
+    a {
+        color: @fd-red;
+    }
+
+    a:hover {
+        color: darken(@fd-red, 20%);
+    }
+}
+
+.spark-nav-profile-photo {
+    border: 2px solid @fd-red;
+}
+
+.navbar-inverse {
+    border-color: @fd-red;
 }
 
 input[disabled] {
