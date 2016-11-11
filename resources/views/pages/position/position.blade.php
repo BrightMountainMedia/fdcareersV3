@@ -21,13 +21,15 @@
 
             @if ( isset($department) )
             <div class="col-sm-8">
-                @if (Auth::user()->id === $department->owner_id)
-                <div class="panel panel-default panel-flush">
-                    <!-- Create Button -->
-                    <a class="btn btn-primary btn-block" href="/settings#/department/{{ $department->id }}/position/{{ $position->id }}">
-                        <i class="fa fa-pencil"></i> Edit this Position
-                    </a>
-                </div>
+                @if ( Auth::check() )
+                    @if ( Auth::user()->id === $department->owner_id )
+                    <div class="panel panel-default panel-flush">
+                        <!-- Create Button -->
+                        <a class="btn btn-primary btn-block" href="/settings#/department/{{ $department->id }}/position/{{ $position->id }}">
+                            <i class="fa fa-pencil"></i> Edit this Position
+                        </a>
+                    </div>
+                    @endif
                 @endif
 
                 <div class="panel panel-default">
@@ -224,6 +226,7 @@
                 </div>
             </div>
             <div class="col-sm-4">
+                @if ( Auth::check() )
                 <position-dashboard inline-template>
                     <div>
                         <div class="panel panel-default panel-flush">
@@ -255,6 +258,7 @@
                         </div>
                     </div>
                 </position-dashboard>
+                @endif
 
                 <div class="panel panel-default">
                     <div class="panel-heading">

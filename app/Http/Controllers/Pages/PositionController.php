@@ -55,19 +55,23 @@ class PositionController extends Controller
         $position = Position::find($id);
         $department = Department::find($position->department_id);
         $user = Auth::user();
-        $saved = DB::table('positions_saved')->where('position_id', $position->id)->where('user_id', $user->id)->first();
-        $applied = DB::table('positions_applied')->where('position_id', $position->id)->where('user_id', $user->id)->first();
 
         if ( $position->active == 1 ) {
             if ($position->position_type === 'full-time' || $position->position_type === 'paid-on-call' || $position->position_type === 'contractor') {
-                if (! $user) {
+                if ( ! $user ) {
                     return redirect('/register');
-                } elseif ($user && ! $user->subscribed()) {
+                } elseif ( $user && ! $user->subscribed() ) {
                     return redirect('/settings#/subscription');
                 }
             }
 
-            return view('pages.position.position', compact('position', 'department', 'saved', 'applied'));
+            if ( $user && $user->subscribed() ) {
+                $saved = DB::table('positions_saved')->where('position_id', $position->id)->where('user_id', $user->id)->first();
+                $applied = DB::table('positions_applied')->where('position_id', $position->id)->where('user_id', $user->id)->first();
+                return view('pages.position.position', compact('position', 'department', 'saved', 'applied'));
+            }
+
+            return view('pages.position.position', compact('position', 'department'));
         }
 
         if ( ! $position->active && $position->publish > Carbon::now() ) {
