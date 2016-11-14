@@ -1,5 +1,8 @@
 <?php
 
+use App\User;
+use App\Notifications\WelcomeEmail;
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -12,6 +15,11 @@
 */
 
 Route::group(['middleware' => ['web']], function() {
+	Route::get('/sendemail', function() {
+		$user = User::find(55);
+		$user->notify(new WelcomeEmail($user));
+	});
+
 	// -------------------- Pages -------------------- //
 	// Home
 	Route::get('/', 'Pages\HomeController@index');

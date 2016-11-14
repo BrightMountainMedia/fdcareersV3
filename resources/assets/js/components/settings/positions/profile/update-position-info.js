@@ -150,6 +150,13 @@ Vue.component('update-position-info', {
         var publishHour = time[0];
         var publishMinute = time[1];
 
+        CKEDITOR.replace( 'application_details' );
+        CKEDITOR.replace( 'testing_details' );
+        CKEDITOR.replace( 'orientation_details' );
+        CKEDITOR.replace( 'requirements' );
+        CKEDITOR.replace( 'qualifications' );
+        CKEDITOR.replace( 'residency_requirements' );
+
         this.form.department_id = this.position.department_id;
         this.form.title = this.position.title;
         this.form.salary = this.position.salary;

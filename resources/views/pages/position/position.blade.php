@@ -66,7 +66,7 @@
                                 <strong>Application Details:</strong>
                             </p>
                             <p class="col-sm-9">
-                                {!! nl2br(htmlentities($position->application_details, ENT_QUOTES, 'UTF-8')) !!}
+                                {!! nl2br($position->application_details) !!}
                             </p>
                         </div>
                         @if ($position->testing_details)
@@ -75,7 +75,7 @@
                                 <strong>Testing Details:</strong>
                             </p>
                             <p class="col-sm-9">
-                                {!! nl2br(htmlentities($position->testing_details, ENT_QUOTES, 'UTF-8')) !!}
+                                {!! nl2br($position->testing_details) !!}
                             </p>
                         </div>
                         @endif
@@ -85,7 +85,7 @@
                                 <strong>Orientation Details:</strong>
                             </p>
                             <p class="col-sm-9">
-                                {!! nl2br(htmlentities($position->orientation_details, ENT_QUOTES, 'UTF-8')) !!}
+                                {!! nl2br($position->orientation_details) !!}
                             </p>
                         </div>
                         @endif
@@ -95,7 +95,7 @@
                                 <strong>Duties / Requirements:</strong>
                             </p>
                             <p class="col-sm-9">
-                                {!! nl2br(htmlentities($position->requirements, ENT_QUOTES, 'UTF-8')) !!}
+                                {!! nl2br($position->requirements) !!}
                             </p>
                         </div>
                         @endif
@@ -105,7 +105,7 @@
                                 <strong>Qualifications:</strong>
                             </p>
                             <p class="col-sm-9">
-                                {!! nl2br(htmlentities($position->qualifications, ENT_QUOTES, 'UTF-8')) !!}
+                                {!! nl2br($position->qualifications) !!}
                             </p>
                         </div>
                         @endif
@@ -115,7 +115,7 @@
                                 <strong>Residency Requirements:</strong>
                             </p>
                             <p class="col-sm-9">
-                                {!! nl2br(htmlentities($position->residency_requirements, ENT_QUOTES, 'UTF-8')) !!}
+                                {!! nl2br($position->residency_requirements) !!}
                             </p>
                         </div>
                         @endif

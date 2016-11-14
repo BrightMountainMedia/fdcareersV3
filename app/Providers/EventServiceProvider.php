@@ -15,6 +15,7 @@ class EventServiceProvider extends ServiceProvider
         // User Related Events...
         'Laravel\Spark\Events\Auth\UserRegistered' => [
             'Laravel\Spark\Listeners\Subscription\CreateTrialEndingNotification',
+            'App\Listeners\SendWelcomeEmail',
         ],
 
         'Laravel\Spark\Events\Subscription\UserSubscribed' => [

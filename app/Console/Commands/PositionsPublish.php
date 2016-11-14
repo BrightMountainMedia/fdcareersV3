@@ -25,7 +25,7 @@ class PositionsPublish extends Command
      *
      * @var string
      */
-    protected $description = 'Publish the positions that are scheduled for this moment';
+    protected $description = 'Publish the positions that are scheduled for this minute';
 
     /**
      * Create a new command instance.

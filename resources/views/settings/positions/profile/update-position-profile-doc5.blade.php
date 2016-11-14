@@ -12,10 +12,10 @@
                 <form class="form-horizontal" role="form" v-if="position.doc5_url">
                     <!-- Document 5 -->
                     <div class="form-group" :class="{'has-error': labelForm.errors.has('doc5_title')}">
-                        <label class="col-md-2 control-label">Label:</label>
+                        <label class="col-md-2 control-label" for="doc5_title">Label:</label>
 
                         <div class="col-md-6">
-                            <input type="text" class="form-control" name="doc5_title" v-model="labelForm.doc5_title">
+                            <input type="text" class="form-control" id="doc5_title" name="doc5_title" v-model="labelForm.doc5_title">
 
                             <span class="help-block" v-show="labelForm.errors.has('doc5_title')">
                                 @{{ labelForm.errors.get('doc5_title') }}
@@ -74,10 +74,10 @@
                 <form class="form-horizontal" role="form" v-if="! position.doc5_url">
                     <!-- Document 5 -->
                     <div class="form-group">
-                        <label class="col-md-2 control-label">Label:</label>
+                        <label class="col-md-2 control-label" for="doc5_title">Label:</label>
 
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="doc5_title" v-model="dualForm.doc5_title">
+                            <input type="text" class="form-control" id="doc5_title" name="doc5_title" v-model="dualForm.doc5_title">
                         </div>
                     </div>
 

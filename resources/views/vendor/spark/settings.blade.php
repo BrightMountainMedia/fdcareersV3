@@ -7,6 +7,7 @@
         <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
     @endif
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mousetrap/1.4.6/mousetrap.min.js"></script>
+    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
 @endsection
 
 @section('content')
