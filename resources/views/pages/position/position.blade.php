@@ -232,12 +232,12 @@
                         <div class="panel panel-default panel-flush">
                             @if ( isset($saved) )
                             <!-- Saved -->
-                            <button type="submit" class="btn btn-primary btn-block inverse" disabled="disabled">
+                            <button type="submit" class="btn btn-primary btn-block" disabled="disabled">
                                 Saved <i class="fa fa-check-square-o"></i>
                             </button>
                             @else
                             <!-- Save to Dashboard -->
-                            <button type="submit" class="btn btn-primary btn-block inverse" @click="addToDashboard({{ json_encode($position->toArray()) }})">
+                            <button type="submit" class="btn btn-primary btn-block" @click="addToDashboard({{ json_encode($position->toArray()) }})">
                                 Save to Dashboard <i class="fa fa-square-o"></i>
                             </button>
                             @endif
@@ -246,12 +246,12 @@
                         <div class="panel panel-default panel-flush">
                             @if ( isset($applied) )
                             <!-- Saved -->
-                            <button type="submit" class="btn btn-primary btn-block inverse" disabled="disabled">
+                            <button type="submit" class="btn btn-primary btn-block" disabled="disabled">
                                 Applied <i class="fa fa-check-square-o"></i>
                             </button>
                             @else
                             <!-- Mark as Applied -->
-                            <button type="submit" class="btn btn-primary btn-block inverse" @click="markApplied({{ json_encode($position->toArray()) }})">
+                            <button type="submit" class="btn btn-primary btn-block" @click="markApplied({{ json_encode($position->toArray()) }})">
                                 Mark Applied <i class="fa fa-square-o"></i>
                             </button>
                             @endif
