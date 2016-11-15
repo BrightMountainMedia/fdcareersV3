@@ -50,7 +50,7 @@ class Department extends Model
     public function getPhotoUrlAttribute($value)
     {
         return empty($value)
-                ? 'https://www.gravatar.com/avatar/'.md5($this->name.'@spark.laravel.com').'.jpg?s=200&d=mm'
+                ? 'https://www.gravatar.com/avatar/'.md5($this->name.'@spark.laravel.com').'.jpg?s=200&d=identicon'
                 : url($value);
     }
 }

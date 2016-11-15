@@ -85,22 +85,32 @@ body {
             }
         }
     }
-}
 
-footer {
-    height: 70px;
-    padding: 10px;
-    text-align: center;
-    background-color: @cream;
-    color: @fd-red;
-    border-top: 1px solid @fd-red;
+    .cke_chrome {
+        border: 1px solid @slate;
 
-    a {
-        color: @fd-red;
-    }
+        .cke_top {
+            background-image: none;
+            background: @fd-red;
+            border-bottom: 1px solid @slate;
+            box-shadow: 0 1px 0 @fd-red inset;
+        }
 
-    a:hover {
-        color: darken(@fd-red, 20%);
+        .cke_bottom {
+            background-image: none;
+            background: @fd-red;
+            border-top: 1px solid @slate;
+            box-shadow: 0 1px 0 @fd-red inset;
+
+            .cke_resizer {
+                border-color: transparent @slate transparent transparent;
+            }
+
+            a.cke_path_item {
+                color: @cream;
+                text-shadow: 0 1px 0 @slate;
+            }
+        }
     }
 }
 
@@ -335,44 +345,6 @@ input[type="checkbox"]:active {
     }
 }
 
-.terms-of-use {
-    h1 {
-        font-size: 26px;
-        margin-top: 35px;
-        margin-bottom: 20px;
-
-        &:first-child {
-            margin-top: 10px;
-        }
-    }
-
-    h2 {
-        font-size: 20px;
-        line-height: 26px;
-        color: @fd-red;
-        border-bottom: 1px solid #ccc;
-    }
-
-    p {
-        line-height: 25px;
-        margin: 0;
-        color: @black;
-    }
-
-    ul {
-        margin-top: 15px;
-    }
-
-    li {
-        line-height: 25px;
-    }
-
-    a {
-    	color: @fd-red;
-    	text-decoration: underline;
-    }
-}
-
 .spark-settings-stacked-tabs li.active a {
     border-left: 3px solid @fd-red;
 }
@@ -456,6 +428,61 @@ blockquote.pull-right {
 
 .scheduled:hover {
     background-color: #860f1e;
+}
+
+.terms-of-use {
+    h1 {
+        font-size: 26px;
+        margin-top: 35px;
+        margin-bottom: 20px;
+
+        &:first-child {
+            margin-top: 10px;
+        }
+    }
+
+    h2 {
+        font-size: 20px;
+        line-height: 26px;
+        color: @fd-red;
+        border-bottom: 1px solid #ccc;
+    }
+
+    p {
+        line-height: 25px;
+        margin: 0;
+        color: @black;
+    }
+
+    ul {
+        margin-top: 15px;
+    }
+
+    li {
+        line-height: 25px;
+    }
+
+    a {
+        color: @fd-red;
+        text-decoration: underline;
+    }
+}
+
+footer {
+    height: 70px;
+    padding: 10px;
+    text-align: center;
+    background-color: @cream;
+    color: @fd-red;
+    border-top: 1px solid @fd-red;
+
+    a {
+        color: @fd-red;
+    }
+
+    a:hover {
+        color: darken(@fd-red, 20%);
+    }
 }
 
 //----------- Media Queries

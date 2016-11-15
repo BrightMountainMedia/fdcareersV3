@@ -2,12 +2,10 @@
 
 namespace App\Listeners;
 
-use App\Notifications\WelcomeEmail;
 use Laravel\Spark\Events\Auth\UserRegistered;
-use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Queue\ShouldQueue;
+use App\Notifications\WelcomeEmail;
 
-class SendWelcomeEmail implements ShouldQueue
+class SendWelcomeEmail
 {
     /**
      * Create the event listener.

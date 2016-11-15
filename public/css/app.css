@@ -7438,19 +7438,27 @@ body table.table-bordered thead tr th {
 body table.table-bordered tbody tr td {
   border: 1px solid #353535;
 }
-footer {
-  height: 70px;
-  padding: 10px;
-  text-align: center;
-  background-color: #f3f1e6;
-  color: #a61326;
-  border-top: 1px solid #a61326;
+body .cke_chrome {
+  border: 1px solid #353535;
 }
-footer a {
-  color: #a61326;
+body .cke_chrome .cke_top {
+  background-image: none;
+  background: #a61326;
+  border-bottom: 1px solid #353535;
+  box-shadow: 0 1px 0 #a61326 inset;
 }
-footer a:hover {
-  color: #4a0911;
+body .cke_chrome .cke_bottom {
+  background-image: none;
+  background: #a61326;
+  border-top: 1px solid #353535;
+  box-shadow: 0 1px 0 #a61326 inset;
+}
+body .cke_chrome .cke_bottom .cke_resizer {
+  border-color: transparent #353535 transparent transparent;
+}
+body .cke_chrome .cke_bottom a.cke_path_item {
+  color: #f3f1e6;
+  text-shadow: 0 1px 0 #353535;
 }
 .spark-nav-profile-photo {
   border: 2px solid #a61326;
@@ -7625,35 +7633,6 @@ input[type="checkbox"]:active {
   border-bottom: 1px solid #ccc;
   border-radius: 0;
 }
-.terms-of-use h1 {
-  font-size: 26px;
-  margin-top: 35px;
-  margin-bottom: 20px;
-}
-.terms-of-use h1:first-child {
-  margin-top: 10px;
-}
-.terms-of-use h2 {
-  font-size: 20px;
-  line-height: 26px;
-  color: #a61326;
-  border-bottom: 1px solid #ccc;
-}
-.terms-of-use p {
-  line-height: 25px;
-  margin: 0;
-  color: #000;
-}
-.terms-of-use ul {
-  margin-top: 15px;
-}
-.terms-of-use li {
-  line-height: 25px;
-}
-.terms-of-use a {
-  color: #a61326;
-  text-decoration: underline;
-}
 .spark-settings-stacked-tabs li.active a {
   border-left: 3px solid #a61326;
 }
@@ -7717,6 +7696,49 @@ blockquote.pull-right {
 }
 .scheduled:hover {
   background-color: #860f1e;
+}
+.terms-of-use h1 {
+  font-size: 26px;
+  margin-top: 35px;
+  margin-bottom: 20px;
+}
+.terms-of-use h1:first-child {
+  margin-top: 10px;
+}
+.terms-of-use h2 {
+  font-size: 20px;
+  line-height: 26px;
+  color: #a61326;
+  border-bottom: 1px solid #ccc;
+}
+.terms-of-use p {
+  line-height: 25px;
+  margin: 0;
+  color: #000;
+}
+.terms-of-use ul {
+  margin-top: 15px;
+}
+.terms-of-use li {
+  line-height: 25px;
+}
+.terms-of-use a {
+  color: #a61326;
+  text-decoration: underline;
+}
+footer {
+  height: 70px;
+  padding: 10px;
+  text-align: center;
+  background-color: #f3f1e6;
+  color: #a61326;
+  border-top: 1px solid #a61326;
+}
+footer a {
+  color: #a61326;
+}
+footer a:hover {
+  color: #4a0911;
 }
 @media (min-width: 768px) {
   .modal-dialog {

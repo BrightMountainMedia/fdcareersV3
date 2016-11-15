@@ -50,7 +50,7 @@
         <div class="push"></div>
     </div>
     <footer v-cloak>
-        <div>This site is owned and operated by Bright Mountain Media, Inc., a publicly owned company trading with the symbol: <a href="http://ir.brightmountainmedia.com/" target="_blank">BMTM</a>.</div>
+        <div>This site is owned and operated by Bright Mountain Media, Inc., a publicly owned company trading with the symbol: <strong><a href="http://ir.brightmountainmedia.com/" target="_blank">BMTM</a></strong>.</div>
         <div class="copyright">Copyright &copy; <?php echo date('Y'); ?> FD Careers. All Rights Reserved.</div>
     </footer>
 
