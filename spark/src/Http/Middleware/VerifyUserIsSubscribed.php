@@ -2,6 +2,9 @@
 
 namespace Laravel\Spark\Http\Middleware;
 
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+
 class VerifyUserIsSubscribed
 {
     /**

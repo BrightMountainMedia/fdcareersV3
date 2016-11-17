@@ -40,13 +40,13 @@
                 <!-- Current Subscription (Active) -->
                 <div class="p-b-lg" v-if="activePlan.active">
                     You are currently subscribed to the
-                    <strong>@{{ activePlan.name }} (@{{ activePlan.interval | capitalize }})</strong> plan.
+                    <strong>@{{ activePlan.name }} (@{{ activePlan.name | removeSubscription }})</strong> plan.
                 </div>
 
                 <!-- Current Subscription (Archived) -->
                 <div class="alert alert-warning m-b-lg" v-if=" ! activePlan.active">
                     You are currently subscribed to the
-                    <strong>@{{ activePlan.name }} (@{{ activePlan.interval | capitalize }})</strong> plan.
+                    <strong>@{{ activePlan.name }} (@{{ activePlan.name | removeSubscription }})</strong> plan.
                     This plan has been discontinued, but you may continue your subscription to this plan as long as you wish.
                     If you cancel your subscription and later want to begin a new subscription, you will need to choose
                     from one of the active plans listed below.
@@ -87,7 +87,7 @@
                                     </span>
 
                                     <span v-else>
-                                        @{{ priceWithTax(plan) | currency }} / @{{ plan.interval | capitalize }}
+                                        @{{ priceWithTax(plan) | currency }} / @{{ plan.name | removeSubscription }}
                                     </span>
                                 </div>
                             </td>
@@ -134,7 +134,7 @@
                     <div class="modal-body">
                         <p>
                             Are you sure you want to switch to the
-                            <strong>@{{ confirmingPlan.name }} (@{{ confirmingPlan.interval | capitalize }})</strong> plan?
+                            <strong>@{{ confirmingPlan.name }} (@{{ confirmingPlan.name | removeSubscription }})</strong> plan?
                         </p>
                     </div>
 

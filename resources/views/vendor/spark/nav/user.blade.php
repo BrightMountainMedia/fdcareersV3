@@ -78,11 +78,13 @@
                             <li class="dropdown-header">Settings</li>
 
                             <!-- Dashboard -->
+                            @if (Auth::user()->subscribed())
                             <li>
                                 <a href="/dashboard">
                                     <i class="fa fa-fw fa-btn fa-dashboard"></i>Dashboard
                                 </a>
                             </li>
+                            @endif
 
                             <!-- Your Settings -->
                             <li>

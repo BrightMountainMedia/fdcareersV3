@@ -41,7 +41,7 @@ class SettingsDepartmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($per_page = 10)
+    public function index()
     {
         //
     }
@@ -149,6 +149,12 @@ class SettingsDepartmentController extends Controller
             $positions = Position::where('department_id', $id)->published()->active()->get();
             $scheduled = Position::where('department_id', $id)->scheduled()->orderBy('publish', 'ASC')->get();
             $inactive = Position::where('department_id', $id)->published()->inActive()->get();
+
+            if ( $department->oldId ) {
+                $positions = Position::where('department_id', $department->oldId)->published()->active()->get();
+                $scheduled = Position::where('department_id', $department->oldId)->scheduled()->orderBy('publish', 'ASC')->get();
+                $inactive = Position::where('department_id', $department->oldId)->published()->inActive()->get();
+            }
 
             return response()->json(['department' => $department, 'positions' => $positions, 'scheduled' => $scheduled, 'inactive' => $inactive]);
         }

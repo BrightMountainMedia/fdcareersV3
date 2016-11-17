@@ -10,7 +10,7 @@
                             <div class="col-md-12">
                                 <input type="text" id="kiosk-users-search" class="form-control"
                                         name="search"
-                                        placeholder="Search By Name Or E-Mail Address..."
+                                        placeholder="Search By First Name, Last Name Or E-Mail Address..."
                                         v-model="searchForm.query"
                                         @keyup.enter="search">
                             </div>
@@ -45,7 +45,8 @@
                     <table class="table table-borderless m-b-none">
                         <thead>
                             <th></th>
-                            <th>Name</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
                             <th>E-Mail Address</th>
                             <th></th>
                         </thead>
@@ -57,10 +58,17 @@
                                     <img :src="searchUser.photo_url" class="spark-profile-photo">
                                 </td>
 
-                                <!-- Name -->
+                                <!-- First Name -->
                                 <td>
                                     <div class="btn-table-align">
-                                        @{{ searchUser.name }}
+                                        @{{ searchUser.first_name }}
+                                    </div>
+                                </td>
+
+                                <!-- Last Name -->
+                                <td>
+                                    <div class="btn-table-align">
+                                        @{{ searchUser.last_name }}
                                     </div>
                                 </td>
 

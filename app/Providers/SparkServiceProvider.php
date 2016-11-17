@@ -56,14 +56,6 @@ class SparkServiceProvider extends ServiceProvider
         Spark::useTwoFactorAuth();
         Spark::collectBillingAddress();
 
-        // Spark::freePlan()
-        //     ->features([
-        //         'Acess to our database of over 800 active jobs.',
-        //         'Job alerts to your inbox.',
-        //         'Links that allow you to download the application documents you need.',
-        //         'The opportunity to focus on getting hired... not chasing down who is hiring.'
-        //     ]);
-
         Spark::plan('Monthly Subscription', 'fdc-monthly')
             ->price(8.95)
             ->features([

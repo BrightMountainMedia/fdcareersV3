@@ -48,6 +48,7 @@ class CreatePositionsTable extends Migration
             $table->timestamps();
             $table->boolean('featured')->default(0);
             $table->boolean('active')->default(0);
+            $table->boolean('imported')->default(0);
         });
     }
 

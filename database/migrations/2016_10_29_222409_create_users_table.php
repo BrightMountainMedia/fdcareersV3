@@ -45,7 +45,7 @@ class CreateUsersTable extends Migration
             $table->boolean('email_notification')->default(0);
             $table->boolean('sms_notification')->default(0);
             $table->string('sms_phone', 25)->nullable();
-            $table->string('notification_states')->default(json_encode(array('')));
+            $table->string('notification_states', 510)->default(json_encode(array('')));
             $table->timestamps();
         });
     }

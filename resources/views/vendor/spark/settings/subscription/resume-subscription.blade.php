@@ -40,7 +40,7 @@
             <!-- Cancellation Information -->
             <div class="p-b-lg">
                 You have cancelled your subscription to the
-                <strong>@{{ activePlan.name }} (@{{ activePlan.interval | capitalize }})</strong> plan.
+                <strong>@{{ activePlan.name }} (@{{ activePlan.name | removeSubscription }})</strong> plan.
             </div>
 
             <div class="p-b-lg">
@@ -79,7 +79,7 @@
                         <!-- Plan Price -->
                         <td>
                             <div class="btn-table-align">
-                                @{{ priceWithTax(plan) | currency }} / @{{ plan.interval | capitalize }}
+                                @{{ priceWithTax(plan) | currency }} / @{{ plan.name | removeSubscription }}
                             </div>
                         </td>
 
