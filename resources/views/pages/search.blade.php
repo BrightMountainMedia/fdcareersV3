@@ -29,7 +29,8 @@
                     </div>
                     <div class="panel-body">
                         <p class="featured-title">@{{ title }}</p>
-                        <p>@{{ details }} <a class="featured-url" :href="href">learn more</a></p>
+
+                        <p><span v-html="details"></span> <a class="featured-url" :href="href">learn more</a></p>
                     </div>
                 </div>
             </div>

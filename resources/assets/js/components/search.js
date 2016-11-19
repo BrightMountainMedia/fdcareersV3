@@ -43,7 +43,7 @@ Vue.component('search-page', {
 
         details() {
             if ( this.position ) {
-                return this.position.application_details;
+                return this.position.application_details.replace(/(<([^>]+)>)/ig,"").substring(0, 100) + '...';
             }
         }
     }

@@ -159,4 +159,415 @@ Route::group(['middleware' => ['web']], function() {
 
 	// Update Featured Position
 	Route::post('/position/update_featured_position', 'FeaturedPositionController@update');
+
+    Route::get('/importDepartments', function() {
+        // $file = url('/usfa-census-national.csv');
+        // $csv = array_map('str_getcsv', file($file));
+        // array_walk($csv, function(&$a) use ($csv) {
+        // $a = array_combine($csv[0], $a);
+        // });
+        // array_shift($csv);
+        // // echo "<pre>";print_r($csv);echo "</pre>";
+
+        // foreach ( $csv as $dept ) {
+        //     $department = new Department;
+
+        //     $department->owner_id = 1;
+        //     $department->fdid = $dept["FDID"] ?: NULL;
+        //     $department->name = $dept["Fire Dept Name"];
+        //     $department->hq_address1 = $dept["HQ Addr1"] ?: NULL;
+        //     $department->hq_address2 = $dept["HQ Addr2"] ?: NULL;
+        //     $department->hq_city = $dept["HQ City"] ?: NULL;
+        //     $department->hq_state = $dept["HQ State"] ?: NULL;
+        //     $department->hq_zip = $dept["HQ Zip"] ?: NULL;
+        //     $department->mail_address1 = $dept["Mail Addr1"] ?: NULL;
+        //     $department->mail_address2 = $dept["Mail Addr2"] ?: NULL;
+        //     $department->mail_po_box = $dept["Mail PO Box"] ?: NULL;
+        //     $department->mail_city = $dept["Mail City"] ?: NULL;
+        //     $department->mail_state = $dept["Mail State"] ?: NULL;
+        //     $department->mail_zip = $dept["Mail Zip"] ?: NULL;
+        //     $department->hq_phone = $dept["HQ Phone"] ?: NULL;
+        //     $department->hq_fax = $dept["HQ Fax"] ?: NULL;
+        //     $department->county = $dept["County"] ?: NULL;
+        //     $department->dept_type = $dept["Dept Type"];
+        //     $department->org_type = $dept["Organization Type"] ?: NULL;
+        //     $department->website = $dept["Website"] ?: NULL;
+        //     $department->stations = $dept["Number Of Stations"] ?: NULL;
+        //     $department->active_ff_career = $dept["Active Firefighters - Career"] ?: NULL;
+        //     $department->active_ff_volunteer = $dept["Active Firefighters - Volunteer"] ?: NULL;
+        //     $department->active_ff_paid_per_call = $dept["Active Firefighters - Paid per Call"] ?: NULL;
+        //     $department->non_ff_civilian = $dept["Non-Firefighting - Civilian"] ?: NULL;
+        //     $department->non_ff_volunteer = $dept["Non-Firefighting - Volunteer"] ?: NULL;
+        //     $department->primary_agency_for_em = $dept["primary_agency_for_em"] == 'Yes' ? 1 : 0;
+
+        //     $department->save();
+        // }
+    });
+
+    Route::get('/mapDepartments', function() {
+        // $old_departments = DB::table('departments_old')->get();
+        // Department::chunk(100, function ($departments) use ($old_departments) {
+        //     foreach ($departments as $department) {
+        //         foreach ($old_departments as $old_dept) {
+        //             if ( $department->name == $old_dept->department_name && $department->hq_address1 == $old_dept->address1 && $department->hq_city == $old_dept->city && $department->hq_state == $old_dept->state ) {
+        //                 $department->oldId = $old_dept->department_id;
+        //                 $department->save();
+        //                 echo "Department ID: ".$department->id."<br/>";
+        //                 echo "Old Dept ID: ".$old_dept->department_id."<br/>";
+        //                 echo "<br/>";
+        //             }
+        //         }
+        //     }
+        // });
+    });
+
+    Route::get('/importPositions', function() {
+        // $file = url('/positions.csv');
+        // $csv = array_map('str_getcsv', file($file));
+        // array_walk($csv, function(&$a) use ($csv) {
+        //     $a = array_combine($csv[0], $a);
+        // });
+        // array_shift($csv);
+        // // echo "<pre>";print_r($csv);echo "</pre>";
+
+        // foreach ( $csv as $pos ) {
+        //     $position = new Position;
+
+        //     $position->id = $pos['position_id'];
+        //     $position->department_id = $pos['department'];
+        //     $position->title = $pos['title'];
+
+        //     if ( $pos['position_type'] === 'fulltime' ) {
+        //         $pos['position_type'] = 'full-time';
+        //     } elseif ( $pos['position_type'] === 'parttime' ) {
+        //         $pos['position_type'] = 'part-time';
+        //     } else {
+        //         $pos['position_type'] = 'paid-on-call';
+        //     }
+        //     $position->position_type = $pos['position_type'];
+
+        //     $position->state = strtoupper($pos['state']);
+        //     $position->application_details = $pos['application_details'].'<br/><br/>'.$pos['details'];
+        //     $position->orientation_details = $pos['orientation_details'];
+        //     $position->qualifications = $pos['qualifications_to_apply'];
+        //     $position->residency_requirements = $pos['residency_requirements'];
+
+        //     if ( $pos['continuous_recruitment_reminder'] ) {
+        //         $position->ending = 'continuous';
+        //     } elseif ( $pos['duedate'] !== '0000-00-00' ) {
+        //         $position->ending = 'duedate';
+        //         $duedate = explode('-', $pos['duedate']);
+        //         $position->duedate = Carbon::now()->setDateTime($duedate[0], $duedate[1], $duedate[2], '0', '0');
+        //     }
+
+        //     $position->publish = $pos['created'] !== '0000-00-00 00:00:00' ? $pos['created'] : Carbon::now();
+        //     $position->created_at = $pos['created'] !== '0000-00-00 00:00:00' ? $pos['created'] : Carbon::now();
+        //     $position->updated_at = Carbon::now();
+
+        //     if ( $pos['featured'] == 1 ) {
+        //         $count = FeaturedPosition::count();
+        //         if ( $count < 10 ) {
+        //             $featured_position = new FeaturedPosition;
+        //             $featured_position->position_id = $pos['position_id'];
+        //             $featured_position->created_at = $pos['created'] !== '0000-00-00 00:00:00' ? $pos['created'] : Carbon::now();
+        //             $featured_position->updated_at = Carbon::now();
+        //             $featured_position->save();
+        //             $position->featured = 1;
+        //         } else if ( $count == 10 ) {
+        //             $featured_position = new FeaturedPosition;
+        //             $featured_position->position_id = $pos['position_id'];
+        //             $featured_position->created_at = $pos['created'] !== '0000-00-00 00:00:00' ? $pos['created'] : Carbon::now();
+        //             $featured_position->updated_at = Carbon::now();
+        //             $featured_position->save();
+        //             $oldest = FeaturedPosition::active()->orderBy('created_at', 'ASC')->first();
+        //             $pos = Position::find($oldest->position_id);
+        //             $pos->featured = 0;
+        //             $pos->save();
+        //             $oldest->delete();
+        //             $position->featured = 1;
+        //         }
+        //     } else {
+        //         $position->featured = 0;
+        //     }
+
+        //     $position->active = 1;
+
+        //     $position->save();
+        // }
+    });
+
+    Route::get('/importUsers', function() {
+        // $file = url('/test.csv');
+        // $csv = array_map('str_getcsv', file($file));
+        // array_walk($csv, function(&$a) use ($csv) {
+        //     $a = array_combine($csv[0], $a);
+        // });
+        // array_shift($csv);
+        // // echo "<pre>";print_r($csv);echo "</pre>";
+
+        // foreach ( $csv as $usr ) {
+        //     $user = new User;
+
+        //     $user->first_name = $usr['firstname'];
+        //     $user->last_name = $usr['lastname'];
+        //     $user->email = $usr['email'];
+        //     $user->password = $usr['password'];
+        //     $user->phone = $usr['phone'];
+        //     $user->billing_address = $usr['address1'];
+        //     $user->billing_address_line_2 = $usr['address2'];
+        //     $user->billing_city = $usr['city'];
+        //     $user->billing_state = $usr['state'];
+        //     $user->billing_zip = $usr['zip'];
+        //     $user->billing_country = 'US';
+        //     $user->email_notification = 1;
+
+        //     $user->save();
+        // }
+    });
+
+    Route::get('/updateUserNotificationStates', function() {
+        // $file = url('/subscriptions.csv');
+        // $csv = array_map('str_getcsv', file($file));
+        // array_walk($csv, function(&$a) use ($csv) {
+        //     $a = array_combine($csv[0], $a);
+        // });
+        // array_shift($csv);
+        // // echo "<pre>";print_r($csv);echo "</pre>";
+
+        // foreach ( $csv as $usr ) {
+        //     $user = User::where('email', $usr['email'])->first();
+        //     if ( $user ) {
+        //         $notification_states = json_decode($user->notification_states);
+        //         // echo "<pre>";print_r($notification_states);echo "</pre>";
+        //         if ( $notification_states[0] == "" ) {
+        //             // echo "Empty!";
+        //             $notification_states = array($usr['state']);
+        //         } else {
+        //             // echo "Not Empty!";
+        //             array_push($notification_states, $usr['state']);
+        //         }
+        //         array_unique($notification_states);
+        //         $user->notification_states = json_encode($notification_states);
+        //         $user->save();
+        //     }
+        // }
+    });
+
+    Route::get('/removeDuplicatesFromUserNotificationStates', function() {
+        // $users = User::all();
+
+        // foreach ( $users as $user ) {
+        //     $notification_states = json_decode($user->notification_states);
+        //     // echo "<pre>"; print_r($notification_states); echo "</pre>";
+        //     $user->notification_states = json_encode($notification_states);
+        //     $user->save();
+        // }
+    });
+
+    Route::get('/addUserSubscriptions', function() {
+        // function getStripeToken() {
+        //     $client = new \GuzzleHttp\Client();
+        //     $pubKey = "pk_test_4ECOLwcF84mNQerLpCB0TfPT";
+        //     $cardNumber = "5555 5555 5555 4444";
+        //     $cvc = "123";
+        //     $expMonth = "09";
+        //     $expYear = "2021";
+        //     $headers = [
+        //         'Pragma' => 'no-cache',
+        //         'Origin' => 'https://js.stripe.com',
+        //         'Accept-Encoding' => 'gzip, deflate',
+        //         'Accept-Language' => 'en-US,en;q=0.8',
+        //         'User-Agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.104 Safari/537.36',
+        //         'Content-Type' => 'application/x-www-form-urlencoded',
+        //         'Accept' => 'application/json',
+        //         'Cache-Control' => 'no-cache',
+        //         'Referer' => 'https://js.stripe.com/v2/channel.html?stripe_xdm_e=http%3A%2F%2Fwww.beanstalk.dev&stripe_xdm_c=default176056&stripe_xdm_p=1',
+        //         'Connection' => 'keep-alive'
+        //     ];
+        //     $postBody = [
+        //         'key' => $pubKey,
+        //         'payment_user_agent' => 'stripe.js/Fbebcbe6',
+        //         'card[number]' => $cardNumber,
+        //         'card[cvc]' => $cvc,
+        //         'card[exp_month]' => $expMonth,
+        //         'card[exp_year]' => $expYear,
+        //     ];
+        //     $response = $client->post('https://api.stripe.com/v1/tokens', [
+        //         'headers' => $headers,
+        //         'form_params' => $postBody
+        //     ]);
+        //     $response = json_decode($response->getbody()->getContents());
+        //     return $response->id;
+        // }
+
+        // $file = url('/subscriptions.csv');
+        // $handle = fopen($file, 'r');
+
+        // // error checking.
+        // if($handle === false) {
+        //    die("Error opening $file");
+        // }
+
+        // // to skip the header.
+        // $skip = true;
+
+        // while (($data = fgetcsv($handle)) !== FALSE) {
+        //     // if header..don't print and negate the flag.
+        //     if ( $skip ) {
+        //         $skip = ! $skip;
+        //         // else..print.
+        //     } else {      
+        //         $user = User::find($data[1]);
+        //         echo "User ID: ".$user->id."<br/>";
+        //         if ( $data[2] >= 1825 ) {
+        //             $data[2] = 1825;
+        //         }
+        //         if ( $data[2] > 183 ) {
+        //             $plan_id = 'fdc-yearly';
+        //         } elseif ( $data[2] < 183 && $data[2] > 92 ) {
+        //             $plan_id = 'fdc-6-month';
+        //         } else {
+        //             $plan_id = 'fdc-3-month';
+        //         }
+        //         $plan = [
+        //             'id' => $plan_id,
+        //             'trialDays' => $data[2]
+        //         ];
+        //         echo "Plan ID: ".$plan['id']."<br/>";
+        //         echo "Trial Days: ".$plan['trialDays']."<br/>";
+        //         echo "<br/>";
+        //         // echo "<pre>";print_r($plan);echo "</pre>";
+        //         // $data = [
+        //         //     'card_country' => $user->billing_country,
+        //         //     'name' => $user->first_name.' '.$user->last_name,
+        //         //     'stripe_token' => getStripeToken()
+        //         // ];
+
+        //         // Spark::interact(Subscribe::class, [
+        //         //     $user, (object)$plan, false, $data
+        //         // ]);
+        //     }
+        // }
+
+        // fclose($handle);
+    });
+
+    Route::get('/addRecurringUserSubscriptions', function() {
+        // function getStripeToken() {
+        //     $client = new \GuzzleHttp\Client();
+        //     $pubKey = "pk_test_4ECOLwcF84mNQerLpCB0TfPT";
+        //     $cardNumber = "4242 4242 4242 4242";
+        //     $cvc = "123";
+        //     $expMonth = "11";
+        //     $expYear = "2020";
+        //     $headers = [
+        //         'Pragma' => 'no-cache',
+        //         'Origin' => 'https://js.stripe.com',
+        //         'Accept-Encoding' => 'gzip, deflate',
+        //         'Accept-Language' => 'en-US,en;q=0.8',
+        //         'User-Agent' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.104 Safari/537.36',
+        //         'Content-Type' => 'application/x-www-form-urlencoded',
+        //         'Accept' => 'application/json',
+        //         'Cache-Control' => 'no-cache',
+        //         'Referer' => 'https://js.stripe.com/v2/channel.html?stripe_xdm_e=http%3A%2F%2Fwww.beanstalk.dev&stripe_xdm_c=default176056&stripe_xdm_p=1',
+        //         'Connection' => 'keep-alive'
+        //     ];
+        //     $postBody = [
+        //         'key' => $pubKey,
+        //         'payment_user_agent' => 'stripe.js/Fbebcbe6',
+        //         'card[number]' => $cardNumber,
+        //         'card[cvc]' => $cvc,
+        //         'card[exp_month]' => $expMonth,
+        //         'card[exp_year]' => $expYear,
+        //     ];
+        //     $response = $client->post('https://api.stripe.com/v1/tokens', [
+        //         'headers' => $headers,
+        //         'form_params' => $postBody
+        //     ]);
+        //     $response = json_decode($response->getbody()->getContents());
+        //     return $response->id;
+        // }
+
+        // $user = User::find(2674);
+
+        // $plan = [
+        //     'id' => 'fdc-monthly',
+        //     'trialDays' => 32
+        // ];
+        // $data = [
+        //     'billing_address' => $user->billing_address,
+        //     'billing_address_line_2' => $user->billing_address_line_2,
+        //     'billing_city' => $user->billing_city,
+        //     'billing_state' => $user->billing_state,
+        //     'billing_zip' => $user->billing_zip,
+        //     'billing_country' => $user->billing_country,
+        //     'card_country' => $user->billing_country,
+        //     'name' => $user->first_name.' '.$user->last_name,
+        //     'stripe_token' => getStripeToken()
+        // ];
+
+        // Spark::interact(Subscribe::class, [
+        //     $user, (object)$plan, false, $data
+        // ]);
+
+        // $file = url('/recurring_payment_profiles.csv');
+        // $csv = array_map('str_getcsv', file($file));
+        // array_walk($csv, function(&$a) use ($csv) {
+        //     $a = array_combine($csv[0], $a);
+        // });
+        // array_shift($csv);
+        // echo "<pre>";print_r($csv);echo "</pre>";
+
+        // foreach ( $csv as $usr ) {
+            // $email = $usr['email'];
+            // echo "Email: ".$email."<br/>";
+            // $xdate = $usr['nextbillingdate'];
+            // echo "Expiration: ".$xdate."<br/>";
+
+            // $billing = explode(' ', $xdate);
+            // $billingDate = explode('-', $billing[0]);
+            // $billingTime = explode(':', $billing[1]);
+            // $trialDays = Carbon::create($billingDate[0], $billingDate[1], $billingDate[2], $billingTime[0], $billingTime[1], $billingTime[2])->addMonth()->diffInDays(Carbon::now());
+            // echo "Trial Days: ".$trialDays."<br/>";
+
+            // $user = User::where('email', $usr['email'])->distinct()->first();
+            // echo "<pre>";print_r($user);echo "</pre>";
+            // echo "User ID: ".$user->id."<br/>";
+
+            // if ( $user ) {
+            //     $plan = [
+            //         'id' => 'fdc-monthly',
+            //         'trialDays' => $trialDays
+            //     ];
+            //     echo "<pre>";print_r($plan);echo "</pre>";
+
+            //     $data = [
+            //         'billing_address' => $user->billing_address,
+            //         'billing_address_line_2' => $user->billing_address_line_2,
+            //         'billing_city' => $user->billing_city,
+            //         'billing_state' => $user->billing_state,
+            //         'billing_zip' => $user->billing_zip,
+            //         'billing_country' => $user->billing_country,
+            //         'card_country' => $user->billing_country,
+            //         'name' => $user->first_name.' '.$user->last_name,
+            //         'stripe_token' => getStripeToken()
+            //     ];
+            //     echo "<pre>";print_r($data);echo "</pre>";
+            // }
+
+            // echo "<br/>";
+        // }
+    });
+
+    Route::get('/updateSubscriptionFromTrialToCancel', function() {
+        // $subscriptions = DB::table('subscriptions')->whereNotNull('trial_ends_at')->get();
+        // foreach ( $subscriptions as $subscription ) {
+        //     DB::table('subscriptions')->update(['ends_at' => $subscription->trial_ends_at, 'trial_ends_at' => NULL]);
+        //     $user = User::find($subscription->user_id);
+        //     $user->card_brand = NULL;
+        //     $user->card_last_four = NULL;
+        //     $user->trial_ends_at = NULL;
+        //     $user->save();
+        // }
+    });
 });

@@ -20,24 +20,24 @@ class PositionController extends Controller
     public function index($state = null)
     {
         $departments = Department::all();
-        $paidPositions = Position::where([['position_type', 'full-time'],['active', '1']])
-                                ->orWhere([['position_type', 'paid-on-call'],['active', '1']])
-                                ->orWhere([['position_type', 'contractor'],['active', '1']])
+        $paidPositions = Position::where([['position_type', 'full-time'],['active', '1'],['publish', '<=', Carbon::now()]])
+                                ->orWhere([['position_type', 'paid-on-call'],['active', '1'],['publish', '<=', Carbon::now()]])
+                                ->orWhere([['position_type', 'contractor'],['active', '1'],['publish', '<=', Carbon::now()]])
                                 ->get();
 
-        $unpaidPositions = Position::where([['position_type', 'part-time'],['active', '1']])
-                                    ->orWhere([['position_type', 'volunteer'],['active', '1']])
+        $unpaidPositions = Position::where([['position_type', 'part-time'],['active', '1'],['publish', '<=', Carbon::now()]])
+                                    ->orWhere([['position_type', 'volunteer'],['active', '1'],['publish', '<=', Carbon::now()]])
                                     ->get();
 
 
         if ($state) {
-            $paidPositions = Position::where([['state', $state],['position_type', 'full-time'],['active', '1']])
-                                    ->orWhere([['state', $state],['position_type', 'paid-on-call'],['active', '1']])
-                                    ->orWhere([['state', $state],['position_type', 'contractor'],['active', '1']])
+            $paidPositions = Position::where([['state', $state],['position_type', 'full-time'],['active', '1'],['publish', '<=', Carbon::now()]])
+                                    ->orWhere([['state', $state],['position_type', 'paid-on-call'],['active', '1'],['publish', '<=', Carbon::now()]])
+                                    ->orWhere([['state', $state],['position_type', 'contractor'],['active', '1'],['publish', '<=', Carbon::now()]])
                                     ->get();
 
-            $unpaidPositions = Position::where([['state', $state],['position_type', 'part-time'],['active', '1']])
-                                    ->orWhere([['state', $state],['position_type', 'volunteer'],['active', '1']])
+            $unpaidPositions = Position::where([['state', $state],['position_type', 'part-time'],['active', '1'],['publish', '<=', Carbon::now()]])
+                                    ->orWhere([['state', $state],['position_type', 'volunteer'],['active', '1'],['publish', '<=', Carbon::now()]])
                                     ->get();
         }
         
@@ -53,7 +53,12 @@ class PositionController extends Controller
     public function show($id)
     {
         $position = Position::find($id);
-        $department = Department::find($position->department_id);
+        if ( $position->imported ) {
+            $department = Department::where('oldId', $position->department_id)->first();
+        } else {
+            $department = Department::find($position->department_id);
+        }
+        
         $user = Auth::user();
 
         if ( $position->active == 1 ) {

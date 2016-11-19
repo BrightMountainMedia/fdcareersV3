@@ -11,7 +11,6 @@
                             <tbody>
                                 <tr>
                                     <td>Full Time, Paid-On-Call and Contractor Positions</td>
-                                    <td class="align-right">Fire Department</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -24,13 +23,6 @@
                                         <tbody>
                                             <tr>
                                                 <td><a href="/position/{{ $position->id }}">{{ $position->title }}</a>, {{ $position->position_type }}</td>
-                                                <td class="align-right">
-                                                    @foreach ($departments as $department)
-                                                        @if ($position->department_id === $department->id)
-                                                        <a href="/department/{{ $department->id }}">{{ $department->name }}</a>
-                                                        @endif
-                                                    @endforeach
-                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -51,7 +43,6 @@
                             <tbody>
                                 <tr>
                                     <td>Part Time and Volunteer Positions</td>
-                                    <td class="align-right">Fire Department</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -63,13 +54,6 @@
                                 <tbody>
                                     <tr>
                                         <td><a href="/position/{{ $position->id }}">{{ $position->title }}</a>, {{ $position->position_type }}</td>
-                                        <td class="align-right">
-                                            @foreach ($departments as $department)
-                                                @if ($position->department_id === $department->id)
-                                                <a href="/department/{{ $department->id }}">{{ $department->name }}</a>
-                                                @endif
-                                            @endforeach
-                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
