@@ -178,6 +178,30 @@ Route::group(['middleware' => ['web']], function() {
     });
 
     Route::get('/addUserSubscriptions', function() {
+        $file = url('/subscriptions.csv');
+
+        $csv = array_map('str_getcsv', file($file));
+        array_walk($csv, function(&$a) use ($csv) {
+            $a = array_combine($csv[0], $a);
+        });
+        array_shift($csv); # remove column header
+
+        array_multisort($csv, SORT_ASC, SORT_REGULAR);
+
+        foreach ( $csv as $info ) {
+            // echo "<pre>"; print_r($info); echo "</pre>";
+
+            $id = $info['id'];
+            $email = $info['email'];
+            $trialDays = $info['trialDays'];
+
+            echo "<strong>User ID</strong>: ".$id."<br/>";
+            echo "<strong>Email</strong>: ".$email."<br/>";
+            echo "<strong>Trial Days</strong>: ".$trialDays."<br/>";
+
+            echo "<br/>";
+        }
+
         // function getStripeToken() {
         //     $client = new \GuzzleHttp\Client();
         //     $headers = [
