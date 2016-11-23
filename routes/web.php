@@ -180,11 +180,6 @@ Route::group(['middleware' => ['web']], function() {
     Route::get('/addUserSubscriptions', function() {
         // function getStripeToken() {
         //     $client = new \GuzzleHttp\Client();
-        //     $pubKey = "pk_test_4ECOLwcF84mNQerLpCB0TfPT";
-        //     $cardNumber = "4242 4242 4242 4242";
-        //     $cvc = "123";
-        //     $expMonth = "11";
-        //     $expYear = "2020";
         //     $headers = [
         //         'Pragma' => 'no-cache',
         //         'Origin' => 'https://js.stripe.com',
@@ -198,12 +193,12 @@ Route::group(['middleware' => ['web']], function() {
         //         'Connection' => 'keep-alive'
         //     ];
         //     $postBody = [
-        //         'key' => $pubKey,
+        //         'key' => 'pk_live_HmtoTcDEpWkHGE2nQXAmLpGo',
         //         'payment_user_agent' => 'stripe.js/Fbebcbe6',
-        //         'card[number]' => $cardNumber,
-        //         'card[cvc]' => $cvc,
-        //         'card[exp_month]' => $expMonth,
-        //         'card[exp_year]' => $expYear,
+        //         'card[number]' => '4444 4444 4444 4444',
+        //         'card[cvc]' => '123',
+        //         'card[exp_month]' => '11',
+        //         'card[exp_year]' => '2020',
         //     ];
         //     $response = $client->post('https://api.stripe.com/v1/tokens', [
         //         'headers' => $headers,
@@ -213,11 +208,11 @@ Route::group(['middleware' => ['web']], function() {
         //     return $response->id;
         // }
 
-        // $user = User::find(2674);
+        // $user = User::find(528);
 
         // $plan = [
-        //     'id' => 'fdc-monthly',
-        //     'trialDays' => 32
+        //     'id' => 'fdc-6-month',
+        //     'trialDays' => 107
         // ];
         // $data = [
         //     'billing_address' => $user->billing_address,
@@ -237,10 +232,8 @@ Route::group(['middleware' => ['web']], function() {
     });
 
     Route::get('/updateSubscriptionFromTrialToCancel', function() {
-        // $subscriptions = DB::table('subscriptions')->whereNotNull('trial_ends_at')->get();
-        // foreach ( $subscriptions as $subscription ) {
-        //     DB::table('subscriptions')->update(['ends_at' => $subscription->trial_ends_at, 'trial_ends_at' => NULL]);
-        //     $user = User::find($subscription->user_id);
+        // $users = User::whereNotNull('trial_ends_at')->get();
+        // foreach ( $users as $user ) {
         //     $user->card_brand = NULL;
         //     $user->card_last_four = NULL;
         //     $user->trial_ends_at = NULL;
