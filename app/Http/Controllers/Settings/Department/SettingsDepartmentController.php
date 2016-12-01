@@ -170,6 +170,8 @@ class SettingsDepartmentController extends Controller
                 $scheduled = Position::where('department_id', $department->oldId)->scheduled()->orderBy('publish', 'ASC')->get();
                 $inactive = Position::where('department_id', $department->oldId)->published()->inActive()->get();
             }
+
+            return response()->json(['department' => $department, 'positions' => $positions, 'scheduled' => $scheduled, 'inactive' => $inactive]);
         }
 
         return response()->json(['error' => 'You are unauthorized to modify this department. Please contact your department head if you believe this to be an error.']);
