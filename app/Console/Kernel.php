@@ -33,7 +33,7 @@ class Kernel extends ConsoleKernel
                  ->dailyAt('8:30');
 
         $schedule->command('positions:reminder')
-                 ->monthlyOn(1, '9:00');
+                 ->monthlyOn(2, '9:00');
     }
 
     /**
