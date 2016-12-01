@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Settings\Department;
 
 use Carbon\Carbon;
+use Laravel\Spark\Spark;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
