@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-7">
-                @if (Auth::user()->id === $department->owner_id)
+                @if ( in_array(Auth::user()->email, Spark::$developers) || Auth::user()->id === $department->owner_id )
                 <div class="panel panel-default panel-flush">
                     <!-- Create Button -->
                     <a class="btn btn-primary btn-block inverse" href="/settings#/department/{{ $department->id }}">

@@ -22,7 +22,7 @@
             @if ( isset($department) )
             <div class="col-sm-8">
                 @if ( Auth::check() )
-                    @if ( Auth::user()->id === $department->owner_id )
+                    @if ( in_array(Auth::user()->email, Spark::$developers) || Auth::user()->id === $department->owner_id )
                     <div class="panel panel-default panel-flush">
                         <!-- Create Button -->
                         <a class="btn btn-primary btn-block inverse" href="/settings#/department/{{ $department->id }}/position/{{ $position->id }}">
