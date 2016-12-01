@@ -159,6 +159,18 @@ class SettingsDepartmentController extends Controller
             return response()->json(['department' => $department, 'positions' => $positions, 'scheduled' => $scheduled, 'inactive' => $inactive]);
         }
 
+        if ( in_array($user->email, Spark::$developers) ) {
+            $positions = Position::where('department_id', $id)->published()->active()->get();
+            $scheduled = Position::where('department_id', $id)->scheduled()->orderBy('publish', 'ASC')->get();
+            $inactive = Position::where('department_id', $id)->published()->inActive()->get();
+
+            if ( $department->oldId ) {
+                $positions = Position::where('department_id', $department->oldId)->published()->active()->get();
+                $scheduled = Position::where('department_id', $department->oldId)->scheduled()->orderBy('publish', 'ASC')->get();
+                $inactive = Position::where('department_id', $department->oldId)->published()->inActive()->get();
+            }
+        }
+
         return response()->json(['error' => 'You are unauthorized to modify this department. Please contact your department head if you believe this to be an error.']);
     }
 
