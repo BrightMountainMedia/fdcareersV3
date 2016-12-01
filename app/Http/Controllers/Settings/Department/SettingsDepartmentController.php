@@ -146,7 +146,7 @@ class SettingsDepartmentController extends Controller
         $department = Department::where('id', $id)->first();
         $user = Auth::user();
 
-        if ($department->owner_id === $user->id) {
+        if ( in_array($user->email, Spark::$developers) ) {
             $positions = Position::where('department_id', $id)->published()->active()->get();
             $scheduled = Position::where('department_id', $id)->scheduled()->orderBy('publish', 'ASC')->get();
             $inactive = Position::where('department_id', $id)->published()->inActive()->get();
@@ -160,7 +160,7 @@ class SettingsDepartmentController extends Controller
             return response()->json(['department' => $department, 'positions' => $positions, 'scheduled' => $scheduled, 'inactive' => $inactive]);
         }
 
-        if ( in_array($user->email, Spark::$developers) ) {
+        if ($department->owner_id === $user->id) {
             $positions = Position::where('department_id', $id)->published()->active()->get();
             $scheduled = Position::where('department_id', $id)->scheduled()->orderBy('publish', 'ASC')->get();
             $inactive = Position::where('department_id', $id)->published()->inActive()->get();

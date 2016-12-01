@@ -275,7 +275,7 @@
                             </div>
 
                             <!-- Featured -->
-                            <!-- <div class="form-group" :class="{'has-error': form.errors.has('featured')}">
+                            <div class="form-group" :class="{'has-error': form.errors.has('featured')}">
                                 <label class="col-md-4 control-label">Featured</label>
 
                                 <div class="col-md-6">
@@ -289,7 +289,7 @@
                                         @{{ form.errors.get('featured') }}
                                     </span>
                                 </div>
-                            </div> -->
+                            </div>
                         </form>
                     </div>
 

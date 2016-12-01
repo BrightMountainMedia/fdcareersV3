@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Settings\Position;
 
 use Carbon\Carbon;
+use Laravel\Spark\Spark;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -168,7 +169,7 @@ class SettingsPositionController extends Controller
 
         $position->save();
 
-        if ( $position->$active ) {
+        if ( $position->active ) {
             $department = Department::find($position->department_id);
             $users = User::where('notification_states', 'like', '%'.$position->state.'%')->get();
             foreach ($users as $user) {
@@ -199,7 +200,7 @@ class SettingsPositionController extends Controller
         $department = Department::where('id', $position->department_id)->first();
         $user = Auth::user();
 
-        if ($department->owner_id === $user->id) {
+        if ( in_array($user->email, Spark::$developers) || $department->owner_id === $user->id) {
             return response()->json(['position' => $position, 'department' => $department]);
         }
 
