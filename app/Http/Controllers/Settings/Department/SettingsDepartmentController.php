@@ -146,21 +146,7 @@ class SettingsDepartmentController extends Controller
         $department = Department::where('id', $id)->first();
         $user = Auth::user();
 
-        if ( in_array($user->email, Spark::$developers) ) {
-            $positions = Position::where('department_id', $id)->published()->active()->get();
-            $scheduled = Position::where('department_id', $id)->scheduled()->orderBy('publish', 'ASC')->get();
-            $inactive = Position::where('department_id', $id)->published()->inActive()->get();
-
-            if ( $department->oldId ) {
-                $positions = Position::where('department_id', $department->oldId)->published()->active()->get();
-                $scheduled = Position::where('department_id', $department->oldId)->scheduled()->orderBy('publish', 'ASC')->get();
-                $inactive = Position::where('department_id', $department->oldId)->published()->inActive()->get();
-            }
-
-            return response()->json(['department' => $department, 'positions' => $positions, 'scheduled' => $scheduled, 'inactive' => $inactive]);
-        }
-
-        if ($department->owner_id === $user->id) {
+        if ( in_array($user->email, Spark::$developers) || $department->owner_id === $user->id ) {
             $positions = Position::where('department_id', $id)->published()->active()->get();
             $scheduled = Position::where('department_id', $id)->scheduled()->orderBy('publish', 'ASC')->get();
             $inactive = Position::where('department_id', $id)->published()->inActive()->get();
