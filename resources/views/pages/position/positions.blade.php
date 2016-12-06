@@ -17,7 +17,7 @@
                     </div>
                     <div class="panel-body">
                         @if ( Auth::user() && Auth::user()->subscribed() )
-                            @if ( count($unpaidPositions) > 0 )
+                            @if ( count($paidPositions) > 0 )
                                 @foreach ($paidPositions as $position)
                                     <table width="100%">
                                         <tbody>
