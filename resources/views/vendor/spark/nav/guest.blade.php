@@ -26,6 +26,7 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
+                <li><a href="https://www.facebook.com/fdcareers" target="_blank" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                 <li><a href="/login" class="navbar-link">Login</a></li>
                 <li><a href="/register" class="navbar-link">Subscribe</a></li>
             </ul>
