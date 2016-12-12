@@ -15,7 +15,9 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         \App\Console\Commands\PositionsPublish::class,
         \App\Console\Commands\PositionsDueDate::class,
-        \App\Console\Commands\PositionsReminder::class
+        \App\Console\Commands\PositionsReminder::class,
+        \App\Console\Commands\SendIntro::class,
+        // \App\Console\Commands\RenewSubscriptionReminder::class
     ];
 
     /**
@@ -31,6 +33,9 @@ class Kernel extends ConsoleKernel
 
         $schedule->command('positions:duedate')
                  ->dailyAt('8:30');
+
+        // $schedule->command('subscription:reminder')
+        //          ->dailyAt('10:00');
 
         $schedule->command('positions:reminder')
                  ->monthlyOn(2, '9:00');

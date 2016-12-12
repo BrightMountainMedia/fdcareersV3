@@ -1,15 +1,5 @@
 <?php
 
-use Carbon\Carbon;
-use Laravel\Spark\Spark;
-use Laravel\Spark\Contracts\Interactions\Subscribe;
-use App\User;
-use App\Position;
-use App\FeaturedPosition;
-use App\Department;
-use App\Notifications\WelcomeEmail;
-use Illuminate\Support\Facades\DB;
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
