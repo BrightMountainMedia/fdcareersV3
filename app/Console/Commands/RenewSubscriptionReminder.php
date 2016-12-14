@@ -47,7 +47,7 @@ class RenewSubscriptionReminder extends Command
             foreach ( $subscriptions as $subscription ) {
                 $user = User::find($subscription->user_id);
                 $user->notify(new SubscriptionRenewal($user));
-                DB::table('subscriptions')->where('user_id', $subscription->user_id)->update(['reminder_sent' => 1]);
+                DB::table('subscriptions')->where('user_id', $subscription->user_id)->update(['reminder_sent' => 1, 'updated_at' => Carbon::now()]);
             }
         }
     }
