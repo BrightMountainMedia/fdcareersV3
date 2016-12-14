@@ -28,17 +28,26 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
+        $filePath = '/schedule.log';
+
         $schedule->command('positions:publish')
-                 ->everyMinute();
+                 ->everyMinute()
+                 ->appendOutputTo($filePath);
 
         $schedule->command('positions:duedate')
-                 ->dailyAt('8:30');
+                 ->dailyAt('8:30')
+                 ->appendOutputTo($filePath)
+                 ->emailOutputTo('mstoffer@brightmountainmedia.com');
 
         $schedule->command('subscription:reminder')
-                 ->dailyAt('10:00');
+                 ->appendOutputTo($filePath)
+                 ->dailyAt('10:00')
+                 ->emailOutputTo('mstoffer@brightmountainmedia.com');
 
         $schedule->command('positions:reminder')
-                 ->monthlyOn(2, '9:00');
+                 ->monthlyOn(2, '9:00')
+                 ->appendOutputTo($filePath)
+                 ->emailOutputTo('mstoffer@brightmountainmedia.com');
     }
 
     /**
