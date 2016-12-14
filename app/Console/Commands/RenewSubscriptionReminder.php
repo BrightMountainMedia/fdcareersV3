@@ -42,11 +42,13 @@ class RenewSubscriptionReminder extends Command
      */
     public function handle()
     {
-        $subscriptions = DB::table('subscriptions')->whereBetween('ends_at', [Carbon::today(), Carbon::now()->addMonth()])->get();
+        $subscriptions = DB::table('subscriptions')->whereBetween('ends_at', [Carbon::today(), Carbon::now()->addMonth()])->where('reminder_sent', 0)->get();
         if ( count($subscriptions) > 0 ) {
             foreach ( $subscriptions as $subscription ) {
                 $user = User::find($subscription->user_id);
                 $user->notify(new SubscriptionRenewal($user));
+                $subscription->reminder_sent = 1;
+                $subscription->save();
             }
         }
     }
