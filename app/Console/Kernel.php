@@ -16,7 +16,7 @@ class Kernel extends ConsoleKernel
         \App\Console\Commands\PositionsPublish::class,
         \App\Console\Commands\PositionsDueDate::class,
         \App\Console\Commands\PositionsReminder::class,
-        \App\Console\Commands\SendIntro::class,
+        // \App\Console\Commands\SendIntro::class,
         // \App\Console\Commands\RenewSubscriptionReminder::class
     ];
 
