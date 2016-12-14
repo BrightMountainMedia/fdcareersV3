@@ -53,7 +53,7 @@ class PositionController extends Controller
     public function show($id)
     {
         $position = Position::find($id);
-        if ( $position->imported ) {
+        if ( $position->imported === 1 ) {
             $department = Department::where('oldId', $position->department_id)->first();
         } else {
             $department = Department::find($position->department_id);
