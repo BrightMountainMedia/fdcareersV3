@@ -1,5 +1,16 @@
 @extends('spark::layouts.app')
 
+@section('meta')
+<meta property="og:app_id" content="611587618967503" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.fdcareers.com/" />
+<meta property="og:title" content="Why FD Careers?" />
+<meta property="og:description" content="Many services require you to visit their website every day to keep current on who is hiring. If you're busy or don't have the time to sort through old listings on their message boards, you might miss the department you want to work for... not with FD Careers. With FD Careers, we will send job alerts directly to your inbox!" />
+<meta property="og:image" content="https://www.fdcareers.com/img/facebook.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+@endsection
+
 @section('content')
     <div class="container">
         <div class="row">
