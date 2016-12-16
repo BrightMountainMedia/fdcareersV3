@@ -56,6 +56,7 @@ class SparkServiceProvider extends ServiceProvider
         Spark::useStripe();
         Spark::useTwoFactorAuth();
         Spark::collectBillingAddress();
+        Spark::noProrate();
 
         Spark::plan('Monthly Subscription', 'fdc-monthly')
             ->price(8.95)
