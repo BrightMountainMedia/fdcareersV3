@@ -31,7 +31,7 @@ Vue.component('search-page', {
     computed: {
         href() {
             if ( this.position ) {
-                return "http://fdcareers.dev/position/" + this.position.id + "/featured";
+                return "/position/" + this.position.id + "/featured";
             }
         },
 
