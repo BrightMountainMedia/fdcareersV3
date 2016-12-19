@@ -132,10 +132,8 @@ class SettingsPositionController extends Controller
         if ( $request->featured == 1 ) {
             $count = FeaturedPosition::count();
             if ( $count < 10 ) {
-                FeaturedPosition::insert([
+                FeaturedPosition::updateOrCreate([
                     'position_id' => $id,
-                    'created_at' => Carbon::now(),
-                    'updated_at' => Carbon::now()
                 ]);
                 $position->featured = 1;
             } else if ( $count == 10 ) {
@@ -144,10 +142,8 @@ class SettingsPositionController extends Controller
                 $pos->featured = 0;
                 $pos->save();
                 $oldest->delete();
-                FeaturedPosition::insert([
+                FeaturedPosition::updateOrCreate([
                     'position_id' => $id,
-                    'created_at' => Carbon::now(),
-                    'updated_at' => Carbon::now()
                 ]);
                 $position->featured = 1;
             }
@@ -266,11 +262,9 @@ class SettingsPositionController extends Controller
 
         if ( $request->featured == 1 ) {
             $count = FeaturedPosition::count();
-            if ( $count < 10 ) {
-                FeaturedPosition::insert([
+            if (  $count < 10 ) {
+                FeaturedPosition::updateOrCreate([
                     'position_id' => $id,
-                    'created_at' => Carbon::now(),
-                    'updated_at' => Carbon::now()
                 ]);
                 $position->featured = 1;
             } else if ( $count == 10 ) {
@@ -279,10 +273,8 @@ class SettingsPositionController extends Controller
                 $pos->featured = 0;
                 $pos->save();
                 $oldest->delete();
-                FeaturedPosition::insert([
+                FeaturedPosition::updateOrCreate([
                     'position_id' => $id,
-                    'created_at' => Carbon::now(),
-                    'updated_at' => Carbon::now()
                 ]);
                 $position->featured = 1;
             }
