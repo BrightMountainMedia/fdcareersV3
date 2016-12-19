@@ -275,13 +275,16 @@ class SettingsPositionController extends Controller
                 $position->featured = 1;
             } else if ( $count == 10 ) {
                 $oldest = FeaturedPosition::active()->orderBy('created_at', 'ASC')->first();
+                $pos = Position::find($oldest->position_id);
+                $pos->featured = 0;
+                $pos->save();
                 $oldest->delete();
                 FeaturedPosition::insert([
                     'position_id' => $id,
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ]);
-                $position->featured = 0;
+                $position->featured = 1;
             }
         }
 

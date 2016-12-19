@@ -22,7 +22,7 @@
             @if ( isset($department) )
             <div class="col-sm-8">
                 @if ( Auth::check() )
-                    @if ( Auth::user()->id === $department->owner_id )
+                    @if ( in_array(Auth::user()->email, Spark::$developers) || Auth::user()->id === $department->owner_id )
                     <div class="panel panel-default panel-flush">
                         <!-- Create Button -->
                         <a class="btn btn-primary btn-block inverse" href="/settings#/department/{{ $department->id }}/position/{{ $position->id }}">
@@ -53,70 +53,70 @@
                         @endif
                         @if ($position->salary)
                         <div class="row">
-                            <p class="col-sm-3">
+                            <div class="col-sm-3">
                                 <strong>Salary:</strong>
-                            </p>
-                            <p class="col-sm-9">
+                            </div>
+                            <div class="col-sm-9">
                                 {{ $position->salary }}
-                            </p>
+                            </div>
                         </div>
                         @endif
                         <div class="row">
-                            <p class="col-sm-3">
+                            <div class="col-sm-3">
                                 <strong>Application Details:</strong>
-                            </p>
-                            <p class="col-sm-9">
-                                {!! nl2br(htmlentities($position->application_details, ENT_QUOTES, 'UTF-8')) !!}
-                            </p>
+                            </div>
+                            <div class="col-sm-9">
+                                {!! nl2br($position->application_details) !!}
+                            </div>
                         </div>
                         @if ($position->testing_details)
                         <div class="row">
-                            <p class="col-sm-3">
+                            <div class="col-sm-3">
                                 <strong>Testing Details:</strong>
-                            </p>
-                            <p class="col-sm-9">
-                                {!! nl2br(htmlentities($position->testing_details, ENT_QUOTES, 'UTF-8')) !!}
-                            </p>
+                            </div>
+                            <div class="col-sm-9">
+                                {!! nl2br($position->testing_details) !!}
+                            </div>
                         </div>
                         @endif
                         @if ($position->orientation_details)
                         <div class="row">
-                            <p class="col-sm-3">
+                            <div class="col-sm-3">
                                 <strong>Orientation Details:</strong>
-                            </p>
-                            <p class="col-sm-9">
-                                {!! nl2br(htmlentities($position->orientation_details, ENT_QUOTES, 'UTF-8')) !!}
-                            </p>
+                            </div>
+                            <div class="col-sm-9">
+                                {!! nl2br($position->orientation_details) !!}
+                            </div>
                         </div>
                         @endif
                         @if ($position->requirements)
                         <div class="row">
-                            <p class="col-sm-3">
+                            <div class="col-sm-3">
                                 <strong>Duties / Requirements:</strong>
-                            </p>
-                            <p class="col-sm-9">
-                                {!! nl2br(htmlentities($position->requirements, ENT_QUOTES, 'UTF-8')) !!}
-                            </p>
+                            </div>
+                            <div class="col-sm-9">
+                                {!! nl2br($position->requirements) !!}
+                            </div>
                         </div>
                         @endif
                         @if ($position->qualifications)
                         <div class="row">
-                            <p class="col-sm-3">
+                            <div class="col-sm-3">
                                 <strong>Qualifications:</strong>
-                            </p>
-                            <p class="col-sm-9">
-                                {!! nl2br(htmlentities($position->qualifications, ENT_QUOTES, 'UTF-8')) !!}
-                            </p>
+                            </div>
+                            <div class="col-sm-9">
+                                {!! nl2br($position->qualifications) !!}
+                            </div>
                         </div>
                         @endif
                         @if ($position->residency_requirements)
                         <div class="row">
-                            <p class="col-sm-3">
+                            <div class="col-sm-3">
                                 <strong>Residency Requirements:</strong>
-                            </p>
-                            <p class="col-sm-9">
-                                {!! nl2br(htmlentities($position->residency_requirements, ENT_QUOTES, 'UTF-8')) !!}
-                            </p>
+                            </div>
+                            <div class="col-sm-9">
+                                {!! nl2br($position->residency_requirements) !!}
+                            </div>
                         </div>
                         @endif
                         @if ($position->doc1_title && $position->doc1_url)
@@ -274,85 +274,85 @@
                     <div class="panel-body">
                         @if ($department->email)
                         <div class="row">
-                            <p class="col-sm-3">
+                            <div class="col-sm-3">
                                 <strong>Email:</strong>
-                            </p>
-                            <p class="col-sm-9">    
+                            </div>
+                            <div class="col-sm-9">    
                                 <a href="mailto:{{ $department->email }}">{{ $department->email }}</a>
-                            </p>
+                            </div>
                         </div>
                         @endif
                         @if ($department->hq_address1)
                         <div class="row">
-                            <p class="col-sm-3">
+                            <div class="col-sm-3">
                                 <strong>HQ Address:</strong>
-                            </p>
-                            <p class="col-sm-9">
+                            </div>
+                            <div class="col-sm-9">
                                 {{ $department->hq_address1 }}@if ($department->hq_address2 && $department->hq_address2 != $department->mail_po_box), {{ $department->hq_address2 }}@endif<br/>
                                 {{ $department->hq_city }}, {{ $department->hq_state }}  {{ $department->hq_zip }}
-                            </p>
+                            </div>
                         </div>
                         @endif
                         @if ($department->county)
                         <div class="row">
-                            <p class="col-sm-3">
+                            <div class="col-sm-3">
                                 <strong>County:</strong>
-                            </p>
-                            <p class="col-sm-9">
+                            </div>
+                            <div class="col-sm-9">
                                 {{ $department->county }}
-                            </p>
+                            </div>
                         </div>
                         @endif
                         @if ($department->hq_phone)
                         <div class="row">
-                            <p class="col-sm-3">
+                            <div class="col-sm-3">
                                 <strong>HQ Phone:</strong>
-                            </p>
-                            <p class="col-sm-9">
+                            </div>
+                            <div class="col-sm-9">
                                 <a href="tel:{{ $department->hq_phone }}">{{ $department->hq_phone }}</a>
-                            </p>
+                            </div>
                         </div>
                         @endif
                         @if ($department->hq_fax)
                         <div class="row">
-                            <p class="col-sm-3">
+                            <div class="col-sm-3">
                                 <strong>HQ Fax:</strong>
-                            </p>
-                            <p class="col-sm-9">
+                            </div>
+                            <div class="col-sm-9">
                                 <a href="tel:{{ $department->hq_fax }}">{{ $department->hq_fax }}</a>
-                            </p>
+                            </div>
                         </div>
                         @endif
                         @if ($department->website)
                         <div class="row">
-                            <p class="col-sm-3">
+                            <div class="col-sm-3">
                                 <strong>Website:</strong>
-                            </p>
-                            <p class="col-sm-9">
+                            </div>
+                            <div class="col-sm-9">
                                 <a href="@if (strpos($department->website, 'http://') !== false) {{ $department->website }} @else http://{{ $department->website }} @endif" target="_blank">@if (strpos($department->website, 'http://') !== false) {{ $department->website }} @else http://{{ $department->website }} @endif</a>
-                            </p>
+                            </div>
                         </div>
                         @endif
                         @if ($department->mail_po_box)
                         <div class="row">
-                            <p class="col-sm-3">
+                            <div class="col-sm-3">
                                 <strong>Mailing Address:</strong>
-                            </p>
-                            <p class="col-sm-9">
+                            </div>
+                            <div class="col-sm-9">
                                 {{ $department->mail_po_box }}<br/>
                                 {{ $department->mail_city }}, {{ $department->mail_state }}  {{ $department->mail_zip }}
-                            </p>
+                            </div>
                         </div>
                         @else
                             @if ($department->hq_address1 !== $department->mail_address1)
                         <div class="row">
-                            <p class="col-sm-3">
+                            <div class="col-sm-3">
                                 <strong>Mailing Address:</strong>
-                            </p>
-                            <p class="col-sm-9">
+                            </div>
+                            <div class="col-sm-9">
                                 {{ $department->mail_address1 }}@if ($department->mail_address2 && $department->mail_address2 != $department->mail_po_box), {{ $department->mail_address2 }}@endif<br/>
                                 {{ $department->mail_city }}, {{ $department->mail_state }}  {{ $department->mail_zip }}
-                            </p>
+                            </div>
                         </div>
                             @endif
                         @endif
