@@ -4,13 +4,15 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-7">
-                @if ( in_array(Auth::user()->email, Spark::$developers) || Auth::user()->id === $department->owner_id )
-                <div class="panel panel-default panel-flush">
-                    <!-- Create Button -->
-                    <a class="btn btn-primary btn-block inverse" href="/settings#/department/{{ $department->id }}">
-                        <i class="fa fa-pencil"></i> Edit this department
-                    </a>
-                </div>
+                @if ( Auth::check() )
+                    @if ( in_array(Auth::user()->email, Spark::$developers) || Auth::user()->id === $department->owner_id )
+                    <div class="panel panel-default panel-flush">
+                        <!-- Create Button -->
+                        <a class="btn btn-primary btn-block inverse" href="/settings#/department/{{ $department->id }}">
+                            <i class="fa fa-pencil"></i> Edit this department
+                        </a>
+                    </div>
+                    @endif
                 @endif
                 
                 <div class="panel panel-default">
