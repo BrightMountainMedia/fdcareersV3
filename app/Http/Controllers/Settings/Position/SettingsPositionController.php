@@ -291,6 +291,10 @@ class SettingsPositionController extends Controller
         if ( $request->active == 1 && $position->publish > Carbon::now() ) {
             $position->publish = Carbon::now();
             $position->active = 1;
+        } else if ( $request->active == 0 && $position->featured == 1 ) {
+            $position->featured = 0;
+            $position->active = 0;
+            FeaturedPosition::where('position_id', $id)->delete();
         } else {
             $position->active = $request->active;
         }
