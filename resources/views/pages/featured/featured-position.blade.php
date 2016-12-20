@@ -6,7 +6,7 @@
     <meta property="og:url" content="https://{{ $_SERVER['HTTP_HOST'] }}{{ $_SERVER['REQUEST_URI'] }}" />
     <meta property="og:title" content="{{ $position->title }}" />
     <meta property="og:description" content="{{ substr(strip_tags($position->application_details), 0, 150) }}..." />
-    <meta property="og:image" content="https://www.fdcareers.com/img/facebook-position.jpg" />
+    <meta property="og:image" content="https://www.fdcareers.com/img/facebook-featured-position.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 @endsection
