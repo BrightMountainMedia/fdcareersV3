@@ -51,7 +51,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://fdcareers.dev'),
+    'url' => env('APP_URL', 'https://www.fdcareers.com'),
 
     /*
     |--------------------------------------------------------------------------
