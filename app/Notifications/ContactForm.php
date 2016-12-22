@@ -47,7 +47,7 @@ class ContactForm extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->from($this->email)
+            ->from($this->name . ' <' . $this->email . '>')
             ->subject('Contact Form on FD Careers')
             ->line('Name: ' . $this->name)
             ->line('Email: ' . $this->email)
