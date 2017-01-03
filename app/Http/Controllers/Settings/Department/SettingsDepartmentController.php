@@ -32,7 +32,7 @@ class SettingsDepartmentController extends Controller
      */
     public function allUserDepartments($userId)
     {
-        $departments = Department::where('owner_id', $userId)->get();
+        $departments = Department::where('owner_id', $userId)->orderBy('name')->get();
 
         return response()->json(['departments' => $departments]);
     }
