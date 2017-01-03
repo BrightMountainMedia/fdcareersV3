@@ -132,6 +132,16 @@ module.exports = {
             this.$http.get('/user/current')
                 .then(response => {
                     this.user = response.data;
+
+                    ga('set', 'userId', this.user.id);
+                    
+                    woopra.identify({
+                        email: this.user.email,
+                        name: this.user.first_name + ' ' + this.user.last_name,
+                    });
+
+                    // The identify code should be added before the "track()" function
+                    woopra.track();
                 });
         },
 
