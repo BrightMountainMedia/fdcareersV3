@@ -42,6 +42,15 @@ class RenewSubscriptionReminder extends Command
      */
     public function handle()
     {
+        $reminders = DB::table('subscriptions')->whereBetween('ends_at', [Carbon::today(), Carbon::now()->addWeek()])->where('reminder_sent', 1)->get();
+        if ( count($reminders) > 0 ) {
+            foreach ( $reminders as $reminder ) {
+                $user = User::find($reminder->user_id);
+                $user->notify(new SubscriptionRenewal($user));
+                DB::table('subscriptions')->where('user_id', $reminder->user_id)->update(['reminder_sent' => 2, 'updated_at' => Carbon::now()]);
+            }
+        }
+
         $subscriptions = DB::table('subscriptions')->whereBetween('ends_at', [Carbon::today(), Carbon::now()->addMonth()])->where('reminder_sent', 0)->get();
         if ( count($subscriptions) > 0 ) {
             foreach ( $subscriptions as $subscription ) {
