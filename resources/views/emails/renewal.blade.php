@@ -89,7 +89,7 @@ $style = [
                                         </h1>
 
                                         <p style="{{ $style['paragraph'] }}">
-                                            It has come to our attention that your subscription to FD Careers is coming up for renewal soon. This would be the perfect time to double-check your <a href="https://www.fdcareers.com/settings#/payment-method" title="Payment Method">Payment Method</a> and make sure that everything is up-to-date. Once the Payment Method is up-to-date, you might want to check out the <a href="https://www.fdcareers.com/settings#/subscription" title="Subscription">Subscription</a> section and verify that the plan you are on is acurate.
+                                            It has come to our attention that your subscription to FD Careers is coming up for renewal soon. This would be the perfect time to double-check your <a href="https://www.fdcareers.com/settings#/payment-method" title="Payment Method">Payment Method</a> and make sure that everything is up-to-date. Once the Payment Method is up-to-date, you might want to check out the <a href="https://www.fdcareers.com/settings#/subscription" title="Subscription">Subscription</a> section and verify that the plan you are on is accurate.
                                         </p>
 
                                         <!-- Salutation -->
