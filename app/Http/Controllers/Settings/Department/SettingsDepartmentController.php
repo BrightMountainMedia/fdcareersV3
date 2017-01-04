@@ -72,6 +72,7 @@ class SettingsDepartmentController extends Controller
 
         return $search->where(function ($search) use ($query) {
             $search->where('name', 'like', $query)
+                   ->orWhere('id', 'like', $query)
                    ->orWhere('email', 'like', $query)
                    ->orWhere('hq_city', 'like', $query)
                    ->orWhere('hq_state', 'like', $query);
