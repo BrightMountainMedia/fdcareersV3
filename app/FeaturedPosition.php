@@ -22,7 +22,7 @@ class FeaturedPosition extends Model
      * @var array
      */
     protected $fillable = [
-        //
+        'position_id',
     ];
 
     /**

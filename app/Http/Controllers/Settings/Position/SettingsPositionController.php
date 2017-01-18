@@ -129,26 +129,6 @@ class SettingsPositionController extends Controller
         $position->created_at = Carbon::now();
         $position->updated_at = Carbon::now();
 
-        if ( $request->featured == 1 ) {
-            $count = FeaturedPosition::count();
-            if ( $count < 10 ) {
-                FeaturedPosition::updateOrCreate([
-                    'position_id' => $id,
-                ]);
-                $position->featured = 1;
-            } else if ( $count == 10 ) {
-                $oldest = FeaturedPosition::active()->orderBy('created_at', 'ASC')->first();
-                $pos = Position::find($oldest->position_id);
-                $pos->featured = 0;
-                $pos->save();
-                $oldest->delete();
-                FeaturedPosition::updateOrCreate([
-                    'position_id' => $id,
-                ]);
-                $position->featured = 1;
-            }
-        }
-
         if ($request->scheduled) {
             $month = $request->publishmonth;
             $day = strlen($request->publishday) == 1 ? '0'.$request->publishday : $request->publishday;
@@ -164,6 +144,26 @@ class SettingsPositionController extends Controller
         }
 
         $position->save();
+
+        if ( $request->featured == 1 ) {
+            $count = FeaturedPosition::count();
+            if ( $count < 10 ) {
+                FeaturedPosition::updateOrCreate([
+                    'position_id' => $position->id,
+                ]);
+                $position->featured = 1;
+            } else if ( $count == 10 ) {
+                $oldest = FeaturedPosition::active()->orderBy('created_at', 'ASC')->first();
+                $pos = Position::find($oldest->position_id);
+                $pos->featured = 0;
+                $pos->save();
+                $oldest->delete();
+                FeaturedPosition::updateOrCreate([
+                    'position_id' => $position->id,
+                ]);
+                $position->featured = 1;
+            }
+        }
 
         if ( $position->active ) {
             $department = Department::find($position->department_id);

@@ -32,7 +32,7 @@ class SettingsDepartmentController extends Controller
      */
     public function allUserDepartments($userId)
     {
-        $departments = Department::where('owner_id', $userId)->get();
+        $departments = Department::where('owner_id', $userId)->orderBy('name')->get();
 
         return response()->json(['departments' => $departments]);
     }
@@ -72,6 +72,7 @@ class SettingsDepartmentController extends Controller
 
         return $search->where(function ($search) use ($query) {
             $search->where('name', 'like', $query)
+                   ->orWhere('id', 'like', $query)
                    ->orWhere('email', 'like', $query)
                    ->orWhere('hq_city', 'like', $query)
                    ->orWhere('hq_state', 'like', $query);
@@ -102,11 +103,11 @@ class SettingsDepartmentController extends Controller
             'photo_url' => $request->photo_url, 
             'fdid' => $request->fdid, 
             'name' => $request->name, 
-            'hq_address1' => $request->address1, 
-            'hq_address2' => $request->address2, 
-            'hq_city' => $request->city, 
-            'hq_state' => $request->state, 
-            'hq_zip' => $request->zip, 
+            'hq_address1' => $request->hq_address1, 
+            'hq_address2' => $request->hq_address2, 
+            'hq_city' => $request->hq_city, 
+            'hq_state' => $request->hq_state, 
+            'hq_zip' => $request->hq_zip, 
             'mail_address1' => $request->mail_address1, 
             'mail_address2' => $request->mail_address2, 
             'mail_po_box' => $request->mail_po_box, 

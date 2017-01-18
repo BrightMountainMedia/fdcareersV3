@@ -87,7 +87,7 @@
                             <strong>Website:</strong>
                         </p>
                         <p class="col-sm-9">
-                            <a href="@if (strpos($department->website, 'http://') !== false) {{ $department->website }} @else http://{{ $department->website }} @endif" target="_blank">@if (strpos($department->website, 'http://') !== false) {{ $department->website }} @else http://{{ $department->website }} @endif</a>
+                            <a href="@if (strpos($department->website, 'http://') !== false || strpos($department->website, 'https://') !== false) {{ $department->website }} @else //{{ $department->website }} @endif" target="_blank">@if (strpos($department->website, 'http://') !== false || strpos($department->website, 'https://') !== false) {{ $department->website }} @else //{{ $department->website }} @endif</a>
                         </p>
                         @endif
                         @if ($department->hq_address1 !== $department->mail_address1 && $department->hq_address2 !== $department->mail_address2 && $department->hq_address2 !== $department->mail_po_box)
