@@ -23,7 +23,7 @@
                             <img src="{{ url('/img/fire-closet.jpg') }}" alt="Starting the Hiring Process" align="left" style="margin: 5px 10px 0 0;" />
                             <p>A crucial step in landing a firefighter job is knowing which fire departments are accepting applications. <u><em><strong>We send out over <u><em>300 new fire job notices every month</em></u>!</strong></em></u> And with <u><em><strong>a database of over 800 active fire jobs</strong></em></u>, FD Careers will keep you on top of which departments have posted fire jobs, where to go and what you need to do to start your career as a full-time firefighter.</p>
                         </div>
-                        <a href="/accepting" class="btn btn-primary">Learn More</a>
+                        <!-- <a href="/accepting" class="btn btn-primary">Learn More</a> -->
                         <div class="content-container">
                             <h2>Tips for Getting Started</h2>
                             <img src="{{ url('/img/firefighter.jpg') }}" alt="Tips for Getting Started" align="left" style="margin: 5px 10px 0 0;" />
@@ -31,7 +31,7 @@
                             <p>Here are a few ideas to help you get started...</p>
                             <p>&nbsp;</p>
                         </div>
-                        <a href="/tips" class="btn btn-primary">Learn More</a>
+                        <!-- <a href="/tips" class="btn btn-primary">Learn More</a> -->
                         <div class="content-container">
                             <h2>Fire Departments... Post Your Job for FREE!</h2>
                             <img src="{{ url('/img/skylight.jpg') }}" alt="Fire Departments... Post Your Job for FREE!" align="left" style="margin: 5px 10px 0 0;" />
