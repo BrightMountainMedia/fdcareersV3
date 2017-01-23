@@ -1,6 +1,6 @@
 # FD Careers Application
 
-![Blurry Firetruck][image]
+![Firefighter Group][image]
 
 FD Careers was originally founded in 1992 by a firefighter. We started out by sending out postcards for fire tests in Illinois. We've changed quite a bit over the last twenty years, but our #1 goal has alway been to help you become a firefighter.
 
@@ -9,4 +9,4 @@ We are always looking for new ways to help you achieve your goals, as well as wa
 Just shoot us an email at [info@fdcareers.com][1] and we'll try to make it happen.
 
 [1]: mailto:info@fdcareers.com
-[image]: http://www.fdcareers.com/images/blurry_firetruck.jpg "Blurry Firetruck"
+[image]: http://www.fdcareers.com/img/group.jpg "Firefighter Group"
