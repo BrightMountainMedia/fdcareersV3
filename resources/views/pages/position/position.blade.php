@@ -329,7 +329,7 @@
                                 <strong>Website:</strong>
                             </div>
                             <div class="col-sm-9">
-                                <a href="@if (strpos($department->website, 'http://') !== false) {{ $department->website }} @else http://{{ $department->website }} @endif" target="_blank">@if (strpos($department->website, 'http://') !== false) {{ $department->website }} @else http://{{ $department->website }} @endif</a>
+                                <a href="@if (strpos($department->website, 'http://') !== false || strpos($department->website, 'https://') !== false) {{ $department->website }} @else //{{ $department->website }} @endif" target="_blank">@if (strpos($department->website, 'http://') !== false || strpos($department->website, 'https://') !== false) {{ $department->website }} @else //{{ $department->website }} @endif</a>
                             </div>
                         </div>
                         @endif
