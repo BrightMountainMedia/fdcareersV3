@@ -9,4 +9,4 @@ We are always looking for new ways to help you achieve your goals, as well as wa
 Just shoot us an email at [info@fdcareers.com][1] and we'll try to make it happen.
 
 [1]: mailto:info@fdcareers.com
-[image]: http://www.fdcareers.com/img/group.jpg "Firefighter Group"
+[image]: https://www.fdcareers.com/img/group.jpg "Firefighter Group"
