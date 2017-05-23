@@ -34,7 +34,6 @@
                                 <li>Step Four Take Exams and Apply for Work. ...</li>
                                 <li>Step Five Advance in Your Profession.</li>
                             </ol>
-                            <p>&nbsp;</p>
                         </div>
                         <!-- <a href="/tips" class="btn btn-primary">Learn More</a> -->
                         <div class="content-container">
