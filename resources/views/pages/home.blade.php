@@ -27,7 +27,7 @@
                         <div class="content-container">
                             <h2>How to become firefighter?</h2>
                             <img src="{{ url('/img/firefighter.jpg') }}" alt="Tips for Getting Started" align="left" style="margin: 5px 10px 0 0;" />
-                            <ol>
+                            <ol style="margin-left: 92px; padding-left: 53px;">
                                 <li>Step One Volunteer for the Trade. if you ask a local how to become a firefighter, many will tell you they started as a volunteer. ...</li>
                                 <li>Step Two Find CPR Training and get Fit. ...</li>
                                 <li>Step Three Get a Fire Science Degree. ...</li>
