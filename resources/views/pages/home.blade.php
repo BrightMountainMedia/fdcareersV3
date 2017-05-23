@@ -25,10 +25,15 @@
                         </div>
                         <!-- <a href="/accepting" class="btn btn-primary">Learn More</a> -->
                         <div class="content-container">
-                            <h2>Tips for Getting Started</h2>
+                            <h2>How to become firefighter?</h2>
                             <img src="{{ url('/img/firefighter.jpg') }}" alt="Tips for Getting Started" align="left" style="margin: 5px 10px 0 0;" />
-                            <p>Whether you have just started to hunt for a fire job or have already dedicated yourself to the process, there are usually a few suggestions to make the journey easier.</p>
-                            <p>Here are a few ideas to help you get started...</p>
+                            <ol>
+                                <li>Step One Volunteer for the Trade. if you ask a local how to become a firefighter, many will tell you they started as a volunteer. ...</li>
+                                <li>Step Two Find CPR Training and get Fit. ...</li>
+                                <li>Step Three Get a Fire Science Degree. ...</li>
+                                <li>Step Four Take Exams and Apply for Work. ...</li>
+                                <li>Step Five Advance in Your Profession.</li>
+                            </ol>
                             <p>&nbsp;</p>
                         </div>
                         <!-- <a href="/tips" class="btn btn-primary">Learn More</a> -->
