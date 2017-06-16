@@ -69,7 +69,49 @@ Bright Mountain&reg;, and our agents, representatives, employees, and officers:
 1. do not make any representation or warranties as to, and do not have the responsibility to examine, evaluate, or warrant the offerings of any Third Party or User Content Submissions, Posts, Advertisements, items, products, merchandise and/or services made available through any of the Forums or in any location of this site.
 
 1. do not assume any responsibility or liability for the actions, products, communications, interactions, transactions, damaged items, disputes or any relationships between you and any other user, person or organization ("your interactions with others") and/or content of any of the Forums, or any content in any location on this site.
-	
+
+##Digital Millennium Copyright Act (DMCA) and Take-Down Notice
+We respect authors’ and content holders’ rights, and our policy is to respond to legally valid Take-Down Notices of alleged copyright infringement that meet or exceed the criteria defined in 17 U.S.C. Section 512(c)(3), also known as the [Digital Millennium Copyright Act][4] (DMCA) of 1998.  The accounts of those whom we determine to be repeat infringers based on our “Three-Infringements” policy will be terminated without notice.  If someone has posted your copyrighted information without your permission to our site submit a [Take-Down Notice][5] to us which includes, but is not limited to, the following information:
++ Identification of the copyrighted work(s) that has (have) been infringed;
++ Identification of the material(s) that is (are) claimed to be infringing and information reasonably sufficient to permit us to locate the material(s), such as direct links to the material(s); 
++ Information sufficient to permit us to contact you such as an address, phone number, or email address;
++ A statement that you have a good faith belief that use of your copyrighted work(s) in the manner complained is not authorized by you the copyright owner, your agent, or the law; 
++ A statement that the information in the Take-Down Notice is accurate, and under penalty of perjury, that the complaining party is authorized to act on behalf of the owner of an exclusive right that is allegedly infringed; and
++ A physical or electronic signature of the individual authorized to act on the material allegedly infringed.  This party may be the actual copyright owner or an individual authorized by the copyright owner to act on behalf of the owner of the copyright.
+
+he Take-Down Notice should be mailed or emailed to our Copyright Agent at the following:
+
+Mailing Address: Bright Mountain®, LLC; P.O. Box 810021; Boca Raton, FL 33481
+
+Email Address: dmca@brightmountainmedia.com
+
+We cannot guarantee action on incomplete take-down notices. You acknowledge that if you fail to comply with all of the requirements of this section, your Take-Down Notice may not be valid. 
+Persons who knowingly materially misrepresent that material or activity is infringing may be subject to liability.  Misuse of the take-down notice may result in legal action and/or termination of your account.  Please note that 17 U.S.C. Section 512(f) of the DMCA creates liability for knowingly making false claims in a DMCA take-down notice.
+
+## DMCA Counter-Notice
+If you believe your material that was removed or disabled is not infringing another’s rights, or that you have authorization from the copyright owner or its agent, or that you have rights in the material pursuant to the law, to post and use the material, you may send a Counter-Notice containing the following information to our Copyright Agent:
++ Identification of the material(s) that was (were) removed or disabled and the location where the material appeared before it was removed or disabled;
++ A statement under penalty of perjury that you have a good faith belief that the material was removed or disabled as a result of mistake or misidentification of the material;
++ A statement that you consent to the jurisdiction of a Federal District Court in the district where you are located (if you live in the U.S.) or your consent to the jurisdiction of a Federal District Court for any judicial district where the website may be found (if you are not living in the U.S.);
++ Your consent to accept service of process from the party who submitted the takedown notice;
++ Information sufficient to permit us to contact you such as an address, phone number, or email address; and
++ Your physical or electronic signature.
+
+The Counter-Notice should be mailed or emailed to our Copyright Agent at the following:
+
+Mailing Address: Bright Mountain®, LLC; P.O. Box 810021; Boca Raton, FL 33481
+
+Email Address: dmca@brightmountainmedia.com
+
+We cannot guarantee action on an incomplete Counter-Notice. You acknowledge that if you fail to comply with all of the requirements of this section, your Counter-Notice may not be valid. 
+
+If a Counter-Notice is received by our Copyright Agent, we will immediately send a copy of the Counter-Notice to the complaining party informing that person that we may replace the removed or disabled material(s) or cease disabling it in 10 business days from the receipt of the Counter-Notice. 
+
+Unless we receive a notice that the copyright owner filed an action seeking a court order against you the alleged infringing user within 14 days from the receipt of the Counter-Notice, the removed or disabled material(s) may be replaced, or access to it restored, no earlier than 10 business days after receipt of the Counter-Notice and no later than 14 business days after receipt of the Counter-Notice.
+
+Misuse of the counter-notice may result in legal action and/or termination of your account.  Please note that 17 U.S.C. Section 512(f) of the DMCA creates liability for knowingly making false claims in a DMCA counter-notice.
+
+
 ## Typographical Errors
 
 If at any time any content on this site is incorrect due to typographical error or is inaccurate information we retain the right to cancel and/or refuse purchases and/or orders placed based on such errors or information. We do not warrant that any content contained in this or related sites is accurate, complete, reliable, current, free of errors or inaccuracies.
@@ -183,3 +225,5 @@ Headings in these Terms of Use are for convenience only and have no legal meanin
 [1]: /
 [2]: http://networkadvertising.org/
 [3]: /
+[4]: http://www.copyright.gov/title17/92chap5.html#512
+[5]: https://www.brightmountainmedia.com/wp-content/uploads/2015/06/Take-Down-Notice-Form_26-Sept-2016.pdf
