@@ -80,7 +80,7 @@
         <div>This site is owned and operated by Bright Mountain Media, Inc., a publicly owned company trading with the symbol: <strong><a href="http://ir.brightmountainmedia.com/" target="_blank">BMTM</a></strong>.</div>
         <center>
         <a href="https://www.blackhelmetapparel.com/" target="_blank"><u>blackhelmetapparel</u></a> <a href="http://www.leoaffairs.com/" target="_blank"><u>leoaffairs</u></a> <a href="http://popularmilitary.com/" target="_blank"><u>popularmilitary</u></a> <a href="http://welcomehomeblog.com/" target="_blank"><u>welcomehomeblog</u></a> <a  href="https://www.jqpublicblog.com/" target="_blank"><u>jqpublicblog</u></a> <a  href="http://warisboring.com/" target="_blank"><u>warisboring</u></a> <a href="http://gopoliceblotter.com/" target="_blank"><u>gopoliceblotter</u></a> <a href="https://www.militaryhousingrentals.com/" target="_blank"><u>militaryhousingrentals</u></a></center>
-        <div class="copyright">Copyright &copy; <?php echo date('Y'); ?> FD Careers. All Rights Reserved.</div>
+        <div class="copyright">Copyright &copy; <?php echo date('Y'); ?> FD Careers. All Rights Reserved. <a href="https://www.fdcareers.com/terms">Terms of Use</a>|<a href="https://www.fdcareers.com/privacy">Privacy Policy</a></div>
     </footer>
 
     <!-- JavaScript -->
