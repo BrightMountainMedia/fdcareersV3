@@ -64,7 +64,7 @@ class PositionController extends Controller
         $user = Auth::user();
         
         if ( $position->active == 1 ) {
-            if ($position->position_type === 'full-time' || $position->position_type === 'paid-on-call' || $position->position_type === 'contractor') {
+            if ($position->position_type === 'full-time' || $position->position_type === 'paid-on-call' || $position->position_type === 'contractor' || $position->position_type === 'seasonal') {
                 if ( ! $user ) {
                     return redirect('/register');
                 } elseif ( $user && ! $user->subscribed() ) {
