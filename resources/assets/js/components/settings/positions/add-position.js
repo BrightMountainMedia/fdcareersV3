@@ -38,8 +38,8 @@ Vue.component('add-position', {
                             { text: 'Paid On Call', value: 'paid-on-call' },
                             { text: 'Part Time', value: 'part-time' },
                             { text: 'Volunteer', value: 'volunteer' },
-                            { text: 'Contractor', value: 'contractor' },
-                            { text: 'Seasonal', value:'seasonal'}
+                            { text: 'Contractor', value: 'contractors' },
+                            { text: 'Seasonal', value:' seasonal'}
 	        ],
             state_options: [
 			    { text: '--- Choose A State ---', value: '' },
