@@ -23,6 +23,7 @@ class PositionController extends Controller
         $paidPositions = Position::where([['position_type', 'full-time'],['active', '1'],['publish', '<=', Carbon::now()]])
                                 ->orWhere([['position_type', 'paid-on-call'],['active', '1'],['publish', '<=', Carbon::now()]])
                                 ->orWhere([['position_type', 'contractor'],['active', '1'],['publish', '<=', Carbon::now()]])
+                                ->orWhere([['position_type', 'seasonal'],['active', '1'],['publish', '<=', Carbon::now()]])
                                 ->get();
 
         $unpaidPositions = Position::where([['position_type', 'part-time'],['active', '1'],['publish', '<=', Carbon::now()]])
@@ -34,6 +35,7 @@ class PositionController extends Controller
             $paidPositions = Position::where([['state', $state],['position_type', 'full-time'],['active', '1'],['publish', '<=', Carbon::now()]])
                                     ->orWhere([['state', $state],['position_type', 'paid-on-call'],['active', '1'],['publish', '<=', Carbon::now()]])
                                     ->orWhere([['state', $state],['position_type', 'contractor'],['active', '1'],['publish', '<=', Carbon::now()]])
+                                    ->orWhere([['state', $state],['position_type', 'seasonal'],['active', '1'],['publish', '<=', Carbon::now()]])
                                     ->get();
 
             $unpaidPositions = Position::where([['state', $state],['position_type', 'part-time'],['active', '1'],['publish', '<=', Carbon::now()]])
@@ -60,7 +62,7 @@ class PositionController extends Controller
         }
         
         $user = Auth::user();
-
+        
         if ( $position->active == 1 ) {
             if ($position->position_type === 'full-time' || $position->position_type === 'paid-on-call' || $position->position_type === 'contractor') {
                 if ( ! $user ) {
