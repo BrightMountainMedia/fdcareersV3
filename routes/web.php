@@ -13,6 +13,12 @@
 
 Route::group(['middleware' => ['web']], function() {
     // -------------------- Pages -------------------- //
+    
+    // redirect register page to home page 
+    Route::get('register', function(){ 
+      return Redirect::to('/', 301); 
+    });
+
     // Home
     Route::get('/', 'Pages\HomeController@index');
     
